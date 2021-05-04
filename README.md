@@ -5,10 +5,9 @@ This repository contains all of the R analysis code and input data used to gener
 All perl scripts mentioned in README documents or methods sections are available at this GitHub repositroy: /Geo-omics/scripts  
 
 Description of README files:  
-Describes metagenomic assembly and binning workflow on /geomicro computation servers:  
-Describes EMIRGE 16S rRNA assembly on /geomicro computation servers:  
-Describes ROS read mapping on /geomicro computation servers:  
-Describes Microcystis mcy and 16S rRNA read mapping and non-specific mapping troubleshooting on /geomicro computation servers:  
+Describes metagenomic assembly and binning workflow on /geomicro computation servers: Erie2014_coAssembly_readme.txt   
+Describes ROS read mapping on /geomicro computation servers: WLE_2014_ROS_gene_blasts_readme.txt  
+Describes Microcystis mcy and 16S rRNA read mapping and non-specific mapping troubleshooting on /geomicro computation servers: Mcy_BLAST_README.txt  
 
 Description of Mardownfiles:  
 Catalase_Peroxidase_Mapping_Analysis.Rmd contains code used to generate plots of gene abundances in metagenomes and metatranscriptomes from Lake Erie.  
