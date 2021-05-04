@@ -1,0 +1,763 @@
+---
+title: "Pyruvate-Light Level Experiment"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+This R document contains code for the data analysis from experiments that measured the growth of two Microcystis strains cultured with and without 1 mM sodium pyruvate (which acts as an H2O2 scavenger) at two different light intensities (330 and 600 umol photons/m2/sec PAR). The light levels the strains were grown are representative of light intensities at 0.5 and 0.1 m in Lake Erie (assuming no cloud cover).  
+
+Cultures were grown at 24.4 degrees Celcius in BG-11 2N media without additional sodium carbonate.  
+
+First, load the required packages:  
+```{r}
+library(ggplot2)
+library(dplyr)
+library(purrr)
+library(patchwork)
+library(growthrates)
+library(lme4)
+library(broom)
+library(tidyr)
+setwd("~/Documents/Research/Culturing Experiments/Pyruvate_Ma_Growth_Experiments/Pyruvate_Light_Experiment")
+```
+
+Import the dataframes:  
+```{r}
+cell_counts <- read.table("Cell_counts.txt", header = TRUE, sep = "\t")
+```
+
+Let's do a nonparametric spline fit to look at the general shape of the growth curves and to choose some starting parameters for a parametric model:  
+```{r}
+#Remove the zero counts from early on by setting them as the smallest cell number detected:
+cell_counts$cells_mL[cell_counts$cells_mL == 0] <- 2500
+
+#Get log cell counts:
+cell_counts$log_cells <- log(cell_counts$cells_mL)
+
+#Make the smooth curve fits
+many_spline_fits <- all_splines(cells_mL ~ Day | Strain + Pyruvate_conc + Light_level + Replicate, 
+                                data=cell_counts, spar=0.3, optgrid = 2)
+#Plot
+plot(many_spline_fits, ylab="Cell density (cells/mL)", xlab="Days after innoculation")
+#Get the results
+many_spline_fits_results <- results(many_spline_fits)
+```
+Because we are missing the stationary phase of the curve, not going to fit to a gompertz growth model. Many of the tangent lines also appear to be oddly placed for a few cultures (either at very end of or very beginning of curve, and don't cross through many points).   
+
+Let's try using the "easylinear" method, which fits tangent lines on the log-transformed data in order to find the maximum growth rates. We have more control over how much of the curve needs to be contained within the tangent line here (helps with noise in cell counts).
+
+Try it with three points first:  
+```{r}
+many_easylinear <- all_easylinear(cells_mL ~ Day | Strain + Pyruvate_conc + Light_level + Replicate,
+                                data=cell_counts, h=3, quota = 1.0)
+
+results_many_easylinear <- results(many_easylinear)
+plot(many_easylinear)
+```
+Compare growth rates with the spline fits:  
+```{r}
+#Reorder strains so that they are grouped in the plot by toxicity:
+many_spline_fits_results$Strain <- ordered(many_spline_fits_results$Strain, levels = c("7941", "NIES 843", "7806", "7806 mcyB knockout", "7005", "9701", "9806"))
+
+mumax_spline_plot <- filter(many_spline_fits_results, Light_level == "330") %>% ggplot(aes(x=as.factor(Pyruvate_conc), y=mumax)) +
+  geom_boxplot() +
+  facet_grid(~ Strain) +
+  theme_bw() +
+  theme(
+          axis.title.x = element_text(size=10, margin = margin(t = 14, r = 0, b = 0, l = 0)),
+          axis.title.y = element_text(size=10, margin = margin(t = 0, r = 14, b = 0, l = 0)),
+          axis.text.x = element_text(size = 8, color = "black", margin = margin(t = 12, r = 0, b = 0, l = 0)),
+          axis.text.y = element_text(size = 8, color = "black", margin = margin(t = 0, r = 12, b = 0, l = 0)),
+          axis.ticks.length= unit(-0.2, "cm"),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank()) +
+  ylab(expression("Max Specific Growth Rate (day"^-1*")")) +
+  xlab("Pyruvate Concentration (mM)") +
+  coord_cartesian(ylim=c(0.25,1.2))
+
+mumax_spline_plot
+ggsave("mumax_spline_plot.pdf", plot = mumax_spline_plot, width = 18, height = 12, units = "cm", dpi = 320)
+```
+```{r}
+#Run T-tests to compare the distrubtion of the max growth rates.
+#For strain 7005:  
+t.stat.vector.7005_Control <- filter(many_spline_fits_results, Strain == "7005" & Pyruvate_conc == "0" & Light_level == "330")[,6]
+t.stat.vector.7005_Pyr <- filter(many_spline_fits_results, Strain == "7005" & Pyruvate_conc == "1" & Light_level == "330")[,6]
+
+t.test.7005 <- t.test(t.stat.vector.7005_Control, t.stat.vector.7005_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.7005
+
+#For strain 7806:  
+t.stat.vector.7806_Control <- filter(many_spline_fits_results, Strain == "7806" & Pyruvate_conc == "0" & Light_level == "330")[,6]
+t.stat.vector.7806_Pyr <- filter(many_spline_fits_results, Strain == "7806" & Pyruvate_conc == "1" & Light_level == "330")[,6]
+
+t.test.7806 <- t.test(t.stat.vector.7806_Control, t.stat.vector.7806_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.7806
+
+#For strain 7806 mcyB knockout:  
+t.stat.vector.delta_mcyB_Control <- filter(many_spline_fits_results, Strain == "7806 mcyB knockout" & Pyruvate_conc == "0" & Light_level == "330")[,6]
+t.stat.vector.delta_mcyB_Pyr <- filter(many_spline_fits_results, Strain == "7806 mcyB knockout" & Pyruvate_conc == "1" & Light_level == "330")[,6]
+
+t.test.delta_mcyB <- t.test(t.stat.vector.delta_mcyB_Control, t.stat.vector.delta_mcyB_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.delta_mcyB
+
+#For strain 7941:  
+t.stat.vector.7941_Control <- filter(many_spline_fits_results, Strain == "7941" & Pyruvate_conc == "0" & Light_level == "330")[,6]
+t.stat.vector.7941_Pyr <- filter(many_spline_fits_results, Strain == "7941" & Pyruvate_conc == "1" & Light_level == "330")[,6]
+
+t.test.7941 <- t.test(t.stat.vector.7941_Control, t.stat.vector.7941_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.7941
+
+#For strain 9701:  
+t.stat.vector.9701_Control <- filter(many_spline_fits_results, Strain == "9701" & Pyruvate_conc == "0" & Light_level == "330")[,6]
+t.stat.vector.9701_Pyr <- filter(many_spline_fits_results, Strain == "9701" & Pyruvate_conc == "1" & Light_level == "330")[,6]
+
+t.test.9701 <- t.test(t.stat.vector.9701_Control, t.stat.vector.9701_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.9701  
+
+#For strain 9806:  
+t.stat.vector.9806_Control <- filter(many_spline_fits_results, Strain == "9806" & Pyruvate_conc == "0" & Light_level == "330")[,6]
+t.stat.vector.9806_Pyr <- filter(many_spline_fits_results, Strain == "9806" & Pyruvate_conc == "1" & Light_level == "330")[,6]
+
+t.test.9806 <- t.test(t.stat.vector.9806_Control, t.stat.vector.9806_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.9806 
+
+#For strain NIES 843:  
+t.stat.vector.NIES843_Control <- filter(many_spline_fits_results, Strain == "NIES 843" & Pyruvate_conc == "0" & Light_level == "330")[,6]
+t.stat.vector.NIES843_Pyr <- filter(many_spline_fits_results, Strain == "NIES 843" & Pyruvate_conc == "1" & Light_level == "330")[,6]
+
+t.test.NIES843 <- t.test(t.stat.vector.NIES843_Control, t.stat.vector.NIES843_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.NIES843
+```
+Are the max growth rates significantly different between 7806 and the mutant in the absence of H2O2 (addition of pyruvate)?
+```{r}
+t.test.WT_v_MUT <- t.test(t.stat.vector.7806_Pyr, t.stat.vector.delta_mcyB_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.WT_v_MUT
+```
+
+
+Compare mean specific max growth rates for each strain with easy linear:  
+```{r}
+mumax_easylinear_plot <- filter(results_many_easylinear, Light_level == "330") %>% ggplot(aes(x=as.factor(Pyruvate_conc), y=mumax)) +
+  geom_boxplot() +
+  facet_grid(~ Strain) +
+  theme_bw() +
+  theme(
+          axis.title.x = element_text(size=10, margin = margin(t = 14, r = 0, b = 0, l = 0)),
+          axis.title.y = element_text(size=10, margin = margin(t = 0, r = 14, b = 0, l = 0)),
+          axis.text.x = element_text(size = 8, color = "black", margin = margin(t = 12, r = 0, b = 0, l = 0)),
+          axis.text.y = element_text(size = 8, color = "black", margin = margin(t = 0, r = 12, b = 0, l = 0)),
+          axis.ticks.length= unit(-0.2, "cm"),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank()) +
+  ylab(expression("Max Specific Growth Rate (day"^-1*")")) +
+  xlab("Pyruvate Concentration (mM)") +
+  coord_cartesian(ylim=c(0.25,1.25))
+
+mumax_easylinear_plot
+ggsave("mumax_easylinear_plot.pdf", plot = mumax_easylinear_plot, width = 18, height = 12, units = "cm", dpi = 320)
+```
+```{r}
+#Run T-tests to compare the distrubtion of the max growth rates.
+#For strain 7005:  
+t.stat.vector.7005_Control <- filter(results_many_easylinear, Strain == "7005" & Pyruvate_conc == "0" & Light_level == "330")[,7]
+t.stat.vector.7005_Pyr <- filter(results_many_easylinear, Strain == "7005" & Pyruvate_conc == "1" & Light_level == "330")[,7]
+
+t.test.7005 <- t.test(t.stat.vector.7005_Control, t.stat.vector.7005_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.7005
+
+#For strain 7806:  
+t.stat.vector.7806_Control <- filter(results_many_easylinear, Strain == "7806" & Pyruvate_conc == "0" & Light_level == "330")[,7]
+t.stat.vector.7806_Pyr <- filter(results_many_easylinear, Strain == "7806" & Pyruvate_conc == "1" & Light_level == "330")[,7]
+
+t.test.7806 <- t.test(t.stat.vector.7806_Control, t.stat.vector.7806_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.7806
+
+#For strain 7806 mcyB knockout:  
+t.stat.vector.delta_mcyB_Control <- filter(results_many_easylinear, Strain == "7806 mcyB knockout" & Pyruvate_conc == "0" & Light_level == "330")[,7]
+t.stat.vector.delta_mcyB_Pyr <- filter(results_many_easylinear, Strain == "7806 mcyB knockout" & Pyruvate_conc == "1" & Light_level == "330")[,7]
+
+t.test.delta_mcyB <- t.test(t.stat.vector.delta_mcyB_Control, t.stat.vector.delta_mcyB_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.delta_mcyB
+
+#For strain 7941:  
+t.stat.vector.7941_Control <- filter(results_many_easylinear, Strain == "7941" & Pyruvate_conc == "0" & Light_level == "330")[,7]
+t.stat.vector.7941_Pyr <- filter(results_many_easylinear, Strain == "7941" & Pyruvate_conc == "1" & Light_level == "330")[,7]
+
+t.test.7941 <- t.test(t.stat.vector.7941_Control, t.stat.vector.7941_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.7941
+
+#For strain 9701:  
+t.stat.vector.9701_Control <- filter(results_many_easylinear, Strain == "9701" & Pyruvate_conc == "0" & Light_level == "330")[,7]
+t.stat.vector.9701_Pyr <- filter(results_many_easylinear, Strain == "9701" & Pyruvate_conc == "1" & Light_level == "330")[,7]
+
+t.test.9701 <- t.test(t.stat.vector.9701_Control, t.stat.vector.9701_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.9701  
+
+#For strain 9806:  
+t.stat.vector.9806_Control <- filter(results_many_easylinear, Strain == "9806" & Pyruvate_conc == "0" & Light_level == "330")[,7]
+t.stat.vector.9806_Pyr <- filter(results_many_easylinear, Strain == "9806" & Pyruvate_conc == "1" & Light_level == "330")[,7]
+
+t.test.9806 <- t.test(t.stat.vector.9806_Control, t.stat.vector.9806_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.9806 
+
+#For strain NIES 843:  
+t.stat.vector.NIES843_Control <- filter(results_many_easylinear, Strain == "NIES 843" & Pyruvate_conc == "0" & Light_level == "330")[,7]
+t.stat.vector.NIES843_Pyr <- filter(results_many_easylinear, Strain == "NIES 843" & Pyruvate_conc == "1" & Light_level == "330")[,7]
+
+t.test.NIES843 <- t.test(t.stat.vector.NIES843_Control, t.stat.vector.NIES843_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.NIES843
+```
+Compare the length of the lag phases:  
+```{r}
+lag_phase_plot <- filter(results_many_easylinear, Light_level == "330") %>% ggplot(aes(x=as.factor(Pyruvate_conc), y=lag)) +
+  geom_boxplot() +
+  facet_grid(~ Strain) +
+  theme_bw() +
+  theme(
+          axis.title.x = element_text(size=10, margin = margin(t = 14, r = 0, b = 0, l = 0)),
+          axis.title.y = element_text(size=10, margin = margin(t = 0, r = 14, b = 0, l = 0)),
+          axis.text.x = element_text(size = 8, color = "black", margin = margin(t = 12, r = 0, b = 0, l = 0)),
+          axis.text.y = element_text(size = 8, color = "black", margin = margin(t = 0, r = 12, b = 0, l = 0)),
+          axis.ticks.length= unit(-0.2, "cm"),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank()) +
+  ylab(expression("Lag Phase (days)")) +
+  xlab("Pyruvate Concentration (mM)")
+  #coord_cartesian(ylim=c(0.25,1.25))
+
+lag_phase_plot
+ggsave("lag_phase_plot.pdf", plot = lag_phase_plot, width = 18, height = 12, units = "cm", dpi = 320)
+```
+```{r}
+#Run T-tests to compare the distrubtion of lag phase lengths.
+#For strain 7005:  
+t.stat.vector.7005_Control <- filter(results_many_easylinear, Strain == "7005" & Pyruvate_conc == "0" & Light_level == "330")[,8]
+t.stat.vector.7005_Pyr <- filter(results_many_easylinear, Strain == "7005" & Pyruvate_conc == "1" & Light_level == "330")[,8]
+
+t.test.7005 <- t.test(t.stat.vector.7005_Control, t.stat.vector.7005_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.7005
+
+#For strain 7806:  
+t.stat.vector.7806_Control <- filter(results_many_easylinear, Strain == "7806" & Pyruvate_conc == "0" & Light_level == "330")[,8]
+t.stat.vector.7806_Pyr <- filter(results_many_easylinear, Strain == "7806" & Pyruvate_conc == "1" & Light_level == "330")[,8]
+
+t.test.7806 <- t.test(t.stat.vector.7806_Control, t.stat.vector.7806_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.7806
+
+#For strain 7806 mcyB knockout:  
+t.stat.vector.delta_mcyB_Control <- filter(results_many_easylinear, Strain == "7806 mcyB knockout" & Pyruvate_conc == "0" & Light_level == "330")[,8]
+t.stat.vector.delta_mcyB_Pyr <- filter(results_many_easylinear, Strain == "7806 mcyB knockout" & Pyruvate_conc == "1" & Light_level == "330")[,8]
+
+t.test.delta_mcyB <- t.test(t.stat.vector.delta_mcyB_Control, t.stat.vector.delta_mcyB_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.delta_mcyB
+
+#For strain 7941:  
+t.stat.vector.7941_Control <- filter(results_many_easylinear, Strain == "7941" & Pyruvate_conc == "0" & Light_level == "330")[,8]
+t.stat.vector.7941_Pyr <- filter(results_many_easylinear, Strain == "7941" & Pyruvate_conc == "1" & Light_level == "330")[,8]
+
+t.test.7941 <- t.test(t.stat.vector.7941_Control, t.stat.vector.7941_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.7941
+
+#For strain 9701:  
+t.stat.vector.9701_Control <- filter(results_many_easylinear, Strain == "9701" & Pyruvate_conc == "0" & Light_level == "330")[,8]
+t.stat.vector.9701_Pyr <- filter(results_many_easylinear, Strain == "9701" & Pyruvate_conc == "1" & Light_level == "330")[,8]
+
+t.test.9701 <- t.test(t.stat.vector.9701_Control, t.stat.vector.9701_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.9701  
+
+#For strain 9806:  
+t.stat.vector.9806_Control <- filter(results_many_easylinear, Strain == "9806" & Pyruvate_conc == "0" & Light_level == "330")[,8]
+t.stat.vector.9806_Pyr <- filter(results_many_easylinear, Strain == "9806" & Pyruvate_conc == "1" & Light_level == "330")[,8]
+
+t.test.9806 <- t.test(t.stat.vector.9806_Control, t.stat.vector.9806_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.9806 
+
+#For strain NIES 843:  
+t.stat.vector.NIES843_Control <- filter(results_many_easylinear, Strain == "NIES 843" & Pyruvate_conc == "0" & Light_level == "330")[,8]
+t.stat.vector.NIES843_Pyr <- filter(results_many_easylinear, Strain == "NIES 843" & Pyruvate_conc == "1" & Light_level == "330")[,8]
+
+t.test.NIES843 <- t.test(t.stat.vector.NIES843_Control, t.stat.vector.NIES843_Pyr, paired = FALSE, alternative = "two.sided")
+t.test.NIES843
+```
+```{r}
+Light_mumax_spline_plot <- filter(many_spline_fits_results, Strain == "7806" | Strain == "9806") %>% ggplot(aes(x=as.factor(Pyruvate_conc), y=mumax)) +
+  geom_boxplot() +
+  facet_grid(Light_level ~ Strain) +
+  theme_bw() +
+  theme(
+          axis.title.x = element_text(size=10, margin = margin(t = 14, r = 0, b = 0, l = 0)),
+          axis.title.y = element_text(size=10, margin = margin(t = 0, r = 14, b = 0, l = 0)),
+          axis.text.x = element_text(size = 8, color = "black", margin = margin(t = 12, r = 0, b = 0, l = 0)),
+          axis.text.y = element_text(size = 8, color = "black", margin = margin(t = 0, r = 12, b = 0, l = 0)),
+          axis.ticks.length= unit(-0.2, "cm"),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank()) +
+  ylab(expression("Max Specific Growth Rate (day"^-1*")")) +
+  xlab("Pyruvate Concentration (mM)") +
+  coord_cartesian(ylim=c(0.25,1.2))
+
+Light_mumax_spline_plot
+```
+
+```{r}
+#For strain 7806:  
+t.stat.vector.LL_7806_Control <- filter(many_spline_fits_results, Strain == "7806" & Pyruvate_conc == "0" & Light_level == "330")[,6]
+t.stat.vector.LL_7806_Pyr <- filter(many_spline_fits_results, Strain == "7806" & Pyruvate_conc == "1" & Light_level == "330")[,6]
+t.stat.vector.HL_7806_Control <- filter(many_spline_fits_results, Strain == "7806" & Pyruvate_conc == "0" & Light_level == "600")[,6]
+t.stat.vector.HL_7806_Pyr <- filter(many_spline_fits_results, Strain == "7806" & Pyruvate_conc == "1" & Light_level == "600")[,6]
+
+t.test.HL_7806 <- t.test(t.stat.vector.HL_7806_Control, t.stat.vector.HL_7806_Pyr, paired = FALSE, alternative = "less")
+t.test.LL_7806 <- t.test(t.stat.vector.LL_7806_Control, t.stat.vector.LL_7806_Pyr, paired = FALSE, alternative = "less")
+t.test.HL_7806
+t.test.LL_7806
+
+#For strain 9806:  
+t.stat.vector.LL_9806_Control <- filter(many_spline_fits_results, Strain == "9806" & Pyruvate_conc == "0" & Light_level == "330")[,6]
+t.stat.vector.LL_9806_Pyr <- filter(many_spline_fits_results, Strain == "9806" & Pyruvate_conc == "1" & Light_level == "330")[,6]
+t.stat.vector.HL_9806_Control <- filter(many_spline_fits_results, Strain == "9806" & Pyruvate_conc == "0" & Light_level == "600")[,6]
+t.stat.vector.HL_9806_Pyr <- filter(many_spline_fits_results, Strain == "9806" & Pyruvate_conc == "1" & Light_level == "600")[,6]
+
+t.test.HL_9806 <- t.test(t.stat.vector.HL_9806_Control, t.stat.vector.HL_9806_Pyr, paired = FALSE, alternative = "less")
+t.test.LL_9806 <- t.test(t.stat.vector.LL_9806_Control, t.stat.vector.LL_9806_Pyr, paired = FALSE, alternative = "less")
+t.test.HL_9806
+t.test.LL_9806
+```
+There was a significant improvement in growth rate in strain PCC 7806 when cultured with sodium pyruvate at the lower light level, but no difference in growth rates in strain PCC 7806 at the higher light level or in strain PCC 9806.
+
+The growth rates are not much different at the two light intensities. What if we ignore the effect of light intensity and group all the data together:   
+```{r}
+Strain_mumax_plot <- filter(many_spline_fits_results, Strain == "7806" | Strain == "9806") %>% 
+  ggplot(aes(x=as.factor(Pyruvate_conc), y=mumax)) +
+  geom_boxplot() +
+  facet_wrap(~Strain) +
+  theme_bw() +
+  theme(
+          axis.title.x = element_text(size=10, margin = margin(t = 14, r = 0, b = 0, l = 0)),
+          axis.title.y = element_text(size=10, margin = margin(t = 0, r = 14, b = 0, l = 0)),
+          axis.text.x = element_text(size = 8, color = "black", margin = margin(t = 12, r = 0, b = 0, l = 0)),
+          axis.text.y = element_text(size = 8, color = "black", margin = margin(t = 0, r = 12, b = 0, l = 0)),
+          axis.ticks.length= unit(-0.2, "cm"),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank()) +
+  ylab(expression("Max Specific Growth Rate (day"^-1*")")) +
+  xlab("Pyruvate Concentration (mM)") +
+  coord_cartesian(ylim=c(0.4,1.2))
+
+Strain_mumax_plot
+ggsave("mumax_plot_no_light_grouping.pdf", plot = Strain_mumax_plot, width = 18, height = 12, units = "cm", dpi = 320)
+```
+Calculate the significance with a T-test:  
+```{r}
+t.stat.vector.7806_pyr <- filter(many_spline_fits_results, Strain == "7806" & Pyruvate_conc == "1")[,6]
+t.stat.vector.7806_con <- filter(many_spline_fits_results, Strain == "7806" & Pyruvate_conc == "0")[,6]
+t.test.7806_all <- t.test(t.stat.vector.7806_con, t.stat.vector.7806_pyr, paired = FALSE, alternative = "less")
+t.test.7806_all
+
+t.stat.vector.9806_pyr <- filter(many_spline_fits_results, Strain == "9806" & Pyruvate_conc == "1")[,6]
+t.stat.vector.9806_con <- filter(many_spline_fits_results, Strain == "9806" & Pyruvate_conc == "0")[,6]
+
+t.test.9806_all <- t.test(t.stat.vector.9806_con, t.stat.vector.9806_pyr, paired = FALSE, alternative = "less")
+t.test.9806_all
+```
+Plot the growth curves under different light intensities:
+```{r}
+#Calculate mean OD and 95% CI for each strain and pyruvate treatment on each day:
+cell_counts.summary <- cell_counts %>%
+  group_by(Strain, Day, Pyruvate_conc, Light_level) %>%
+  summarise(n=n(), mean=mean(cells_mL), sd=sd(cells_mL)) %>%
+  mutate(ci=sd/sqrt(n)*1.96)
+
+#plot:
+Growth_plot <- ggplot(cell_counts.summary, aes(x=Day, y=mean, color=as.factor(Pyruvate_conc))) +
+    geom_line(size=0.5) +
+    geom_point(size=2) +
+    geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=1.5) +
+    facet_grid(Light_level ~ Strain) +
+    theme_bw() +
+    theme(plot.title = element_text(size = 12),
+          axis.title.x = element_text(size=12, margin = margin(t = 14, r = 0, b = 0, l = 0)),
+          axis.title.y = element_text(size=12, margin = margin(t = 0, r = 14, b = 0, l = 0)),
+          axis.text.x = element_text(size = 10, color = "black", margin = margin(t = 12, r = 0, b = 0, l = 0)),
+          axis.text.y = element_text(size = 10, color = "black", margin = margin(t = 0, r = 12, b = 0, l = 0)),
+          axis.ticks.length= unit(-0.2, "cm"),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          legend.text = element_text(size = 10),
+          legend.title = element_text(size = 12)) +
+          scale_x_continuous(limits = c(0,14), breaks = seq(0,14, by=2)) +
+          xlab("Days after innoculation") +
+          ylab("Cell density (cells/mL)") + 
+          labs(color = "Pyruvate\nConcentration (mM)")
+
+Growth_plot
+ggsave("growth_curves.pdf", plot = Growth_plot, width = 18, height = 18, units = "cm", dpi = 320)
+```
+```{r}
+#Calculate mean OD and 95% CI for each strain and pyruvate treatment on each day:
+cell_counts.summary <- filter(cell_counts, Light_level == "330") %>%
+  group_by(Strain, Day, Pyruvate_conc) %>%
+  summarise(n=n(), mean=mean(cells_mL), sd=sd(cells_mL)) %>%
+  mutate(ci=sd/sqrt(n)*1.96)
+
+#plot:
+All_strains_growth_plot <- ggplot(cell_counts.summary, aes(x=Day, y=mean, color=as.factor(Pyruvate_conc))) +
+    geom_line(size=0.5) +
+    geom_point(size=2) +
+    geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=1.5) +
+    facet_grid( ~ Strain) +
+    theme_bw() +
+    theme(plot.title = element_text(size = 12),
+          axis.title.x = element_text(size=16, margin = margin(t = 14, r = 0, b = 0, l = 0)),
+          axis.title.y = element_text(size=16, margin = margin(t = 0, r = 14, b = 0, l = 0)),
+          axis.text.x = element_text(size = 13, color = "black", angle = 45, hjust = 1, margin = margin(t = 12, r = 0, b = 0, l = 0)),
+          axis.text.y = element_text(size = 14, color = "black", margin = margin(t = 0, r = 12, b = 0, l = 0)),
+          strip.text.x = element_text(size = 14, color = "black"),
+          axis.ticks.length= unit(-0.2, "cm"),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          legend.text = element_text(size = 14),
+          legend.title = element_text(size = 14),
+          legend.position = "top") +
+          scale_x_continuous(limits = c(0,14), breaks = seq(0,14, by=2)) +
+          xlab("Days after innoculation") +
+          ylab("Cell density (cells/mL)") + 
+          labs(color = "Pyruvate\nConcentration (mM)")
+
+
+Two_strains_growth_plot <- filter(cell_counts.summary, Strain == "7806" | Strain == "NIES 843") %>% 
+  ggplot(aes(x=Day, y=mean, color=as.factor(Pyruvate_conc))) +
+    geom_line(size=0.5) +
+    geom_point(size=2) +
+    geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=1.5) +
+    theme_bw() +
+    theme(plot.title = element_text(size = 12),
+          axis.title.x = element_text(size=12, margin = margin(t = 14, r = 0, b = 0, l = 0)),
+          axis.title.y = element_text(size=12, margin = margin(t = 0, r = 14, b = 0, l = 0)),
+          axis.text.x = element_text(size = 10, color = "black", angle = 45, hjust = 1, margin = margin(t = 12, r = 0, b = 0, l = 0)),
+          axis.text.y = element_text(size = 10, color = "black", margin = margin(t = 0, r = 12, b = 0, l = 0)),
+          axis.ticks.length= unit(-0.2, "cm"),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          legend.text = element_text(size = 10),
+          legend.title = element_text(size = 10),
+          legend.position = c(0.88,0.85)) +
+          facet_grid( ~ Strain) +
+          scale_x_continuous(limits = c(0,14), breaks = seq(0,14, by=2)) +
+          xlab("Days after innoculation") +
+          ylab("Cell density (cells/mL)") + 
+          labs(color = "Pyruvate\nConcentration (mM)")
+
+All_strains_growth_plot
+Two_strains_growth_plot
+ggsave("all_strains_growth_curves.pdf", plot = All_strains_growth_plot, width = 30, height = 20, units = "cm", dpi = 320)
+ggsave("Two_strains_growth_plot.pdf", plot = Two_strains_growth_plot, width = 25, height = 18, units = "cm", dpi = 320)
+```
+Did the pyruvate effectively remove the H2O2 as intended?  
+Each day, the standard addition was quickly decayed in every pyruvate sample (see excel file containing [H2O2] calculations). There was only a very small chemiluminescent signal in all pyruvate samples (lower than 0 sample on calibration curve). So we can conclude that the pyruvate treatments had H2O2 below detection.  
+
+Are the final cell densities in strain NIES 843 and 7806 different between the two treatments?  
+```{r}
+cell_counts.vector.7806_pyr <- filter(cell_counts, Strain == "7806" & Pyruvate_conc == "1" & Day == "13" & Light_level == "330")[,7]
+
+cell_counts.vector.7806_con <- filter(cell_counts, Strain == "7806" & Pyruvate_conc == "0" & Day == "13" & Light_level == "330")[,7]
+
+cell_counts.vector.843_pyr <- filter(cell_counts, Strain == "NIES 843" & Pyruvate_conc == "1" & Day == "11" & Light_level == "330")[,7]
+
+cell_counts.vector.843_con <- filter(cell_counts, Strain == "NIES 843" & Pyruvate_conc == "0" & Day == "11" & Light_level == "330")[,7]
+
+t.test.7806_cell_density <- t.test(cell_counts.vector.7806_pyr, cell_counts.vector.7806_con, paired = FALSE, alternative = "two.sided")
+t.test.843_cell_density <- t.test(cell_counts.vector.843_pyr, cell_counts.vector.843_con, paired = FALSE, alternative = "two.sided")
+t.test.7806_cell_density
+t.test.843_cell_density
+```
+Let's try the linear regression method with only 2 points:
+```{r}
+many_easylinear_2points <- all_easylinear(cells_mL ~ Day | Strain + Pyruvate_conc + Light_level + Replicate,
+                                data=cell_counts, h=2, quota = 1.0)
+
+results_many_easylinear_2points <- results(many_easylinear_2points)
+plot(many_easylinear_2points)
+```
+
+Calculate H2O2 concentration from peak integral of chemiluminescent signal using standard addition method.
+```{r}
+#Read in the dataframe and do linear regressions on each set of standards for a given sample.
+#Storing the regression results in the "regressions" column:
+peak_integral_df <- read.table("Peak_Integral_DF.txt", header = TRUE, sep = "\t")
+Std_addition_df <- read.table("Std_addition_df.txt", header = TRUE, sep = "\t")
+
+date_vector <- unique(Std_addition_df$Date)
+#Add in columns for date ran and injection value to merge with Std addition dataframe:
+for (i in 1:nrow(peak_integral_df)){
+  for (item in date_vector){
+    if(grepl(item, peak_integral_df$Filename[i]) == TRUE){
+      peak_integral_df$Date[i] <- item
+    }
+  }
+}
+
+for (i in 1:nrow(peak_integral_df)){
+  if(grepl("_0", peak_integral_df$Filename[i]) == TRUE){
+    peak_integral_df$Injection[i] <- 0
+  }
+  if(grepl("_500", peak_integral_df$Filename[i]) == TRUE){
+    peak_integral_df$Injection[i] <- 500
+  }
+  if(grepl("_750", peak_integral_df$Filename[i]) == TRUE){
+    peak_integral_df$Injection[i] <- 750
+  }
+}
+
+#Merge the standard addition and peak integral dataframes:
+peak_integral_df <- merge(peak_integral_df, Std_addition_df, all = TRUE)
+
+#Calculate the linear regressions for each set of standard additions for the control bottles:
+control_regressions_df <- filter(peak_integral_df, Pyruvate_conc == "0") %>%
+  nest_by(Strain, Rep, Light_level, Day) %>%
+  mutate(regressions = list(lm(Peak_Integral ~ Std_addition_nM, data = data)))
+
+#Plot each std addition regression:
+for (i in 1:nrow(control_regressions_df)){
+  print(ggplot(control_regressions_df$data[[i]], aes(Std_addition_nM, Peak_Integral)) +
+    geom_point() +
+    stat_smooth(method = "lm", col="red") +
+    geom_text(label=control_regressions_df$data[[i]]$Filename,
+              nudge_x = 0.5, nudge_y = 0.5, size = 2,
+              check_overlap = TRUE) +
+    ggtitle(i) +
+    ylab("Peak Integral") +
+    xlab("Std addition (nM)"))
+}
+```
+```{r}
+outliers <- c("200910_7005_C1_500A", "200902_7005_C2_500B", "200902_7005_C2_750A", "200904_7005_C2_500C", "200904_7005_C3_500A", "200803_LL_7806_C1_Day0_0A", "200809_LL_7806_C1_Day6_750A", "200811_HL_7806_C1_Day8_500A", "200815_HL_7806_C1_Day12_500A", 
+"200803_LL_7806_C2_Day0_0A", "200803_HL_7806_C2_Day0_0A", "200813_HL_7806_C2_Day10_750A", "200805_LL_7806_C3_Day2_750A", "200815_LL_7806_C3_Day12_0A", "200902_deltamcyB_C1_0A", "200904_deltamcyB_C1_0A", "200906_deltamcyB_C1_0A", "200908_deltamcyB_C1_0A", "200910_deltamcyB_C1_0A", "200912_deltamcyB_C1_0A", "200904_deltamcyB_C2_500B", 
+"200906_deltamcyB_C2_500A", "200906_7941_C3_500C", "200902_843_C1_0A", "200902_843_C1_500A", "200902_843_C1_750C", "200912_843_C1_500A", "200902_9701_C1_750C", "200912_9701_C1_750A", "200813_LL_9806_C1_Day10_750A", "200805_HL_9806_C1_Day2_500A", "200807_HL_9806_C1_Day4_0A", "200809_HL_9806_C1_Day6_500A", "200815_LL_9806_C2_Day12_500A", "200815_LL_9806_C2_Day12_750C", "200805_LL_9806_C3_Day2_500A", "200815_LL_9806_C3_Day12_750C", "200811_HL_9806_C3_Day8_500B", "200803_HL_MediaControl_750C", "200805_HL_MediaControl_Day2_750A", "200809_HL_MediaControl_Day6_0C")
+
+#Remove some outlier replicates of injections:
+peak_integral_df <- peak_integral_df[!(peak_integral_df$Filename %in% outliers), ]
+
+#Recalculate and plot the regressions after removing outliers:
+control_regressions_df <- filter(peak_integral_df, Pyruvate_conc == "0") %>%
+  nest_by(Strain, Rep, Light_level, Day) %>%
+  mutate(regressions = list(lm(Peak_Integral ~ Std_addition_nM, data = data)))
+
+#Plot each std addition regression:
+for (i in 1:nrow(control_regressions_df)){
+  print(ggplot(control_regressions_df$data[[i]], aes(Std_addition_nM, Peak_Integral)) +
+    geom_point() +
+    stat_smooth(method = "lm", col="red") +
+    geom_text(label=control_regressions_df$data[[i]]$Filename,
+              nudge_x = 0.5, nudge_y = 0.5, size = 2,
+              check_overlap = TRUE) +
+    ggtitle(i) +
+    ylab("Peak Integral") +
+    xlab("Std addition (nM)"))
+}
+
+```
+Calculate the H2O2 concentration in each sample:
+```{r}
+#Create empty columns to store the data:
+control_regressions_df$Intercept <- ""
+control_regressions_df$Intercept_Std_error <- ""
+control_regressions_df$Slope <- ""
+control_regressions_df$Slope_Std_error <- ""
+
+#Get the coefficients of the regression line for each set of standards
+for (i in 1:nrow(control_regressions_df)){
+  test_result <- summary(control_regressions_df$regressions[[i]])
+  control_regressions_df$Intercept[i] <- test_result$coefficients[1,1]
+  control_regressions_df$Intercept_Std_error[i] <- test_result$coefficients[1,2]
+  control_regressions_df$Slope[i] <- test_result$coefficients[2,1]
+  control_regressions_df$Slope_Std_error[i] <- test_result$coefficients[2,2]
+}
+
+control_regressions_df$Intercept <- as.numeric(control_regressions_df$Intercept)
+control_regressions_df$Intercept_Std_error <- as.numeric(control_regressions_df$Intercept_Std_error)
+control_regressions_df$Slope <- as.numeric(control_regressions_df$Slope)
+control_regressions_df$Slope_Std_error <- as.numeric(control_regressions_df$Slope_Std_error)
+
+#Calculate H2O2 concentration for each sample:
+control_regressions_df$H2O2_conc <- control_regressions_df$Intercept / control_regressions_df$Slope
+control_regressions_df$H2O2_std_error <- control_regressions_df$H2O2_conc * sqrt((control_regressions_df$Intercept_Std_error/control_regressions_df$Intercept)^2 + (control_regressions_df$Slope_Std_error/control_regressions_df$Slope)^2)
+
+#Remove the samples with bad standard addition:
+control_regressions_df <- control_regressions_df[-c(73,79,178), ]
+```
+
+
+Plot H2O2 data:
+```{r}
+#Average the H2O2 concentrations of each set of triplicate bottles
+H2O2_summary <- control_regressions_df %>%
+  group_by(Strain, Light_level, Day) %>%
+  summarise(n=n(), mean=mean(H2O2_conc), sd=sd(H2O2_conc)) %>%
+  mutate(se=sd/sqrt(n)) %>%
+  mutate(ci=se*1.96)
+
+Strain_H2O2_plot <- filter(H2O2_summary, Strain != "media_control" & Light_level == "330") %>% 
+  ggplot(aes(x=Day, y=mean)) +
+    geom_line(size=0.5) +
+    geom_point(size=2) +
+    geom_errorbar(aes(ymin=mean-ci, ymax=mean+ci), width=1.5) +
+    facet_wrap(vars(Strain), nrow = 2) +
+    theme_bw() +
+    theme(plot.title = element_text(size = 12),
+          axis.title.x = element_text(size=12, margin = margin(t = 14, r = 0, b = 0, l = 0)),
+          axis.title.y = element_blank(),
+          axis.text.x = element_text(size = 10, color = "black", margin = margin(t = 12, r = 0, b = 0, l = 0)),
+          axis.text.y = element_text(size = 10, color = "black", margin = margin(t = 0, r = 12, b = 0, l = 0)),
+          axis.ticks.length= unit(-0.2, "cm"),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          legend.text = element_text(size = 10),
+          legend.title = element_text(size = 12)) +
+          scale_x_continuous(limits = c(0,12), breaks = seq(0,12, by=2)) +
+          scale_y_continuous(limits = c(0,1400), breaks = seq(0,1400, by=200)) +
+          xlab("Days after innoculation") +
+          ylab(expression("H"[2]*"O"[2]*" concentration (nM)")) + 
+          labs(color = expression(atop("Light intensity","("*mu*"mol photons/m"^2*"/sec)")))
+
+Media_H2O2_plot <- filter(control_regressions_df, Strain == "media_control" & Light_level == "330") %>% 
+  ggplot(aes(x=Day, y=H2O2_conc)) +
+    geom_line(size=0.5) +
+    geom_point(size=2) +
+    geom_errorbar(aes(ymin=H2O2_conc-(H2O2_std_error*1.96), ymax=H2O2_conc+(H2O2_std_error*1.96)), width=1.5) +
+    facet_wrap(vars(Strain)) +
+    theme_bw() +
+    theme(plot.title = element_text(size = 12),
+          axis.title.x = element_text(size=12, margin = margin(t = 14, r = 0, b = 0, l = 0)),
+          axis.title.y = element_text(size=12, margin = margin(t = 0, r = 14, b = 0, l = 0)),
+          axis.text.x = element_text(size = 10, color = "black", margin = margin(t = 12, r = 0, b = 0, l = 0)),
+          axis.text.y = element_text(size = 10, color = "black", margin = margin(t = 0, r = 12, b = 0, l = 0)),
+          axis.ticks.length= unit(-0.2, "cm"),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          legend.position = "none") +
+          scale_x_continuous(limits = c(0,12), breaks = seq(0,12, by=2)) +
+          scale_y_continuous(limits = c(0,2500), breaks = seq(0,2500, by=500)) +
+          xlab("Days after innoculation") +
+          ylab(expression("H"[2]*"O"[2]*" concentration (nM)")) + 
+          labs(color = expression(atop("Light intensity","("*mu*"mol photons/m"^2*"/sec)")))
+
+Combo_H2O2_plot <- Media_H2O2_plot / Strain_H2O2_plot + plot_layout(heights = c(1,4))
+ggsave("H2O2_plot.pdf", plot = Combo_H2O2_plot, width = 20, height = 35, units = "cm", dpi = 320)
+```
+
+Make a plot with media control H2O2 conc. on same scale:
+```{r}
+H2O2_plot_same_scale <- filter(H2O2_summary, Light_level == "330") %>%
+  ggplot(aes(x=Day, y=mean)) +
+    geom_line(size=0.5) +
+    geom_point(size=1) +
+    geom_errorbar(aes(ymin=mean-ci, ymax=mean+ci), width=1.5) +
+    facet_wrap(vars(Strain), nrow = 2) +
+    theme_bw() +
+    theme(plot.title = element_text(size = 12),
+          axis.title.x = element_text(size=12, margin = margin(t = 14, r = 0, b = 0, l = 0)),
+          axis.title.y = element_blank(),
+          axis.text.x = element_text(size = 10, color = "black", margin = margin(t = 12, r = 0, b = 0, l = 0)),
+          axis.text.y = element_text(size = 10, color = "black", margin = margin(t = 0, r = 12, b = 0, l = 0)),
+          axis.ticks.length= unit(-0.2, "cm"),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          legend.text = element_text(size = 10),
+          legend.title = element_text(size = 12)) +
+          scale_x_continuous(limits = c(0,12), breaks = seq(0,12, by=2)) +
+          scale_y_continuous(limits = c(0,2000), breaks = seq(0,2000, by=500)) +
+          xlab("Days after innoculation") +
+          ylab(expression("H"[2]*"O"[2]*" concentration (nM)"))
+
+H2O2_plot_same_scale
+ggsave("H2O2_plot_same_scale.pdf", plot = H2O2_plot_same_scale, width = 20, height = 35, units = "cm", dpi = 600)
+```
+
+
+
+Plot the amount of signal decay in standard additions for the pyruvate samples:  
+```{r}
+#First we need to calculate the signal decay in the pyruvate bottles.
+#Get a dataframe of just the pyruvate treated samples:
+pyruvate_signal_decay_df <- filter(peak_integral_df, Pyruvate_conc == "1")
+
+#Add in replicate ID for each injection, the order is important for these samples:
+for (i in 1:nrow(pyruvate_signal_decay_df)){
+  if(grepl("_500A", pyruvate_signal_decay_df$Filename[i]) == TRUE){
+    pyruvate_signal_decay_df$Injection[i] <- "mid_A"
+  }
+  if(grepl("_500B", pyruvate_signal_decay_df$Filename[i]) == TRUE){
+    pyruvate_signal_decay_df$Injection[i] <- "mid_B"
+  }
+  if(grepl("_500C", pyruvate_signal_decay_df$Filename[i]) == TRUE){
+    pyruvate_signal_decay_df$Injection[i] <- "mid_C"
+  }
+  if(grepl("_500D", pyruvate_signal_decay_df$Filename[i]) == TRUE){
+    pyruvate_signal_decay_df$Injection[i] <- "mid_D"
+  }
+  if(grepl("_750A", pyruvate_signal_decay_df$Filename[i]) == TRUE){
+    pyruvate_signal_decay_df$Injection[i] <- "high_A"
+  }
+  if(grepl("_750B", pyruvate_signal_decay_df$Filename[i]) == TRUE){
+    pyruvate_signal_decay_df$Injection[i] <- "high_B"
+  }
+  if(grepl("_750C", pyruvate_signal_decay_df$Filename[i]) == TRUE){
+    pyruvate_signal_decay_df$Injection[i] <- "high_C"
+  }
+  if(grepl("_750D", pyruvate_signal_decay_df$Filename[i]) == TRUE){
+    pyruvate_signal_decay_df$Injection[i] <- "high_D"
+  }
+}
+
+#Only keep peak integrals of first and last replicate injections for each sample
+pyruvate_signal_decay_df <- filter(pyruvate_signal_decay_df, Injection == "mid_A" | Injection == "mid_C")
+
+#Convert to long format so that peak integral of first and last injections are in separate columns:  
+pyruvate_signal_decay_df <- pyruvate_signal_decay_df[,-3]
+pyruvate_signal_decay_df <- spread(pyruvate_signal_decay_df, Injection, Peak_Integral)
+
+#Calculate the signal decay as the difference in the peak integral of the first and last replicate injections of the middle standard, then normalize to the peak integral of the first replicate injection so that the decay is more comparable across samples
+pyruvate_signal_decay_df$norm_sig_decay <- (pyruvate_signal_decay_df$mid_A - pyruvate_signal_decay_df$mid_C) / pyruvate_signal_decay_df$mid_A
+
+#Average the signal decay of each set of triplicate bottles
+signal_decay_summary <- pyruvate_signal_decay_df %>%
+  group_by(Strain, Light_level, Day) %>%
+  summarise(n=n(), mean=mean(norm_sig_decay), sd=sd(norm_sig_decay)) %>%
+  mutate(se=sd/sqrt(n)) %>%
+  mutate(ci=se*1.96)
+
+#Plot the singal decay for each strain
+Signal_Decay_plot <- filter(signal_decay_summary, Light_level == "330") %>% 
+  ggplot(aes(x=Day, y=mean)) +
+    geom_line(size=0.5) +
+    geom_point(size=2) +
+    geom_errorbar(aes(ymin=mean-ci,
+                      ymax=mean+ci), width=1.5) +
+    facet_wrap(vars(Strain), nrow = 2) +
+    theme_bw() +
+    theme(plot.title = element_text(size = 12),
+          axis.title.x = element_text(size=12, margin = margin(t = 14, r = 0, b = 0, l = 0)),
+          axis.title.y = element_text(size=12, margin = margin(t = 0, r = 14, b = 0, l = 0)),
+          axis.text.x = element_text(size = 8, color = "black", angle = 45, margin = margin(t = 12, r = 0, b = 0, l = 0)),
+          axis.text.y = element_text(size = 10, color = "black", margin = margin(t = 0, r = 12, b = 0, l = 0)),
+          axis.ticks.length= unit(-0.2, "cm"),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          legend.text = element_text(size = 10),
+          legend.title = element_text(size = 12)) +
+          scale_x_continuous(limits = c(0,14), breaks = seq(0,14, by=2)) +
+          xlab("Days after innoculation") +
+          ylab("Normalized Signal Decay") + 
+          labs(color = expression(atop("Light intensity","("*mu*"mol photons/m"^2*"/sec)")))
+
+Signal_Decay_plot
+ggsave("signal_decay_plot.pdf", plot = Signal_Decay_plot, width = 18, height = 18, units = "cm", dpi = 320)
+```
+ 
+
+
+
+
+
