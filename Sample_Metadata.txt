@@ -1,0 +1,31 @@
+Sample_ID	Sample_type	Size Fraction	Collection_Date	Station	Library_size_bp
+Sample_42895	metaG	100um	8-Jul-14	WE12	421359382
+Sample_42896	metaG	100um	4-Aug-14	WE12	353756208
+Sample_49613	metaG	whole water	8-Jul-14	WE12	158940090
+Sample_49614	metaG	whole water	4-Aug-14	WE2	150142168
+Sample_49615	metaG	100um	4-Aug-14	WE2	185780964
+Sample_49618	metaG	whole water	4-Aug-14	WE12	261697950
+Sample_49621	metaG	whole water	4-Aug-14	WE4	96939058
+Sample_49622	metaG	100um	4-Aug-14	WE4	152397872
+Sample_49624	metaG	whole water	29-Sep-14	WE2	140677518
+Sample_49625	metaG	100um	29-Sep-14	WE2	125838686
+Sample_49628	metaG	whole water	29-Sep-14	WE12	234817082
+Sample_49629	metaG	100um	29-Sep-14	WE12	132108864
+Sample_49632	metaG	whole water	29-Sep-14	WE4	139650426
+Sample_49633	metaG	100um	29-Sep-14	WE4	150068422
+Sample_49636	metaG	100um	20-Oct-14	WE2	141999050
+Sample_49637	metaG	100um	20-Oct-14	WE12	118906614
+Sample_49638	metaG	whole water	27-Oct-14	WE12	116865742
+Sample_53598	metaG	100um	21-Jul-14	WE2	106586508
+Sample_53599	metaG	100um	29-Jul-14	WE4	97156982
+Sample_53600	metaG	100um	25-Aug-14	WE12	133043508
+Sample_53601	metaG	100um	8-Sep-14	WE4	124688372
+Sample_53602	metaG	100um	23-Sep-14	WE12	133358946
+Sample_53603	metaG	100um	6-Oct-14	WE2	88847460
+Sample_50632	metaT	100um	4-Aug-14	WE12	90446846
+Sample_53185	metaT	100um	21-Jul-14	WE2	252211168
+Sample_53187	metaT	100um	29-Jul-14	WE4	239152703
+Sample_53189	metaT	100um	25-Aug-14	WE12	93711038
+Sample_53191	metaT	100um	8-Sep-14	WE4	112188579
+Sample_53193	metaT	100um	23-Sep-14	WE12	109306193
+Sample_53195	metaT	100um	6-Oct-14	WE2	104996844

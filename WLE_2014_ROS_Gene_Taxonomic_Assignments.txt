@@ -1,0 +1,1352 @@
+Centorid_representative_sequence	Cluster_Bin_ID	dRep_Genome_Rank	Bin_Taxonomy	NCBI_Taxonomy	KO	Final_Taxonomy
+Ga0114337_100161918	Sample_49618_15.1.fa	Losing_Genome	Acetobacteraceae 49624 E11	NA	katG	Acetobacteraceae 49624 E11
+Ga0114341_100156252	Sample_49624_11.fa	Winning_Genome	Acetobacteraceae 49624 E11	NA	ahpC	Acetobacteraceae 49624 E11
+Ga0114347_10096121	Sample_49624_11.fa	Winning_Genome	Acetobacteraceae 49624 E11	NA	rpoB	Acetobacteraceae 49624 E11
+Ga0114336_100150737	Sample_49628_41.fa	Winning_Genome	Acidibacter	NA	ahpC	Acidibacter
+Ga0114351_100065519	Sample_49628_41.fa	Winning_Genome	Acidibacter	NA	rpoB	Acidibacter
+Ga0114336_10008252	Sample_49628_41.fa	Winning_Genome	Acidibacter	NA	katG	Acidibacter
+Ga0114336_100877912	Not Binned	NA	Unassigned	Acidimicrobiia bacterium BACL6	rpoB	Acidimicrobiia bacterium BACL6
+Ga0114351_10271011	Not Binned	NA	Unassigned	Acidimicrobium	rpoB	Acidimicrobium
+Ga0114341_100398171	Not Binned	NA	Unassigned	Acidimicrobium	rpoB	Acidimicrobium
+Ga0114337_10145572	Not Binned	NA	Unassigned	Acidimicrobium	rpoB	Acidimicrobium
+Ga0114336_10072414	Not Binned	NA	Unassigned	Acidimicrobium	rpoB	Acidimicrobium
+Ga0226666_10103494	Not Binned	NA	Unassigned	Acidobacteriia 12-62-4	ahpC	Acidobacteriia 12-62-4
+Ga0114359_10151842	Not Binned	NA	Unassigned	Acinetobacter	katE	Acinetobacter
+Ga0114359_11075881	Not Binned	NA	Unassigned	Acinetobacter	ahpC	Acinetobacter
+Ga0114359_10090882	Not Binned	NA	Unassigned	Acinetobacter	ahpC	Acinetobacter
+Ga0114359_14537251	Not Binned	NA	Unassigned	Acinetobacter	ahpC	Acinetobacter
+Ga0114359_10379952	Not Binned	NA	Unassigned	Acinetobacter	ahpC	Acinetobacter
+Ga0114359_10151842	Not Binned	NA	Unassigned	Acinetobacter	katE	Acinetobacter
+Ga0114337_10029349	Sample_49614_14.fa	Losing_Genome	Actinobacteria 49618 E28	NA	rpoB	Actinobacteria 49618 E28
+Ga0114336_10056721	Not Binned	NA	Unassigned	Actinobacteria bacterium BACL2	rpoB	Actinobacteria bacterium BACL2
+Ga0226814_1007004	Not Binned	NA	Unassigned	Actinobacteria bacterium BACL2	rpoB	Actinobacteria bacterium BACL2
+Ga0114336_10140782	Not Binned	NA	Unassigned	Actinobacteria bacterium BACL4	rpoB	Actinobacteria bacterium BACL4
+Ga0226810_10097311	Not Binned	NA	Unassigned	Actinobacteria bacterium BACL4	rpoB	Actinobacteria bacterium BACL4
+Ga0114354_10030689	Not Binned	NA	Unassigned	Actinobacteria bacterium BACL4	rpoB	Actinobacteria bacterium BACL4
+Ga0114344_10122451	Not Binned	NA	Unassigned	Actinobacteria bacterium BACL4	rpoB	Actinobacteria bacterium BACL4
+Ga0226807_10123221	Not Binned	NA	Unassigned	Actinobacteria bacterium BACL4	rpoB	Actinobacteria bacterium BACL4
+Ga0114354_10051785	Not Binned	NA	Unassigned	Actinobacteria bacterium IMCC19121	rpoB	Actinobacteria bacterium IMCC19121
+Ga0226809_10036282	Not Binned	NA	Unassigned	Actinobacteria bacterium IMCC19121	rpoB	Actinobacteria bacterium IMCC19121
+Ga0114344_10054932	Not Binned	NA	Unassigned	Actinobacteria bacterium IMCC25003	rpoB	Actinobacteria bacterium IMCC25003
+Ga0114341_100106842	Not Binned	NA	Unassigned	Actinobacteria bacterium IMCC26077	rpoB	Actinobacteria bacterium IMCC26077
+Ga0114347_10263871	Not Binned	NA	Unassigned	Actinobacterium	rpoB	Actinobacterium
+Ga0114841_10023815	Not Binned	NA	Unassigned	Actinobacterium acAcidi	rpoB	Actinobacterium acAcidi
+Ga0114351_10036739	Not Binned	NA	Unassigned	Actinobacterium acAcidi	rpoB	Actinobacterium acAcidi
+Ga0114341_100161963	Not Binned	NA	Unassigned	Actinobacterium acAcidi	rpoB	Actinobacterium acAcidi
+Ga0114337_100305216	Not Binned	NA	Unassigned	Actinobacterium acAMD-5	ahpC	Actinobacterium acAMD-5
+Ga0114337_100073428	Not Binned	NA	Unassigned	Actinobacterium acAMD-5	rpoB	Actinobacterium acAMD-5
+Ga0226807_12078821	Not Binned	NA	Unassigned	Actinobacterium SCGC AAA027-L06	ahpC	Actinobacterium SCGC AAA027-L06
+Ga0114359_10308563	Not Binned	NA	Unassigned	Aeromonas	CCP	Aeromonas
+Ga0114359_10077106	Not Binned	NA	Unassigned	Aeromonas	ahpC	Aeromonas
+Ga0114359_10065552	Not Binned	NA	Unassigned	Aeromonas	ahpC	Aeromonas
+Ga0226818_10063291	Not Binned	NA	Unassigned	Aeromonas	ahpC	Aeromonas
+Ga0114359_10088161	Not Binned	NA	Unassigned	Aeromonas	rpoB	Aeromonas
+Ga0114359_10451071	Not Binned	NA	Unassigned	Aeromonas	katG	Aeromonas
+Ga0114341_1000253118	Sample_49621_10.fa	Winning_Genome	Algoriphagus	NA	CCP	Algoriphagus
+Ga0114347_10114811	Sample_49628_51.fa	Winning_Genome	Algoriphagus	Algoriphagus	rpoB	Algoriphagus
+Ga0114341_100359151	Not Binned	NA	Unassigned	Algoriphagus	rpoB	Algoriphagus
+Ga0114337_10107211	Not Binned	NA	Unassigned	Algoriphagus	rpoB	Algoriphagus
+Ga0114341_100301791	Not Binned	NA	Unassigned	Algoriphagus	rpoB	Algoriphagus
+Ga0307119_121581901	Not Binned	NA	Unassigned	Alphaproteobacteria	CCP	Alphaproteobacteria
+Ga0307119_101616534	Not Binned	NA	Unassigned	Alphaproteobacteria	ahpC	Alphaproteobacteria
+Ga0114347_1000006210	Sample_49628_19.fa	Winning_Genome	Alphaproteobacteria 49628 E19	NA	rpoB	Alphaproteobacteria 49628 E19
+Ga0307119_114702013	Bryobacter_all_coassembly_Metabat_Bin99.fa	Winning_Genome	Alphaproteobacteria CoA8 M99	NA	rpoB	Alphaproteobacteria CoA8 M99
+Ga0226666_10024932	Bryobacter_all_normalized_coassembly_CONCOCT_Bin25.fa	Winning_Genome	Alphaproteobacteria CoA8N C25	NA	rpoB	Alphaproteobacteria CoA8N C25
+Ga0071351_100095310	Sample_42896_12.fa	Losing_Genome	Anabaena	Aphanizomenon	ahpC	Anabaena / Dolichospermum
+Ga0071351_10006238	Sample_42896_53600_coassembly_CONCOCT_Bin59.fa	Winning_Genome	Anabaena	Aphanizomenon	rpoB	Anabaena / Dolichospermum
+Ga0114348_10361102	Sample_49628_55.fa	Winning_Genome	Anabaena	Anabaena	ahpC	Anabaena / Dolichospermum
+Ga0114351_100100822	Sample_49628_55.fa	Winning_Genome	Anabaena	Anabaena	rpoB	Anabaena / Dolichospermum
+Ga0114356_100026621	Sample_49633_8.fa	Winning_Genome	Anabaena	Anabaena	ahpC	Anabaena / Dolichospermum
+Ga0114356_100002210	Sample_49633_8.fa	Winning_Genome	Anabaena	Anabaena	MnCat	Anabaena / Dolichospermum
+Ga0114356_100001364	Sample_49633_8.fa	Winning_Genome	Anabaena	Nostocales	rpoB	Anabaena / Dolichospermum
+Ga0226669_10173181	Not Binned	NA	Unassigned	Aphanizomenon	ahpC	Aphanizomenon
+Ga0226666_11057681	Not Binned	NA	Unassigned	Aquidulcibacter	ahpC	Hyphomonadaceae UKL13-1 / Aquidulcibacter
+Ga0114352_11277241	Not Binned	NA	Unassigned	Aquidulcibacter	ahpC	Hyphomonadaceae UKL13-1 / Aquidulcibacter
+Ga0365732_0289736_344_1000	Not Binned	NA	Unassigned	Aquidulcibacter	ahpC	Hyphomonadaceae UKL13-1 / Aquidulcibacter
+Ga0114338_11702961	Not Binned	NA	Unassigned	Aquidulcibacter	ahpC	Hyphomonadaceae UKL13-1 / Aquidulcibacter
+Ga0114354_10053531	Not Binned	NA	Unassigned	Aquirufa	rpoB	Aquirufa
+Ga0114336_100039819	Sample_49613_12.fa	Winning_Genome	Bacteroidetes 49613 E12	Flavobacteriales	rpoB	Bacteroidetes 49613 E12
+Ga0114336_100051312	Sample_49614_26.fa	Losing_Genome	Bacteroidetes 49613 E12	NA	CCP	Bacteroidetes 49613 E12
+Ga0114337_100047530	Sample_49614_26.fa	Losing_Genome	Bacteroidetes 49613 E12	NA	katG	Bacteroidetes 49613 E12
+Ga0114337_10017454	Sample_49614_21.fa	Winning_Genome	Bacteroidetes 49614 E21	NA	rpoB	Bacteroidetes 49614 E21
+Ga0114337_10104662	Sample_49614_29.fa	Losing_Genome	Bacteroidetes 49618 E68	NA	rpoB	Bacteroidetes 49618 E68
+Ga0114337_10007038	Sample_49618_68.fa	Winning_Genome	Bacteroidetes 49618 E68	NA	katG	Bacteroidetes 49618 E68
+Ga0114337_10150854	Not Binned	NA	Unassigned	Bacteroidetes bacterium B1	rpoB	Bacteroidetes bacterium B1
+Ga0307117_12758355	Bryobacter_all_coassembly_CONCOCT_Bin16.fa	Winning_Genome	Bacteroidetes CoA8 C16	NA	rpoB	Bacteroidetes CoA8 C16
+Ga0365732_1373056_1014_2612	Bryobacter_all_normalized_coassembly_VizBin_Bin36.1.fa	Losing_Genome	Betaproteobacteria 49628 E42	NA	katG	Betaproteobacteria 49628 E42
+Ga0114341_100025359	Sample_49628_42.fa	Winning_Genome	Betaproteobacteria 49628 E42	Betaproteobacteria bacterium UKL13-2	rpoB	Betaproteobacteria 49628 E42
+Ga0114347_10005133	Sample_49628_42.fa	Winning_Genome	Betaproteobacteria 49628 E42	NA	katG	Betaproteobacteria 49628 E42
+Ga0114359_100168410	Sample_49636_10.fa	Losing_Genome	Betaproteobacteria 49628 E42	NA	katG	Betaproteobacteria 49628 E42
+Ga0307118_15090421	Not Binned	NA	Unassigned	Betaproteobacteria bacterium UKL13-2	rpoB	Betaproteobacteria bacterium UKL13-2
+Ga0226665_10008111	Bryobacter_all_coassembly_Metabat_Bin57.fa	Winning_Genome	Betaproteobacteria CoA8 M57	NA	rpoB	Betaproteobacteria CoA8 M57
+Ga0307119_121258201	Bryobacter_all_coassembly_Metabat_Bin57.fa	Winning_Genome	Betaproteobacteria CoA8 M57	NA	katG	Betaproteobacteria CoA8 M57
+Ga0114338_10077585	Bryobacter_all_normalized_coassembly_Metabat_Bin60.1.fa	Winning_Genome	Betaproteobacteria CoA8N 60	NA	ahpC	Betaproteobacteria CoA8N 60
+Ga0365732_1231445_1184_4840	Bryobacter_all_normalized_coassembly_Metabat_Bin60.1.fa	Winning_Genome	Betaproteobacteria CoA8N 60	NA	rpoB	Betaproteobacteria CoA8N 60
+Ga0365732_1328959_58140_60347	Bryobacter_all_normalized_coassembly_Metabat_Bin60.1.fa	Winning_Genome	Betaproteobacteria CoA8N 60	NA	katG	Betaproteobacteria CoA8N 60
+Ga0114348_10231192	Not Binned	NA	Unassigned	Betaproteobacteria UKL13-2	ahpC	Betaproteobacteria UKL13-2
+Ga0114341_1000157616	Sample_49618_50.fa	Winning_Genome	Blastopirellula	NA	rpoB	Blastopirellula
+Ga0114341_100101711	Sample_49618_50.fa	Winning_Genome	Blastopirellula	NA	katG	Blastopirellula
+Ga0114341_100101713	Sample_49618_50.fa	Winning_Genome	Blastopirellula	NA	katG	Blastopirellula
+Ga0307117_11547201	Not Binned	NA	Unassigned	Bradyrhizobium	ahpC	Bradyrhizobium
+Ga0307119_133808471	Not Binned	NA	Unassigned	Bradyrhizobium	ahpC	Bradyrhizobium
+Ga0307118_10114371	Not Binned	NA	Unassigned	Bradyrhizobium	katG	Bradyrhizobium
+Ga0365732_1426506_579_1031	Not Binned	NA	Unassigned	Brevundimonas	ahpC	Brevundimonas
+Ga0226666_10032945	Bryobacter_all_coassembly_CONCOCT_Bin33.fa	Winning_Genome	Bryobacter	NA	CCP	Bryobacter
+Ga0071351_10085204	Bryobacter_all_coassembly_CONCOCT_Bin33.fa	Winning_Genome	Bryobacter	NA	ahpC	Bryobacter
+Ga0307118_100813577	Bryobacter_all_coassembly_CONCOCT_Bin33.fa	Winning_Genome	Bryobacter	NA	rpoB	Bryobacter
+Ga0307118_121028754	Bryobacter_all_coassembly_CONCOCT_Bin33.fa	Winning_Genome	Bryobacter	NA	katG	Bryobacter
+Ga0114347_100005922	Sample_49624_46.fa	Winning_Genome	Burkholderiales 49624 E46	Betaproteobacteria	katG	Burkholderiales 49624 E46
+Ga0114347_1000062156	Sample_49624_46.fa	Winning_Genome	Burkholderiales 49624 E46	NA	ahpC	Burkholderiales 49624 E46
+Ga0114354_100077919	Sample_49632_5.1.fa	Winning_Genome	Burkholderiales 49632 E5	NA	ahpC	Burkholderiales 49632 E5
+Ga0114354_100077928	Sample_49632_5.1.fa	Winning_Genome	Burkholderiales 49632 E5	NA	katG	Burkholderiales 49632 E5
+Ga0071351_10045973	Sample_42896_18.1.fa	Losing_Genome	Burkholderiales 53603 E6	NA	katG	Burkholderiales 53603 E6
+Ga0071351_100076010	Sample_53603_6.fa	Winning_Genome	Burkholderiales 53603 E6	NA	ahpC	Burkholderiales 53603 E6
+Ga0114345_100042413	Sample_53603_6.fa	Winning_Genome	Burkholderiales 53603 E6	NA	rpoB	Burkholderiales 53603 E6
+Ga0114338_10140265	Bryobacter_all_coassembly_Metabat_Bin58.fa	Winning_Genome	Burkholderiales CoA8 M58	NA	ahpC	Burkholderiales CoA8 M58
+Ga0307119_114632329	Bryobacter_all_coassembly_Metabat_Bin58.fa	Winning_Genome	Burkholderiales CoA8 M58	NA	rpoB	Burkholderiales CoA8 M58
+Ga0307119_107831862	Bryobacter_all_coassembly_Metabat_Bin58.fa	Winning_Genome	Burkholderiales CoA8 M58	NA	katG	Burkholderiales CoA8 M58
+Ga0307118_15193041	Sample_42896_53600_coassembly_VizBin_Bin2.fa	Losing_Genome	Burkholderiales CoA8 M58	NA	rpoB	Burkholderiales CoA8 M58
+Ga0365732_1012579_3_3107	Bryobacter_all_normalized_coassembly_Metabat_Bin101.fa	Winning_Genome	Burkholderiales CoA8N M101	NA	rpoB	Burkholderiales CoA8N M101
+Ga0114338_10223883	Bryobacter_all_normalized_coassembly_VizBin_Bin22.1.fa	Winning_Genome	Caenarcaniphilales CoA8N V22	NA	ahpC	Caenarcaniphilales CoA8N V22
+Ga0365732_1216021_11937_15377	Bryobacter_all_normalized_coassembly_VizBin_Bin22.1.fa	Winning_Genome	Caenarcaniphilales CoA8N V22	NA	rpoB	Caenarcaniphilales CoA8N V22
+Ga0114336_10287661	Not Binned	NA	Unassigned	Candidatus Fonsibacter	katG	Candidatus Fonsibacter
+Ga0114354_10516971	Not Binned	NA	Unassigned	Candidatus Fonsibacter	katG	Candidatus Fonsibacter
+Ga0114336_10514271	Not Binned	NA	Unassigned	Candidatus Fonsibacter	katG	Candidatus Fonsibacter
+Ga0114351_11135751	Not Binned	NA	Unassigned	Candidatus Fonsibacter	katG	Candidatus Fonsibacter
+Ga0114338_10534632	Bryobacter_all_coassembly_Metabat_Bin11.fa	Winning_Genome	Candidatus Jidaibacter	NA	ahpC	Candidatus Jidaibacter
+Ga0307119_1191369119	Bryobacter_all_coassembly_Metabat_Bin11.fa	Winning_Genome	Candidatus Jidaibacter	NA	rpoB	Candidatus Jidaibacter
+Ga0307119_108187838	Bryobacter_all_coassembly_Metabat_Bin28.fa	Winning_Genome	Candidatus Jidaibacter	NA	ahpC	Candidatus Jidaibacter
+Ga0114341_100014882	Bryobacter_all_coassembly_Metabat_Bin28.fa	Winning_Genome	Candidatus Jidaibacter	NA	rpoB	Candidatus Jidaibacter
+Ga0365732_1338213_1220_3244	Bryobacter_all_normalized_coassembly_Metabat_Bin6.fa	Losing_Genome	Candidatus Jidaibacter	NA	katG	Candidatus Jidaibacter
+Ga0114337_100409712	Bryobacter_all_normalized_coassembly_VizBin_Bin13.fa	Losing_Genome	Candidatus Jidaibacter	NA	ahpC	Candidatus Jidaibacter
+Ga0114354_10034969	Not Binned	NA	Unassigned	Candidatus Limnocylindrus	rpoB	Candidatus Limnocylindrus
+Ga0226810_10170851	Not Binned	NA	Unassigned	Candidatus Methylopumilus	ahpC	Candidatus Methylopumilus
+Ga0114336_10155852	Not Binned	NA	Unassigned	Candidatus Methylopumilus	ahpC	Candidatus Methylopumilus
+Ga0114336_100026854	Not Binned	NA	Unassigned	Candidatus Methylopumilus	ahpC	Candidatus Methylopumilus
+Ga0226814_10007022	Not Binned	NA	Unassigned	Candidatus Methylopumilus	ahpC	Candidatus Methylopumilus
+Ga0226809_10282881	Not Binned	NA	Unassigned	Candidatus Methylopumilus	ahpC	Candidatus Methylopumilus
+Ga0226809_100007726	Not Binned	NA	Unassigned	Candidatus Methylopumilus	ahpC	Candidatus Methylopumilus
+Ga0114337_10919372	Not Binned	NA	Unassigned	Candidatus Methylopumilus	ahpC	Candidatus Methylopumilus
+Ga0114351_11247341	Not Binned	NA	Unassigned	Candidatus Methylopumilus	ahpC	Candidatus Methylopumilus
+Ga0114336_10784562	Not Binned	NA	Unassigned	Candidatus Methylopumilus	ahpC	Candidatus Methylopumilus
+Ga0114336_10560004	Not Binned	NA	Unassigned	Candidatus Methylopumilus	ahpC	Candidatus Methylopumilus
+Ga0226807_10730921	Not Binned	NA	Unassigned	Candidatus Methylopumilus	ahpC	Candidatus Methylopumilus
+Ga0114337_14138011	Not Binned	NA	Unassigned	Candidatus Methylopumilus	ahpC	Candidatus Methylopumilus
+Ga0114341_104659491	Not Binned	NA	Unassigned	Candidatus Methylopumilus	ahpC	Candidatus Methylopumilus
+Ga0114336_10502811	Not Binned	NA	Unassigned	Candidatus Methylopumilus	ahpC	Candidatus Methylopumilus
+Ga0114336_10120933	Not Binned	NA	Unassigned	Candidatus Methylopumilus	rpoB	Candidatus Methylopumilus
+Ga0114336_10130413	Not Binned	NA	Unassigned	Candidatus Nanopelagicus	rpoB	Candidatus Nanopelagicus
+Ga0114841_10118493	Not Binned	NA	Unassigned	Candidatus Planktophila	rpoB	Candidatus Planktophila
+Ga0114841_100274418	Not Binned	NA	Unassigned	Candidatus Planktophila	rpoB	Candidatus Planktophila
+Ga0114351_101633218	Not Binned	NA	Unassigned	Candidatus Planktophila	rpoB	Candidatus Planktophila
+Ga0114347_100349511	Not Binned	NA	Unassigned	Candidatus Planktophila	rpoB	Candidatus Planktophila
+Ga0114341_100366471	Not Binned	NA	Unassigned	Candidatus Planktophila	rpoB	Candidatus Planktophila
+Ga0114341_100413452	Not Binned	NA	Unassigned	Candidatus Planktophila	rpoB	Candidatus Planktophila
+Ga0226814_1009361	Not Binned	NA	Unassigned	Candidatus Planktophila	rpoB	Candidatus Planktophila
+Ga0114841_10284251	Not Binned	NA	Unassigned	Candidatus Planktophila	rpoB	Candidatus Planktophila
+Ga0226809_10049221	Not Binned	NA	Unassigned	Candidatus Planktophila	rpoB	Candidatus Planktophila
+Ga0114351_10234793	Not Binned	NA	Unassigned	Candidatus Planktophila	rpoB	Candidatus Planktophila
+Ga0226814_1005521	Not Binned	NA	Unassigned	Candidatus Planktophila	rpoB	Candidatus Planktophila
+Ga0114337_10331801	Not Binned	NA	Unassigned	Candidatus Planktophila	rpoB	Candidatus Planktophila
+Ga0114354_10246152	Not Binned	NA	Unassigned	Candidatus Planktophila	katG	Candidatus Planktophila
+Ga0114354_10395311	Not Binned	NA	Unassigned	Candidatus Planktophila	katG	Candidatus Planktophila
+Ga0114341_1000293811	Not Binned	NA	Unassigned	Candidatus Planktophila	katG	Candidatus Planktophila
+Ga0114347_10159211	Not Binned	NA	Unassigned	Candidatus Planktophila	katG	Candidatus Planktophila
+Ga0114337_10149235	Not Binned	NA	Unassigned	Candidatus Planktophila	katG	Candidatus Planktophila
+Ga0114344_11788561	Not Binned	NA	Unassigned	Chakrabartia	ahpC	Chakrabartia
+Ga0114341_101086101	Not Binned	NA	Unassigned	Chakrabartia	ahpC	Chakrabartia
+Ga0114336_10017108	Sample_49613_57.fa	Winning_Genome	Chitinophagaceae 49613 E57	NA	rpoB	Chitinophagaceae 49613 E57
+Ga0114337_100062129	Sample_49614_54.fa	Winning_Genome	Chitinophagaceae 49614 E54	NA	rpoB	Chitinophagaceae 49614 E54
+Ga0114337_10054401	Sample_49614_58.fa	Losing_Genome	Chitinophagaceae 49621 E24	NA	rpoB	Chitinophagaceae 49621 E24
+Ga0114337_10019425	Sample_49621_24.fa	Winning_Genome	Chitinophagaceae 49621 E24	NA	katG	Chitinophagaceae 49621 E24
+Ga0226810_10025928	Sample_49621_24.fa	Winning_Genome	Chitinophagaceae 49621 E24	NA	katG	Chitinophagaceae 49621 E24
+Ga0114337_1000015103	Sample_49614_51.fa	Winning_Genome	Chloroflexaceae 49614 E51	NA	rpoB	Chloroflexaceae 49614 E51
+Ga0226807_10039163	Sample_49614_51.fa	Winning_Genome	Chloroflexaceae 49614 E51	NA	rpoB	Chloroflexaceae 49614 E51
+Ga0114337_10045213	Sample_49614_51.fa	Winning_Genome	Chloroflexaceae 49614 E51	NA	katG	Chloroflexaceae 49614 E51
+Ga0114344_10472701	Not Binned	NA	Unassigned	Chloroflexi	katG	Chloroflexi
+Ga0226810_10153783	Not Binned	NA	Unassigned	Chloroflexi	katG	Chloroflexi
+Ga0114354_10017222	Not Binned	NA	Unassigned	Chloroflexi	katG	Chloroflexi
+Ga0114341_100594762	Not Binned	NA	Unassigned	Chloroflexi	katG	Chloroflexi
+Ga0114337_10642291	Not Binned	NA	Unassigned	Chloroflexi	katG	Chloroflexi
+Ga0114351_10565571	Not Binned	NA	Unassigned	Chloroflexi	katG	Chloroflexi
+Ga0114337_10379693	Not Binned	NA	Unassigned	Chloroflexi	katG	Chloroflexi
+Ga0114354_10658001	Not Binned	NA	Unassigned	Chrysochromulina	CCP	Chrysochromulina
+Ga0114337_10095933	Not Binned	NA	Unassigned	Chrysochromulina chloroplast	rpoB	Chrysochromulina chloroplast
+Ga0114341_100081391	Not Binned	NA	Unassigned	Chrysochromulina chloroplast	rpoB	Chrysochromulina chloroplast
+Ga0114337_11679191	Not Binned	NA	Unassigned	Clavibacter	ahpC	Clavibacter
+Ga0114351_10152741	Not Binned	NA	Unassigned	Clavibacter	rpoB	Clavibacter
+Ga0114336_10141228	Sample_49613_28.fa	Winning_Genome	Comamonadaceae 49613 E28	NA	ahpC	Comamonadaceae 49613 E28
+Ga0114336_10020489	Sample_49613_28.fa	Winning_Genome	Comamonadaceae 49613 E28	NA	rpoB	Comamonadaceae 49613 E28
+Ga0114337_10834892	Sample_49618_8.fa	Winning_Genome	Comamonadaceae 49618 E8	NA	ahpC	Comamonadaceae 49618 E8
+Ga0114336_10044922	Sample_49638_11.fa	Winning_Genome	Comamonadaceae 49638 E11	NA	rpoB	Comamonadaceae 49638 E11
+Ga0114336_10005937	Sample_49613_39.fa	Winning_Genome	Cryomorphaceae 49613 E39	NA	CCP	Cryomorphaceae 49613 E39
+Ga0114336_10049526	Sample_49613_39.fa	Winning_Genome	Cryomorphaceae 49613 E39	NA	ahpC	Cryomorphaceae 49613 E39
+Ga0114336_100006474	Sample_49613_39.fa	Winning_Genome	Cryomorphaceae 49613 E39	NA	rpoB	Cryomorphaceae 49613 E39
+Ga0114336_100098824	Sample_49621_25.fa	Losing_Genome	Cryomorphaceae 49613 E39	NA	katG	Cryomorphaceae 49613 E39
+Ga0114341_1000138887	Sample_49618_18.fa	Winning_Genome	Cryomorphaceae 49618 E18	Flavobacteriales	rpoB	Cryomorphaceae 49618 E18
+Ga0114341_1000048524	Sample_49618_18.fa	Winning_Genome	Cryomorphaceae 49618 E18	NA	CCP	Cryomorphaceae 49618 E18
+Ga0114336_100044211	Sample_49618_18.fa	Winning_Genome	Cryomorphaceae 49618 E18	NA	CCP	Cryomorphaceae 49618 E18
+Ga0114337_10224465	Sample_49618_18.fa	Winning_Genome	Cryomorphaceae 49618 E18	NA	ahpC	Cryomorphaceae 49618 E18
+Ga0114341_100011623	Sample_49618_18.fa	Winning_Genome	Cryomorphaceae 49618 E18	NA	katG	Cryomorphaceae 49618 E18
+Ga0114341_100049078	Sample_49628_59.fa	Winning_Genome	Cryomorphaceae 49628 E59	NA	CCP	Cryomorphaceae 49628 E59
+Ga0114337_100336512	Sample_49628_59.fa	Winning_Genome	Cryomorphaceae 49628 E59	NA	ahpC	Cryomorphaceae 49628 E59
+Ga0114341_1000195741	Sample_49628_59.fa	Winning_Genome	Cryomorphaceae 49628 E59	NA	rpoB	Cryomorphaceae 49628 E59
+Ga0114341_100050542	Sample_49628_59.fa	Winning_Genome	Cryomorphaceae 49628 E59	NA	katG	Cryomorphaceae 49628 E59
+Ga0114354_100000343	Sample_49632_27.fa	Winning_Genome	Cryomorphaceae 49632 E27	NA	CCP	Cryomorphaceae 49632 E27
+Ga0114354_100022032	Sample_49632_27.fa	Winning_Genome	Cryomorphaceae 49632 E27	NA	ahpC	Cryomorphaceae 49632 E27
+Ga0114354_100180314	Sample_49632_31.fa	Winning_Genome	Cryomorphaceae 49632 E31	NA	CCP	Cryomorphaceae 49632 E31
+Ga0114354_100329720	Sample_49632_31.fa	Winning_Genome	Cryomorphaceae 49632 E31	NA	ahpC	Cryomorphaceae 49632 E31
+Ga0114354_10006628	Sample_49632_31.fa	Winning_Genome	Cryomorphaceae 49632 E31	NA	rpoB	Cryomorphaceae 49632 E31
+Ga0114336_13731621	Not Binned	NA	Unassigned	Cryomorphaceae BACL18 MAG-120924-bin36	ahpC	Cryomorphaceae BACL18 MAG-120924-bin36
+Ga0114336_100005596	Not Binned	NA	Unassigned	Cryptomonas plastid	rpoB	Cryptomonas plastid
+Ga0114341_1000021719	Not Binned	NA	Unassigned	Cryptomonas plastid	rpoB	Cryptomonas plastid
+Ga0114337_10007741	Not Binned	NA	Unassigned	Cryptomonas plastid	rpoB	Cryptomonas plastid
+Ga0114841_13390071	Not Binned	NA	Unassigned	Curvibacter	ahpC	Curvibacter
+Ga0114337_13502111	Not Binned	NA	Unassigned	Curvibacter	ahpC	Curvibacter
+Ga0114336_10294395	Not Binned	NA	Unassigned	Curvibacter	ahpC	Curvibacter
+Ga0114337_10064028	Sample_49614_6.fa	Winning_Genome	Cyanobium	NA	ahpC	Cyanobium / Synechococcus
+Ga0114337_10120972	Sample_49614_6.fa	Winning_Genome	Cyanobium	NA	katG	Cyanobium / Synechococcus
+Ga0226807_10015194	Sample_49614_6.fa	Winning_Genome	Cyanobium	Synechococcus	rpoB	Cyanobium / Synechococcus
+Ga0114337_10068832	Sample_49614_6.fa	Winning_Genome	Cyanobium	Synechococcus	rpoB	Cyanobium / Synechococcus
+Ga0114351_10420952	Not Binned	NA	Unassigned	Cyclotella chloroplast	ahpC	Cyclotella chloroplast
+Ga0114347_11168081	Not Binned	NA	Unassigned	Cyclotella chloroplast	ahpC	Cyclotella chloroplast
+Ga0114338_10277351	Not Binned	NA	Unassigned	Cyclotella chloroplast	rpoB	Cyclotella chloroplast
+Ga0365732_1265155_35047_39207	Not Binned	NA	Unassigned	Cyclotella chloroplast	rpoB	Cyclotella chloroplast
+Ga0307118_15096276	Not Binned	NA	Unassigned	Durinskia chloroplast	rpoB	Durinskia chloroplast
+Ga0365732_0857256_2418_6644	Not Binned	NA	Unassigned	Durinskia chloroplast	rpoB	Durinskia chloroplast
+Ga0114359_10115171	Not Binned	NA	Unassigned	Durinskia chloroplast	rpoB	Durinskia chloroplast
+Ga0114361_10088891	Not Binned	NA	Unassigned	Durinskia chloroplast	rpoB	Durinskia chloroplast
+Ga0307119_103208811	Not Binned	NA	Unassigned	Durinskia chloroplast	rpoB	Durinskia chloroplast
+Ga0226819_100058161	Not Binned	NA	Unassigned	Durinskia chloroplast	rpoB	Durinskia chloroplast
+Ga0226669_10006281	Not Binned	NA	Unassigned	Durinskia chloroplast	rpoB	Durinskia chloroplast
+Ga0226666_100010519	Bryobacter_all_normalized_coassembly_Metabat_Bin5.fa	Winning_Genome	Fimbriimonadaceae CoA8N M5	Armatimonadetes Uphvl-Ar2	rpoB	Fimbriimonadaceae CoA8N M5
+Ga0307118_14004711	Bryobacter_all_normalized_coassembly_Metabat_Bin5.fa	Winning_Genome	Fimbriimonadaceae CoA8N M5	Armatimonadetes Uphvl-Ar2	katG	Fimbriimonadaceae CoA8N M5
+Ga0226666_10017068	Sample_53600_15.fa	Losing_Genome	Fimbriimonadaceae CoA8N M5	Armatimonadetes Uphvl-Ar2	katG	Fimbriimonadaceae CoA8N M5
+Ga0307119_137535423	Bryobacter_all_coassembly_Metabat_Bin113.1.fa	Losing_Genome	Flammeovirgaceae 42896 C11	NA	katG	Flammeovirgaceae 42896 C11
+Ga0071351_100002411	Sample_42896_megahit_CONCOCT_Bin11.fa	Winning_Genome	Flammeovirgaceae 42896 C11	NA	rpoB	Flammeovirgaceae 42896 C11
+Ga0071351_100035513	Sample_42896_megahit_CONCOCT_Bin11.fa	Winning_Genome	Flammeovirgaceae 42896 C11	NA	katG	Flammeovirgaceae 42896 C11
+Ga0071351_100010820	Sample_42896_20.fa	Winning_Genome	Flammeovirgaceae 42896 E20	NA	rpoB	Flammeovirgaceae 42896 E20
+Ga0071351_100018032	Sample_42896_20.fa	Winning_Genome	Flammeovirgaceae 42896 E20	NA	katG	Flammeovirgaceae 42896 E20
+Ga0114348_10000426	Sample_49625_12.fa	Winning_Genome	Flammeovirgaceae 49625 E12	NA	rpoB	Flammeovirgaceae 49625 E12
+Ga0114348_100011011	Sample_49625_12.fa	Winning_Genome	Flammeovirgaceae 49625 E12	NA	katG	Flammeovirgaceae 49625 E12
+Ga0307119_112534866	Bryobacter_all_coassembly_Metabat_Bin5.fa	Winning_Genome	Flammeovirgaceae CoA8 M5	NA	katG	Flammeovirgaceae CoA8 M5
+Ga0307119_131257581	Bryobacter_all_normalized_coassembly_Metabat_Bin107.1.fa	Losing_Genome	Flammeovirgaceae CoA8 M5	NA	CCP	Flammeovirgaceae CoA8 M5
+Ga0307119_1163527214	Bryobacter_all_normalized_coassembly_Metabat_Bin18.fa	Winning_Genome	Flammeovirgaceae CoA8N M18	NA	rpoB	Flammeovirgaceae CoA8N M18
+Ga0307119_1270587013	Bryobacter_all_normalized_coassembly_Metabat_Bin18.fa	Winning_Genome	Flammeovirgaceae CoA8N M18	NA	katG	Flammeovirgaceae CoA8N M18
+Ga0307119_115191219	Not Binned	NA	Unassigned	Flavobacteriaceae	rpoB	Flavobacteriaceae
+Ga0307119_125054702	Not Binned	NA	Unassigned	Flavobacteriaceae	CCP	Flavobacteriaceae
+Ga0307119_125054704	Not Binned	NA	Unassigned	Flavobacteriaceae	CCP	Flavobacteriaceae
+Ga0307119_107261991	Not Binned	NA	Unassigned	Flavobacteriaceae	ahpC	Flavobacteriaceae
+Ga0307119_118782044	Not Binned	NA	Unassigned	Flavobacteriaceae	katG	Flavobacteriaceae
+Ga0114336_100063119	Not Binned	NA	Unassigned	Flavobacteriales	rpoB	Flavobacteriales
+Ga0114841_10624613	Not Binned	NA	Unassigned	Flavobacteriales	ahpC	Flavobacteriales
+Ga0114336_10244304	Not Binned	NA	Unassigned	Flavobacteriales	ahpC	Flavobacteriales
+Ga0114354_101455717	Not Binned	NA	Unassigned	Flavobacteriales	rpoB	Flavobacteriales
+Ga0114354_10026052	Not Binned	NA	Unassigned	Flavobacteriales	rpoB	Flavobacteriales
+Ga0114354_10118451	Not Binned	NA	Unassigned	Flavobacteriales	rpoB	Flavobacteriales
+Ga0114351_100878214	Not Binned	NA	Unassigned	Flavobacteriales	rpoB	Flavobacteriales
+Ga0307119_124586392	Not Binned	NA	Unassigned	Flavobacterium	ahpC	Flavobacterium
+Ga0365732_0150867_3_461	Not Binned	NA	Unassigned	Flavobacterium	ahpC	Flavobacterium
+Ga0307119_106598982	Not Binned	NA	Unassigned	Flavobacterium	ahpC	Flavobacterium
+Ga0114341_106350961	Not Binned	NA	Unassigned	Flavobacterium	ahpC	Flavobacterium
+Ga0114354_10021941	Not Binned	NA	Unassigned	Flavobacterium	rpoB	Flavobacterium
+Ga0114347_10043412	Sample_49624_28.fa	Winning_Genome	Fluviicola	NA	ahpC	Fluviicola
+Ga0114347_10012681	Sample_49624_28.fa	Winning_Genome	Fluviicola	NA	rpoB	Fluviicola
+Ga0114336_10122952	Sample_49613_7.fa	Losing_Genome	Gemmataceae 49618 E45	NA	katG	Gemmataceae 49618 E45
+Ga0114336_100018024	Sample_49618_45.fa	Winning_Genome	Gemmataceae 49618 E45	NA	CCP	Gemmataceae 49618 E45
+Ga0114336_100045323	Sample_49618_45.fa	Winning_Genome	Gemmataceae 49618 E45	NA	ahpC	Gemmataceae 49618 E45
+Ga0114341_1000222017	Sample_49618_45.fa	Winning_Genome	Gemmataceae 49618 E45	NA	rpoB	Gemmataceae 49618 E45
+Ga0114341_100296611	Sample_49618_45.fa	Winning_Genome	Gemmataceae 49618 E45	NA	katG	Gemmataceae 49618 E45
+Ga0114341_1000057075	Sample_49618_39.1.fa	Winning_Genome	Gemmatimonadetes 49618 E39	NA	rpoB	Gemmatimonadetes 49618 E39
+Ga0114341_100006655	Sample_49618_39.1.fa	Winning_Genome	Gemmatimonadetes 49618 E39	NA	katG	Gemmatimonadetes 49618 E39
+Ga0307119_133226691	Bryobacter_all_coassembly_Metabat_Bin24.1.fa	Losing_Genome	Gemmatimonadetes CoA2 M2	NA	CCP	Gemmatimonadetes CoA2 M2
+Ga0307119_128412912	Bryobacter_all_coassembly_Metabat_Bin24.1.fa	Losing_Genome	Gemmatimonadetes CoA2 M2	NA	rpoB	Gemmatimonadetes CoA2 M2
+Ga0365732_0619299_13799_14908	Bryobacter_all_normalized_coassembly_Metabat_Bin54.fa	Losing_Genome	Gemmatimonadetes CoA2 M2	NA	CCP	Gemmatimonadetes CoA2 M2
+Ga0365732_0937728_42811_45006	Bryobacter_all_normalized_coassembly_Metabat_Bin54.fa	Losing_Genome	Gemmatimonadetes CoA2 M2	NA	katG	Gemmatimonadetes CoA2 M2
+Ga0307117_13734259	Sample_42896_53600_coassembly_Metabat_Bin2.fa	Winning_Genome	Gemmatimonadetes CoA2 M2	NA	CCP	Gemmatimonadetes CoA2 M2
+Ga0226666_10030984	Sample_42896_53600_coassembly_Metabat_Bin2.fa	Winning_Genome	Gemmatimonadetes CoA2 M2	NA	ahpC	Gemmatimonadetes CoA2 M2
+Ga0307118_10980351	Sample_42896_53600_coassembly_Metabat_Bin2.fa	Winning_Genome	Gemmatimonadetes CoA2 M2	NA	rpoB	Gemmatimonadetes CoA2 M2
+Ga0226666_10012135	Sample_42896_53600_coassembly_Metabat_Bin2.fa	Winning_Genome	Gemmatimonadetes CoA2 M2	NA	katG	Gemmatimonadetes CoA2 M2
+Ga0071351_100004114	Bryobacter_all_normalized_coassembly_Metabat_Bin4.fa	Winning_Genome	Gemmatimonadetes CoA8N M4	NA	rpoB	Gemmatimonadetes CoA8N M4
+Ga0071351_100006215	Bryobacter_all_normalized_coassembly_Metabat_Bin4.fa	Winning_Genome	Gemmatimonadetes CoA8N M4	NA	katG	Gemmatimonadetes CoA8N M4
+Ga0226666_10086361	Sample_53600_27.fa	Losing_Genome	Gemmatimonadetes CoA8N M4	Gemmatimonas	rpoB	Gemmatimonadetes CoA8N M4
+Ga0365732_0071853_9485_13099	Bryobacter_all_normalized_coassembly_Metabat_Bin110.fa	Winning_Genome	Gemmatimonas	Gemmatimonas	rpoB	Gemmatimonas
+Ga0307119_1091315442	Bryobacter_all_normalized_coassembly_Metabat_Bin110.fa	Winning_Genome	Gemmatimonas	NA	CCP	Gemmatimonas
+Ga0307118_16886272	Bryobacter_all_normalized_coassembly_Metabat_Bin110.fa	Winning_Genome	Gemmatimonas	NA	CCP	Gemmatimonas
+Ga0307118_169188426	Bryobacter_all_normalized_coassembly_Metabat_Bin110.fa	Winning_Genome	Gemmatimonas	NA	katG	Gemmatimonas
+Ga0307118_11897511	Not Binned	NA	Unassigned	Gemmatimonas	rpoB	Gemmatimonas
+Ga0114341_101308042	Bryobacter_all_normalized_coassembly_Metabat_Bin109.1.fa	Losing_Genome	Hyphomonadaceae UKL13-1	Aquidulcibacter	ahpC	Hyphomonadaceae UKL13-1 / Aquidulcibacter
+Ga0071351_100097310	Sample_42896_10.fa	Losing_Genome	Hyphomonadaceae UKL13-1	Aquidulcibacter	ahpC	Hyphomonadaceae UKL13-1 / Aquidulcibacter
+Ga0071351_10076892	Sample_42896_10.fa	Losing_Genome	Hyphomonadaceae UKL13-1	Microcystis	katG	Microcystis
+Ga0071351_100032916	Sample_42896_megahit_CONCOCT_Bin36.fa	Winning_Genome	Hyphomonadaceae UKL13-1	Alphaproteobacteria PA1	katG	Hyphomonadaceae UKL13-1 / Aquidulcibacter
+Ga0307117_12480481	Sample_42896_megahit_CONCOCT_Bin36.fa	Winning_Genome	Hyphomonadaceae UKL13-1	Aquidulcibacter	ahpC	Hyphomonadaceae UKL13-1 / Aquidulcibacter
+Ga0365732_1024214_4624_8781	Sample_42896_megahit_CONCOCT_Bin36.fa	Winning_Genome	Hyphomonadaceae UKL13-1	Hyphomonadaceae bacterium UKL13-1	rpoB	Hyphomonadaceae UKL13-1 / Aquidulcibacter
+Ga0071351_10009733	Sample_42896_megahit_CONCOCT_Bin36.fa	Winning_Genome	Hyphomonadaceae UKL13-1	NA	ahpC	Hyphomonadaceae UKL13-1 / Aquidulcibacter
+Ga0114347_100022114	Sample_49624_23.fa	Winning_Genome	Ignavibacteriae 49624 E23	NA	rpoB	Ignavibacteriae 49624 E23
+Ga0114347_10140403	Sample_49624_23.fa	Winning_Genome	Ignavibacteriae 49624 E23	NA	katG	Ignavibacteriae 49624 E23
+Ga0226807_10077531	Sample_49614_41.fa	Losing_Genome	Ilumatobacteraceae 49618 E24	NA	katG	Ilumatobacteraceae 49618 E24
+Ga0114341_100067462	Sample_49618_24.fa	Winning_Genome	Ilumatobacteraceae 49618 E24	NA	katG	Ilumatobacteraceae 49618 E24
+Ga0307119_110061941	Bryobacter_all_coassembly_VizBin_Bin15.fa	Losing_Genome	Burkholderiales 49624 E46	Limnobacter	rpoB	Limnobacter
+Ga0114347_100018636	Sample_49624_46.fa	Winning_Genome	Burkholderiales 49624 E46	Limnobacter	ahpC	Limnobacter
+Ga0114347_10043196	Not Binned	NA	Unassigned	Limnobacter	rpoB	Limnobacter
+Ga0114336_100395918	Sample_49613_45.2.fa	Winning_Genome	Comamonadaceae 49613 E45.2	Limnohabitans	ahpC	Limnohabitans
+Ga0114337_100024652	Sample_49618_9.fa	Winning_Genome	Comamonadaceae 49618 E9	Limnohabitans	ahpC	Limnohabitans
+Ga0114337_10069161	Sample_49618_9.fa	Winning_Genome	Comamonadaceae 49618 E9	Limnohabitans	rpoB	Limnohabitans
+Ga0114337_100003930	Sample_49618_9.fa	Winning_Genome	Comamonadaceae 49618 E9	NA	CCP	Limnohabitans
+Ga0226807_100027036	Sample_49618_9.fa	Winning_Genome	Comamonadaceae 49618 E9	NA	katG	Limnohabitans
+Ga0114337_11504772	Sample_49638_12.fa	Winning_Genome	Limnohabitans	Limnohabitans	ahpC	Limnohabitans
+Ga0114841_10013299	Sample_49638_12.fa	Winning_Genome	Limnohabitans	Limnohabitans	rpoB	Limnohabitans
+Ga0114336_10181424	Not Binned	NA	Unassigned	Limnohabitans	ahpC	Limnohabitans
+Ga0114351_100400314	Not Binned	NA	Unassigned	Limnohabitans	ahpC	Limnohabitans
+Ga0114354_10281791	Not Binned	NA	Unassigned	Limnohabitans	ahpC	Limnohabitans
+Ga0226807_10990372	Not Binned	NA	Unassigned	Limnohabitans	ahpC	Limnohabitans
+Ga0114354_13142641	Not Binned	NA	Unassigned	Limnohabitans	ahpC	Limnohabitans
+Ga0114336_10278361	Not Binned	NA	Unassigned	Limnohabitans	rpoB	Limnohabitans
+Ga0114351_10346581	Not Binned	NA	Unassigned	Limnohabitans	rpoB	Limnohabitans
+Ga0114347_10158961	Not Binned	NA	Unassigned	Limnohabitans	rpoB	Limnohabitans
+Ga0114336_10216447	Not Binned	NA	Unassigned	Limnohabitans	rpoB	Limnohabitans
+Ga0114341_1000029733	Bryobacter_all_normalized_coassembly_ESOM_Bin16.fa	Winning_Genome	Luteolibacter	NA	rpoB	Luteolibacter
+Ga0114341_100028745	Sample_49618_51.fa	Losing_Genome	Luteolibacter	NA	katG	Luteolibacter
+Ga0071351_10046412	Not Binned	NA	Unassigned	Methylobacterium	rpoB	Methylobacterium
+Ga0365732_1952738_1_3672	Not Binned	NA	Unassigned	Methylobacterium	rpoB	Methylobacterium
+Ga0307117_10043651	Not Binned	NA	Unassigned	Methylobacterium	rpoB	Methylobacterium
+Ga0114336_10070563	Not Binned	NA	Unassigned	Methylophilaceae	rpoB	Methylophilaceae
+Ga0114337_10082876	Not Binned	NA	Unassigned	Methylophilaceae	rpoB	Methylophilaceae
+Ga0114336_10187043	Not Binned	NA	Unassigned	Methylophilaceae	rpoB	Methylophilaceae
+Ga0114347_10191212	Not Binned	NA	Unassigned	Methylophilaceae	rpoB	Methylophilaceae
+Ga0114337_10337541	Not Binned	NA	Unassigned	Methylophilaceae	rpoB	Methylophilaceae
+Ga0114347_10245771	Not Binned	NA	Unassigned	Methylophilaceae	rpoB	Methylophilaceae
+Ga0226810_10141411	Not Binned	NA	Unassigned	Methylophilaceae	rpoB	Methylophilaceae
+Ga0226806_1000998	Sample_42896_13.fa	Losing_Genome	Microcystis	Microcystis	ahpC	Microcystis
+Ga0114337_10484471	Sample_49628_54.fa	Losing_Genome	Microcystis	Microcystis	ahpC	Microcystis
+Ga0226808_1047541	Sample_49638_5.fa	Winning_Genome	Microcystis	Microcystis	ahpC	Microcystis
+Ga0114841_100006677	Sample_49638_5.fa	Winning_Genome	Microcystis	Microcystis	rpoB	Microcystis
+Ga0307117_11181601	Not Binned	NA	Unassigned	Microcystis	ahpC	Microcystis
+Ga0226815_1014671	Not Binned	NA	Unassigned	Microcystis	ahpC	Microcystis
+Ga0226806_1065081	Not Binned	NA	Unassigned	Microcystis	ahpC	Microcystis
+Ga0226669_10647411	Not Binned	NA	Unassigned	Microcystis	ahpC	Microcystis
+Ga0226665_10968301	Not Binned	NA	Unassigned	Microcystis	ahpC	Microcystis
+Ga0114352_11977631	Not Binned	NA	Unassigned	Microcystis	ahpC	Microcystis
+Ga0114356_14113381	Not Binned	NA	Unassigned	Microcystis	ahpC	Microcystis
+Ga0307118_12182281	Not Binned	NA	Unassigned	Microcystis	ahpC	Microcystis
+Ga0114359_12042691	Not Binned	NA	Unassigned	Microcystis	ahpC	Microcystis
+Ga0114341_102975371	Not Binned	NA	Unassigned	Microcystis	ahpC	Microcystis
+Ga0226811_10660051	Not Binned	NA	Unassigned	Microcystis	ahpC	Microcystis
+Ga0114338_12117571	Not Binned	NA	Unassigned	Microcystis	ahpC	Microcystis
+Ga0114345_12205671	Not Binned	NA	Unassigned	Microcystis	ahpC	Microcystis
+Ga0226807_10771072	Not Binned	NA	Unassigned	Microcystis	ahpC	Microcystis
+Ga0365732_0567707_4_501	Not Binned	NA	Unassigned	Microcystis	ahpC	Microcystis
+Ga0307119_106506281	Not Binned	NA	Unassigned	Microcystis	ahpC	Microcystis
+Ga0114361_10137151	Not Binned	NA	Unassigned	Microcystis	rpoB	Microcystis
+Ga0114344_10165951	Not Binned	NA	Unassigned	Microcystis	rpoB	Microcystis
+Ga0114354_10211341	Not Binned	NA	Unassigned	Microcystis	rpoB	Microcystis
+Ga0226808_1002244	Not Binned	NA	Unassigned	Microcystis	rpoB	Microcystis
+Ga0114351_10361914	Not Binned	NA	Unassigned	Microcystis	rpoB	Microcystis
+Ga0307117_10576861	Not Binned	NA	Unassigned	Microcystis	rpoB	Microcystis
+Ga0307118_10752863	Bryobacter_all_normalized_coassembly_VizBin_Bin37.1.fa	Losing_Genome	Nitrosomonadaceae CoA8N M54	NA	ahpC	Nitrosomonadaceae CoA8N M54
+Ga0114337_10072111	Sample_49614_48.fa	Winning_Genome	Novosphingobium	Sphingobium	katG	Novosphingobium
+Ga0114336_10045924	Sample_49613_5.fa	Winning_Genome	Opitutaceae 49613 E5	NA	katG	Opitutaceae 49613 E5
+Ga0114336_100002945	Sample_49613_5.fa	Winning_Genome	Opitutaceae 49613 E5	Opitutae bacterium Tous-C1TDCM	rpoB	Opitutaceae 49613 E5
+Ga0114347_10140271	Not Binned	NA	Unassigned	Opitutae	rpoB	Opitutae
+Ga0114354_10254791	Not Binned	NA	Unassigned	Opitutae	rpoB	Opitutae
+Ga0114336_100211615	Not Binned	NA	Unassigned	Opitutae	rpoB	Opitutae
+Ga0114351_10369662	Not Binned	NA	Unassigned	Opitutae	rpoB	Opitutae
+Ga0114336_10193951	Not Binned	NA	Unassigned	Opitutae	katG	Opitutae
+Ga0114354_10281852	Not Binned	NA	Unassigned	Opitutae	katG	Opitutae
+Ga0114336_100003258	Not Binned	NA	Unassigned	Opitutae bacterium Tous-C2FEB	rpoB	Opitutae bacterium Tous-C2FEB
+Ga0114336_100017818	Sample_49613_41.fa	Winning_Genome	Oxalobacteraceae 49613 E41	NA	ahpC	Oxalobacteraceae 49613 E41
+Ga0114336_10024439	Sample_49613_42.fa	Winning_Genome	Oxalobacteraceae 49613 E42	NA	rpoB	Oxalobacteraceae 49613 E42
+Ga0114336_100043720	Sample_49613_43.fa	Winning_Genome	Oxalobacteraceae 49613 E43	NA	ahpC	Oxalobacteraceae 49613 E43
+Ga0114337_10062307	Sample_49614_52.fa	Winning_Genome	Oxalobacteraceae 49614 E52	NA	ahpC	Oxalobacteraceae 49614 E52
+Ga0226807_10041334	Sample_49614_52.fa	Winning_Genome	Oxalobacteraceae 49614 E52	NA	rpoB	Oxalobacteraceae 49614 E52
+Ga0307119_1105319615	Bryobacter_all_coassembly_Metabat_Bin59.1.fa	Winning_Genome	Parachlamydia	NA	ahpC	Parachlamydia
+Ga0114337_10011944	Sample_49614_7.fa	Winning_Genome	Pedosphaeraceae 49614 E7	NA	ahpC	Pedosphaeraceae 49614 E7
+Ga0114337_10008959	Sample_49614_7.fa	Winning_Genome	Pedosphaeraceae 49614 E7	NA	rpoB	Pedosphaeraceae 49614 E7
+Ga0114356_15292432	Not Binned	NA	Unassigned	Pelagibacterales	ahpC	Pelagibacterales
+Ga0114336_10126182	Not Binned	NA	Unassigned	Pelagibacterales	rpoB	Pelagibacterales
+Ga0226810_10058062	Not Binned	NA	Unassigned	Pelagibacterales	rpoB	Pelagibacterales
+Ga0226807_10046476	Not Binned	NA	Unassigned	Pelagibacterales	rpoB	Pelagibacterales
+Ga0226814_1008071	Not Binned	NA	Unassigned	Pelagibacterales	rpoB	Pelagibacterales
+Ga0226810_10196221	Not Binned	NA	Unassigned	Pelagibacterales	rpoB	Pelagibacterales
+Ga0226812_1003262	Not Binned	NA	Unassigned	Pelagibacterales	rpoB	Pelagibacterales
+Ga0114354_10227651	Not Binned	NA	Unassigned	Pelagibacterales	rpoB	Pelagibacterales
+Ga0226817_100120191	Not Binned	NA	Unassigned	Pelagibacterales	rpoB	Pelagibacterales
+Ga0114337_100202010	Not Binned	NA	Unassigned	Pelagibacterales	rpoB	Pelagibacterales
+Ga0114356_100370412	Not Binned	NA	Unassigned	Pelagibacterales	rpoB	Pelagibacterales
+Ga0307118_14237033	Bryobacter_all_coassembly_Metabat_Bin46.fa	Winning_Genome	Phenylobacterium	Phenylobacterium	rpoB	Phenylobacterium
+Ga0114338_10018117	Sample_49615_5.1.fa	Winning_Genome	Phenylobacterium	Phenylobacterium	rpoB	Phenylobacterium
+Ga0114338_100080013	Sample_49615_5.1.fa	Winning_Genome	Phenylobacterium	Phenylobacterium	katG	Phenylobacterium
+Ga0114348_10012212	Not Binned	NA	Unassigned	Phenylobacterium	rpoB	Phenylobacterium
+Ga0226666_10051652	Not Binned	NA	Unassigned	Phenylobacterium	rpoB	Phenylobacterium
+Ga0307117_12751092	Not Binned	NA	Unassigned	Phenylobacterium	rpoB	Phenylobacterium
+Ga0226669_10013451	Not Binned	NA	Unassigned	Phenylobacterium	rpoB	Phenylobacterium
+Ga0365732_2019163_1_3819	Not Binned	NA	Unassigned	Phenylobacterium	rpoB	Phenylobacterium
+Ga0071351_10079591	Not Binned	NA	Unassigned	Phenylobacterium	rpoB	Phenylobacterium
+Ga0114348_10042972	Not Binned	NA	Unassigned	Phenylobacterium	rpoB	Phenylobacterium
+Ga0307119_137216152	Not Binned	NA	Unassigned	Phenylobacterium	rpoB	Phenylobacterium
+Ga0365732_0010102_331_4401	Not Binned	NA	Unassigned	Phenylobacterium	rpoB	Phenylobacterium
+Ga0226811_10022281	Not Binned	NA	Unassigned	Phenylobacterium	rpoB	Phenylobacterium
+Ga0114341_100802101	Not Binned	NA	Unassigned	Phenylobacterium	katG	Phenylobacterium
+Ga0307117_12961451	Not Binned	NA	Unassigned	Phenylobacterium	katG	Phenylobacterium
+Ga0071351_10008914	Not Binned	NA	Unassigned	Phenylobacterium	katG	Phenylobacterium
+Ga0307119_118906831	Not Binned	NA	Unassigned	Phenylobacterium	katG	Phenylobacterium
+Ga0071351_100002746	Sample_42896_15.fa	Winning_Genome	Phycisphaeraceae SM1A02 42896 E15	NA	rpoB	Phycisphaeraceae SM1A02 42896 E15
+Ga0307118_13767305	Bryobacter_all_coassembly_VizBin_Bin101.fa	Winning_Genome	Phycisphaeraceae SM1A02 CoA8 V101	NA	rpoB	Phycisphaeraceae SM1A02 CoA8 V101
+Ga0114338_10031565	Bryobacter_all_coassembly_CONCOCT_Bin32.fa	Winning_Genome	Pirellula	NA	CCP	Pirellula
+Ga0114338_100073834	Bryobacter_all_coassembly_CONCOCT_Bin32.fa	Winning_Genome	Pirellula	NA	ahpC	Pirellula
+Ga0226667_10002217	Bryobacter_all_coassembly_CONCOCT_Bin32.fa	Winning_Genome	Pirellula	NA	rpoB	Pirellula
+Ga0114337_100029136	Sample_49618_55.4.fa	Winning_Genome	Pirellula	NA	katG	Pirellula
+Ga0114337_10011205	Sample_49618_55.4.fa	Winning_Genome	Pirellula	Planctomycetes	CCP	Pirellula
+Ga0114337_10227374	Sample_49618_55.4.fa	Winning_Genome	Pirellula	Planctomycetes	ahpC	Pirellula
+Ga0114341_1000184516	Sample_49618_55.4.fa	Winning_Genome	Pirellula	Planctomycetes	rpoB	Pirellula
+Ga0114347_100176514	Sample_49624_51.1.fa	Winning_Genome	Pirellula	Planctomycetes	CCP	Pirellula
+Ga0114347_100108430	Sample_49624_51.1.fa	Winning_Genome	Pirellula	Planctomycetes	rpoB	Pirellula
+Ga0114347_100048534	Sample_49624_51.1.fa	Winning_Genome	Pirellula	Planctomycetes	katG	Pirellula
+Ga0114337_10133917	Sample_49618_42.fa	Winning_Genome	Planctomyces	NA	CCP	Planctomyces
+Ga0114337_100036322	Sample_49618_42.fa	Winning_Genome	Planctomyces	NA	ahpC	Planctomyces
+Ga0114341_10000080127	Sample_49618_42.fa	Winning_Genome	Planctomyces	NA	rpoB	Planctomyces
+Ga0114336_100114825	Sample_49613_24.1.fa	Winning_Genome	Planctomycetaceae 49613 E24	NA	rpoB	Planctomycetaceae 49613 E24
+Ga0114336_100117218	Sample_49613_24.1.fa	Winning_Genome	Planctomycetaceae 49613 E24	NA	katG	Planctomycetaceae 49613 E24
+Ga0114336_10060092	Sample_49613_25.fa	Winning_Genome	Planctomycetaceae 49613 E25	NA	rpoB	Planctomycetaceae 49613 E25
+Ga0114336_10044244	Sample_49613_25.fa	Winning_Genome	Planctomycetaceae 49613 E25	NA	katG	Planctomycetaceae 49613 E25
+Ga0114336_10036162	Sample_49613_27.fa	Winning_Genome	Planctomycetaceae 49613 E27	NA	rpoB	Planctomycetaceae 49613 E27
+Ga0114336_10115444	Sample_49613_27.fa	Winning_Genome	Planctomycetaceae 49613 E27	NA	katG	Planctomycetaceae 49613 E27
+Ga0114337_100004857	Sample_49618_55.1.fa	Winning_Genome	Planctomycetaceae 49618 E55	NA	CCP	Planctomycetaceae 49618 E55
+Ga0114337_100003236	Sample_49618_55.1.fa	Winning_Genome	Planctomycetaceae 49618 E55	Planctomycetes	ahpC	Planctomycetaceae 49618 E55
+Ga0226809_10035691	Sample_49618_55.1.fa	Winning_Genome	Planctomycetaceae 49618 E55	Planctomycetes	rpoB	Planctomycetaceae 49618 E55
+Ga0114337_1000027173	Sample_49618_55.1.fa	Winning_Genome	Planctomycetaceae 49618 E55	Planctomycetes	rpoB	Planctomycetaceae 49618 E55
+Ga0114337_10158696	Sample_49618_55.3.fa	Winning_Genome	Planctomycetaceae 49618 E55.3	NA	CCP	Planctomycetaceae 49618 E55.3
+Ga0114337_10039844	Sample_49618_55.3.fa	Winning_Genome	Planctomycetaceae 49618 E55.3	Planctomycetes	rpoB	Planctomycetaceae 49618 E55.3
+Ga0114351_100467715	Sample_49628_33.1.fa	Winning_Genome	Planctomycetaceae 49628 E33	NA	CCP	Planctomycetaceae 49628 E33
+Ga0114351_10016243	Sample_49628_33.1.fa	Winning_Genome	Planctomycetaceae 49628 E33	NA	CCP	Planctomycetaceae 49628 E33
+Ga0114351_100037968	Sample_49628_33.1.fa	Winning_Genome	Planctomycetaceae 49628 E33	NA	ahpC	Planctomycetaceae 49628 E33
+Ga0226666_100010933	Sample_53600_7.fa	Winning_Genome	Planctomycetaceae 53600 E7	NA	rpoB	Planctomycetaceae 53600 E7
+Ga0226666_100012518	Sample_53600_7.fa	Winning_Genome	Planctomycetaceae 53600 E7	NA	katG	Planctomycetaceae 53600 E7
+Ga0114337_100044032	Not Binned	NA	Unassigned	Planctomycetes	ahpC	Planctomycetes
+Ga0114341_1000013656	Not Binned	NA	Unassigned	Planctomycetes	ahpC	Planctomycetes
+Ga0114341_100623472	Not Binned	NA	Unassigned	Planctomycetes	ahpC	Planctomycetes
+Ga0114351_10103988	Not Binned	NA	Unassigned	Planctomycetes	ahpC	Planctomycetes
+Ga0114344_10554132	Not Binned	NA	Unassigned	Planctomycetes	ahpC	Planctomycetes
+Ga0114337_10136411	Not Binned	NA	Unassigned	Planctomycetes	rpoB	Planctomycetes
+Ga0226807_10112223	Not Binned	NA	Unassigned	Polynucleobacter	rpoB	Polynucleobacter
+Ga0226807_10112261	Not Binned	NA	Unassigned	Polynucleobacter	rpoB	Polynucleobacter
+Ga0114351_10490171	Not Binned	NA	Unassigned	Polynucleobacter	rpoB	Polynucleobacter
+Ga0226809_10019043	Not Binned	NA	Unassigned	Polynucleobacter	rpoB	Polynucleobacter
+Ga0114351_10252142	Not Binned	NA	Unassigned	Polynucleobacter	rpoB	Polynucleobacter
+Ga0114841_10282121	Not Binned	NA	Unassigned	Polynucleobacter	rpoB	Polynucleobacter
+Ga0114344_10055291	Not Binned	NA	Unassigned	Polynucleobacter	rpoB	Polynucleobacter
+Ga0114344_10035664	Not Binned	NA	Unassigned	Polynucleobacter	rpoB	Polynucleobacter
+Ga0114841_10131002	Not Binned	NA	Unassigned	Polynucleobacter	rpoB	Polynucleobacter
+Ga0114336_10199986	Not Binned	NA	Unassigned	Polynucleobacter	rpoB	Polynucleobacter
+Ga0226809_10032491	Not Binned	NA	Unassigned	Polynucleobacter	rpoB	Polynucleobacter
+Ga0114336_10243112	Not Binned	NA	Unassigned	Polynucleobacter	rpoB	Polynucleobacter
+Ga0114351_100005226	Sample_49628_63.fa	Winning_Genome	Proteobacteria 49628 E63	NA	ahpC	Proteobacteria 49628 E63
+Ga0114351_100049421	Sample_49628_63.fa	Winning_Genome	Proteobacteria 49628 E63	NA	katG	Proteobacteria 49628 E63
+Ga0307119_123614431	Bryobacter_all_coassembly_CONCOCT_Bin15.2.fa	Winning_Genome	Proteobacteria CoA8 C15	NA	ahpC	Proteobacteria CoA8 C15
+Ga0307119_1360222514	Bryobacter_all_coassembly_CONCOCT_Bin15.2.fa	Winning_Genome	Proteobacteria CoA8 C15	NA	rpoB	Proteobacteria CoA8 C15
+Ga0071351_10177221	Bryobacter_all_coassembly_Metabat_Bin100.fa	Winning_Genome	Proteobacteria CoA8 M100	NA	ahpC	Proteobacteria CoA8 M100
+Ga0307117_10988323	Bryobacter_all_coassembly_Metabat_Bin100.fa	Winning_Genome	Proteobacteria CoA8 M100	NA	ahpC	Proteobacteria CoA8 M100
+Ga0307119_1127286950	Bryobacter_all_coassembly_Metabat_Bin100.fa	Winning_Genome	Proteobacteria CoA8 M100	NA	rpoB	Proteobacteria CoA8 M100
+Ga0307119_120906949	Bryobacter_all_coassembly_Metabat_Bin100.fa	Winning_Genome	Proteobacteria CoA8 M100	NA	katG	Proteobacteria CoA8 M100
+Ga0071351_100081917	Bryobacter_all_coassembly_Metabat_Bin7.fa	Winning_Genome	Pseudanabaena	Pseudanabaena	ahpC	Pseudanabaena
+Ga0307118_15681337	Bryobacter_all_coassembly_Metabat_Bin7.fa	Winning_Genome	Pseudanabaena	Pseudanabaena	rpoB	Pseudanabaena
+Ga0071351_10011908	Sample_42896_22.2.fa	Losing_Genome	Pseudanabaena	Pseudanabaena	rpoB	Pseudanabaena
+Ga0071351_10012752	Sample_42896_megahit_Metabat_Bin3.fa	Winning_Genome	Pseudanabaena	Pseudanabaena	ahpC	Pseudanabaena
+Ga0114337_10032923	Sample_42896_megahit_Metabat_Bin3.fa	Winning_Genome	Pseudanabaena	Pseudanabaena	rpoB	Pseudanabaena
+Ga0226817_104988501	Not Binned	NA	Unassigned	Pseudanabaena	ahpC	Pseudanabaena
+Ga0226667_11430321	Not Binned	NA	Unassigned	Pseudanabaena	ahpC	Pseudanabaena
+Ga0226823_1038581	Not Binned	NA	Unassigned	Pseudanabaena	ahpC	Pseudanabaena
+Ga0114356_10026593	Not Binned	NA	Unassigned	Pseudanabaena	rpoB	Pseudanabaena
+Ga0114338_100034720	Sample_42896_53600_coassembly_CONCOCT_Bin13.fa	Winning_Genome	Rhizobiales CoA2 C13	Methylobacterium	rpoB	Rhizobiales CoA2 C13
+Ga0307118_10838431	Sample_42896_53600_coassembly_CONCOCT_Bin13.fa	Winning_Genome	Rhizobiales CoA2 C13	NA	katG	Rhizobiales CoA2 C13
+Ga0114338_10012166	Sample_49615_13.fa	Losing_Genome	Rhizobiales CoA2 C13	NA	katG	Rhizobiales CoA2 C13
+Ga0114347_100142812	Sample_49624_8.fa	Winning_Genome	Rhodobacter	Tabrizicola	rpoB	Rhodobacter
+Ga0071351_10094371	Sample_42896_5.fa	Losing_Genome	Rhodobacteraceae 49625 E6	NA	katG	Rhodobacteraceae 49625 E6
+Ga0114338_10028481	Sample_49615_6.fa	Losing_Genome	Rhodobacteraceae 49625 E6	NA	rpoB	Rhodobacteraceae 49625 E6
+Ga0114338_10079271	Sample_49615_6.fa	Losing_Genome	Rhodobacteraceae 49625 E6	NA	katG	Rhodobacteraceae 49625 E6
+Ga0114348_10018795	Sample_49625_6.fa	Winning_Genome	Rhodobacteraceae 49625 E6	NA	katG	Rhodobacteraceae 49625 E6
+Ga0114341_100837851	Not Binned	NA	Unassigned	Rhodoferax	ahpC	Rhodoferax
+Ga0114347_100076917	Sample_49624_59.fa	Winning_Genome	Rickettsiaceae 49624 E59	NA	ahpC	Rickettsiaceae 49624 E59
+Ga0114347_100052021	Sample_49624_59.fa	Winning_Genome	Rickettsiaceae 49624 E59	NA	rpoB	Rickettsiaceae 49624 E59
+Ga0226817_100045951	Sample_49633_10.fa	Losing_Genome	Rickettsiaceae 49624 E59	NA	rpoB	Rickettsiaceae 49624 E59
+Ga0114354_10001255	Sample_49632_25.fa	Winning_Genome	Rickettsiales 49632 E25	NA	ahpC	Rickettsiales 49632 E25
+Ga0307117_12565673	Bryobacter_all_coassembly_Metabat_Bin105.1.fa	Winning_Genome	Rickettsiales CoA8 M15	NA	ahpC	Rickettsiales CoA8 M15
+Ga0307119_1201443810	Bryobacter_all_coassembly_Metabat_Bin105.1.fa	Winning_Genome	Rickettsiales CoA8 M15	NA	rpoB	Rickettsiales CoA8 M15
+Ga0307118_15836543	Bryobacter_all_coassembly_Metabat_Bin105.1.fa	Winning_Genome	Rickettsiales CoA8 M15	NA	katG	Rickettsiales CoA8 M15
+Ga0365732_0852232_12193_12648	Bryobacter_all_normalized_coassembly_VizBin_Bin6.1.fa	Losing_Genome	Rickettsiales CoA8_M105	NA	ahpC	Rickettsiales CoA8_M105
+Ga0365732_1016008_2_583	Bryobacter_all_normalized_coassembly_VizBin_Bin6.1.fa	Losing_Genome	Rickettsiales CoA8_M105	NA	ahpC	Rickettsiales CoA8_M105
+Ga0365732_1154570_4321_7395	Bryobacter_all_normalized_coassembly_VizBin_Bin6.1.fa	Losing_Genome	Rickettsiales CoA8_M105	NA	rpoB	Rickettsiales CoA8_M105
+Ga0365732_0537321_1_1812	Bryobacter_all_normalized_coassembly_VizBin_Bin6.1.fa	Losing_Genome	Rickettsiales CoA8_M105	NA	katG	Rickettsiales CoA8_M105
+Ga0071351_10101433	Bryobacter_all_normalized_coassembly_Metabat_Bin8.fa	Winning_Genome	Rickettsiales SM2D12 CoA8N M8	NA	ahpC	Rickettsiales SM2D12 CoA8N M8
+Ga0307119_1239735211	Bryobacter_all_normalized_coassembly_Metabat_Bin8.fa	Winning_Genome	Rickettsiales SM2D12 CoA8N M8	NA	rpoB	Rickettsiales SM2D12 CoA8N M8
+Ga0114347_10898802	Sample_49636_6.fa	Winning_Genome	Rubrivivax 49636 E6	NA	ahpC	Rubrivivax 49636 E6
+Ga0114359_10006939	Sample_49636_6.fa	Winning_Genome	Rubrivivax 49636 E6	NA	rpoB	Rubrivivax 49636 E6
+Ga0114347_10169312	Sample_49636_6.fa	Winning_Genome	Rubrivivax 49636 E6	NA	katG	Rubrivivax 49636 E6
+Ga0114359_10001848	Sample_49636_6.fa	Winning_Genome	Rubrivivax 49636 E6	NA	katG	Rubrivivax 49636 E6
+Ga0226667_10025614	Sample_53601_5.fa	Winning_Genome	Rubrivivax 53601 E5	NA	ahpC	Rubrivivax 53601 E5
+Ga0365732_1683238_4198_8394	Sample_53601_5.fa	Winning_Genome	Rubrivivax 53601 E5	NA	rpoB	Rubrivivax 53601 E5
+Ga0226667_10000887	Sample_53601_5.fa	Winning_Genome	Rubrivivax 53601 E5	NA	katG	Rubrivivax 53601 E5
+Ga0114348_10007403	Bryobacter_all_normalized_coassembly_Metabat_Bin83.fa	Losing_Genome	Rubrivivax COA2 C44	NA	rpoB	Rubrivivax COA2 C44
+Ga0365732_0489144_965_4801	Bryobacter_all_normalized_coassembly_Metabat_Bin85.fa	Losing_Genome	Rubrivivax COA2 C44	NA	rpoB	Rubrivivax COA2 C44
+Ga0365732_0652464_3_1889	Bryobacter_all_normalized_coassembly_Metabat_Bin85.fa	Losing_Genome	Rubrivivax COA2 C44	NA	katG	Rubrivivax COA2 C44
+Ga0071351_10096491	Sample_42896_53600_coassembly_CONCOCT_Bin44.1.fa	Winning_Genome	Rubrivivax CoA2 C44	NA	katG	Rubrivivax CoA2 C44
+Ga0307117_13460862	Sample_42896_53600_coassembly_CONCOCT_Bin48.1.fa	Winning_Genome	Rubrivivax CoA2 C48	NA	ahpC	Rubrivivax CoA2 C48
+Ga0307118_17229831	Sample_42896_53600_coassembly_CONCOCT_Bin48.1.fa	Winning_Genome	Rubrivivax CoA2 C48	NA	rpoB	Rubrivivax CoA2 C48
+Ga0307118_16978875	Sample_42896_53600_coassembly_CONCOCT_Bin48.1.fa	Winning_Genome	Rubrivivax CoA2 C48	NA	katG	Rubrivivax CoA2 C48
+Ga0226666_10017123	Bryobacter_all_coassembly_Metabat_Bin36.fa	Losing_Genome	Rubrivivax CoA2 C53	NA	ahpC	Rubrivivax CoA2 C53
+Ga0307119_1301200717	Bryobacter_all_coassembly_Metabat_Bin36.fa	Losing_Genome	Rubrivivax CoA2 C53	NA	katG	Rubrivivax CoA2 C53
+Ga0307118_13781652	Sample_42896_53600_coassembly_CONCOCT_Bin53.fa	Winning_Genome	Rubrivivax CoA2 C53	NA	CCP	Rubrivivax CoA2 C53
+Ga0226666_10008639	Sample_42896_53600_coassembly_CONCOCT_Bin53.fa	Winning_Genome	Rubrivivax CoA2 C53	NA	rpoB	Rubrivivax CoA2 C53
+Ga0114337_100274711	Sample_49614_9.fa	Winning_Genome	Saprospiraceae 49614 E9	NA	rpoB	Saprospiraceae 49614 E9
+Ga0114337_10055202	Sample_49614_9.fa	Winning_Genome	Saprospiraceae 49614 E9	NA	katG	Saprospiraceae 49614 E9
+Ga0114337_100849610	Sample_49614_60.fa	Losing_Genome	Saprospiraceae 49618 E65	NA	rpoB	Saprospiraceae 49618 E65
+Ga0114341_1000251614	Sample_49618_65.fa	Winning_Genome	Saprospiraceae 49618 E65	NA	rpoB	Saprospiraceae 49618 E65
+Ga0114347_10014302	Sample_49624_15.fa	Winning_Genome	Saprospiraceae 49624 E15	NA	rpoB	Saprospiraceae 49624 E15
+Ga0114351_10350567	Sample_49628_56.fa	Losing_Genome	Saprospiraceae 49624 E15	NA	katG	Saprospiraceae 49624 E15
+Ga0307119_1114423313	Bryobacter_all_coassembly_Metabat_Bin65.fa	Winning_Genome	Sediminibacterium	NA	rpoB	Sediminibacterium
+Ga0307119_120069853	Bryobacter_all_coassembly_Metabat_Bin65.fa	Winning_Genome	Sediminibacterium	NA	katG	Sediminibacterium
+Ga0114336_10096687	Sample_49613_75.1.fa	Winning_Genome	Sediminibacterium	NA	katG	Sediminibacterium
+Ga0114336_10178175	Sample_49614_65.1.fa	Winning_Genome	Sediminibacterium	NA	ahpC	Sediminibacterium
+Ga0114337_10002035	Sample_49614_65.1.fa	Winning_Genome	Sediminibacterium	Sediminibacterium	rpoB	Sediminibacterium
+Ga0114344_100070622	Sample_49621_32.1.fa	Losing_Genome	Sediminibacterium	NA	ahpC	Sediminibacterium
+Ga0114841_10008407	Sample_49638_23.fa	Winning_Genome	Sediminibacterium	NA	katG	Sediminibacterium
+Ga0114351_10126141	Not Binned	NA	Unassigned	Sediminibacterium	rpoB	Sediminibacterium
+Ga0114354_10221361	Not Binned	NA	Unassigned	Sediminibacterium	rpoB	Sediminibacterium
+Ga0114841_10124142	Not Binned	NA	Unassigned	Sediminibacterium	rpoB	Sediminibacterium
+Ga0307117_13141615	Sample_42896_53600_coassembly_CONCOCT_Bin42.fa	Winning_Genome	Solibacteraceae CoA2 C42	Acidobacteriia 12-62-4	ahpC	Solibacteraceae CoA2 C42
+Ga0071351_10012512	Sample_42896_53600_coassembly_CONCOCT_Bin42.fa	Winning_Genome	Solibacteraceae CoA2 C42	NA	rpoB	Solibacteraceae CoA2 C42
+Ga0365732_1248220_2999_5215	Sample_42896_53600_coassembly_CONCOCT_Bin42.fa	Winning_Genome	Solibacteraceae CoA2 C42	NA	katG	Solibacteraceae CoA2 C42
+Ga0114336_10266831	Not Binned	NA	Unassigned	Spartobacteria	rpoB	Spartobacteria
+Ga0114336_10118412	Not Binned	NA	Unassigned	Spartobacteria	rpoB	Spartobacteria
+Ga0114341_100275882	Not Binned	NA	Unassigned	Spartobacteria	rpoB	Spartobacteria
+Ga0114341_100131971	Not Binned	NA	Unassigned	Spartobacteria	rpoB	Spartobacteria
+Ga0114336_1000003115	Not Binned	NA	Unassigned	Sphingobacteriaceae	rpoB	Sphingobacteriaceae
+Ga0114341_10000001232	Sample_49618_60.fa	Winning_Genome	Sphingobacteriales 49618 E60	NA	ahpC	Sphingobacteriales 49618 E60
+Ga0114341_10000001405	Sample_49618_60.fa	Winning_Genome	Sphingobacteriales 49618 E60	NA	rpoB	Sphingobacteriales 49618 E60
+Ga0114347_100062322	Sample_49624_34.fa	Winning_Genome	Sphingobacteriales 49624 E34	Bacteroidetes bacterium B1	rpoB	Sphingobacteriales 49624 E34
+Ga0114347_100017424	Sample_49624_34.fa	Winning_Genome	Sphingobacteriales 49624 E34	NA	CCP	Sphingobacteriales 49624 E34
+Ga0114347_10002862	Sample_49624_34.fa	Winning_Genome	Sphingobacteriales 49624 E34	NA	CCP	Sphingobacteriales 49624 E34
+Ga0114347_100185522	Sample_49624_34.fa	Winning_Genome	Sphingobacteriales 49624 E34	NA	ahpC	Sphingobacteriales 49624 E34
+Ga0114347_100016342	Sample_49624_34.fa	Winning_Genome	Sphingobacteriales 49624 E34	NA	katG	Sphingobacteriales 49624 E34
+Ga0114351_10004992	Sample_49628_20.fa	Losing_Genome	Sphingobacteriales 49624 E34	NA	CCP	Sphingobacteriales 49624 E34
+Ga0114351_10024924	Sample_49628_20.fa	Losing_Genome	Sphingobacteriales 49624 E34	NA	katG	Sphingobacteriales 49624 E34
+Ga0114336_100180718	Sample_49613_9.fa	Winning_Genome	Sphingobacteriales AKYH767 49613 E9	NA	rpoB	Sphingobacteriales AKYH767 49613 E9
+Ga0114336_100006160	Sample_49613_9.fa	Winning_Genome	Sphingobacteriales AKYH767 49613 E9	NA	katG	Sphingobacteriales AKYH767 49613 E9
+Ga0114338_100093816	Bryobacter_all_coassembly_VizBin_Bin48.fa	Winning_Genome	Sphingobacteriales CoA8 V48	NA	rpoB	Sphingobacteriales CoA8 V48
+Ga0114338_10002543	Bryobacter_all_coassembly_VizBin_Bin48.fa	Winning_Genome	Sphingobacteriales CoA8 V48	NA	katG	Sphingobacteriales CoA8 V48
+Ga0114336_10753022	Sample_49628_11.fa	Winning_Genome	Sphingomonadaceae 49628 E11	NA	ahpC	Sphingomonadaceae 49628 E11
+Ga0114341_102171292	Sample_49628_11.fa	Winning_Genome	Sphingomonadaceae 49628 E11	Sphingomonadales bacterium 35-56-22	ahpC	Sphingomonadaceae 49628 E11
+Ga0114347_1000010400	Sample_49628_11.fa	Winning_Genome	Sphingomonadaceae 49628 E11	Sphingomonadales bacterium 35-56-22	rpoB	Sphingomonadaceae 49628 E11
+Ga0114337_10078472	Sample_49614_53.fa	Winning_Genome	Sphingomonadales 49614 E53	NA	rpoB	Sphingomonadales 49614 E53
+Ga0114354_10039847	Not Binned	NA	Unassigned	Sphingomonadales bacterium 28-55-16	ahpC	Sphingomonadales bacterium 28-55-16
+Ga0114351_15463071	Not Binned	NA	Unassigned	Sphingomonadales bacterium 28-55-16	ahpC	Sphingomonadales bacterium 28-55-16
+Ga0114337_11156021	Not Binned	NA	Unassigned	Sphingomonadales bacterium 35-56-22	ahpC	Sphingomonadales bacterium 35-56-22
+Ga0114354_10020737	Not Binned	NA	Unassigned	Sphingomonadales bacterium 35-56-22	katG	Sphingomonadales bacterium 35-56-22
+Ga0114336_100897310	Not Binned	NA	Unassigned	Synechococcus	ahpC	Cyanobium / Synechococcus
+Ga0226810_10636312	Not Binned	NA	Unassigned	Synechococcus	ahpC	Cyanobium / Synechococcus
+Ga0114344_11609691	Not Binned	NA	Unassigned	Synechococcus	ahpC	Cyanobium / Synechococcus
+Ga0114341_102266652	Not Binned	NA	Unassigned	Synechococcus	ahpC	Cyanobium / Synechococcus
+Ga0114336_10174101	Not Binned	NA	Unassigned	Synechococcus	rpoB	Cyanobium / Synechococcus
+Ga0307119_124474495	Not Binned	NA	Unassigned	Synechococcus	rpoB	Cyanobium / Synechococcus
+Ga0114336_10067222	Not Binned	NA	Unassigned	Teleaulax plastid	rpoB	Teleaulax plastid
+Ga0114336_10019237	Not Binned	NA	Unassigned	Teleaulax plastid	rpoB	Teleaulax plastid
+Ga0114351_100015243	Not Binned	NA	Unassigned	Teleaulax plastid	rpoB	Teleaulax plastid
+Ga0114341_100273481	Not Binned	NA	Unassigned	Teleaulax plastid	rpoB	Teleaulax plastid
+Ga0114347_10365641	Sample_49621_30.fa	Losing_Genome	Terrimonas	NA	katG	Terrimonas
+Ga0114337_100364817	Sample_49632_12.fa	Winning_Genome	Terrimonas	NA	rpoB	Terrimonas
+Ga0114354_100014114	Sample_49632_12.fa	Winning_Genome	Terrimonas	NA	katG	Terrimonas
+Ga0114354_10040982	Not Binned	NA	Unassigned	Thalassiosira chloroplast	ahpC	Thalassiosira chloroplast
+Ga0114354_10008376	Not Binned	NA	Unassigned	Thalassiosira chloroplast	rpoB	Thalassiosira chloroplast
+Ga0307119_104190272	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_103728041	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307118_11381032	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114361_10057345	Not Binned	NA	Unassigned	Unassigned	APX	Unassigned
+Ga0114336_10079873	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0307119_119304463	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0365732_0309703_351_1958	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114359_10737052	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114337_10625792	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114337_100077629	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114354_10425182	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0365732_0309108_402_2159	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114354_10702464	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0307119_113581602	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0226807_10154573	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114341_100019453	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114354_10620352	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114341_1000006230	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114341_100148773	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114337_10072195	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0226810_10956091	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0307119_117531212	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114341_100821241	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114351_100459314	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0307119_137587311	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114347_10168182	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114344_10648951	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114341_101355433	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114337_10354272	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114336_10403202	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0226809_10298111	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114337_11541153	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114351_10935781	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114337_10269064	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114341_101530462	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0226807_10543881	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114341_100408953	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114354_10645592	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0307119_118509831	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114341_102347481	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114341_100025663	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114347_10772332	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114337_100141422	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114337_10921391	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114347_10313652	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114841_10495412	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114336_10757752	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114337_10387555	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114341_1000275916	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114354_10016046	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114341_101214633	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114337_10072653	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114341_101515322	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114341_100261492	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114347_100883610	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114341_100801091	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114347_10104755	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114347_10337923	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114354_100029921	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114351_11524901	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114337_11240152	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114336_10090183	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0226667_10281531	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114336_1000007201	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114338_11079151	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0226807_10354111	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114354_10188433	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114337_10000568	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0114347_10927802	Not Binned	NA	Unassigned	Unassigned	CCP	Unassigned
+Ga0307119_134147485	Not Binned	NA	Unassigned	Unassigned	katE	Unassigned
+Ga0114347_11596832	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114354_10103662	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114354_10593442	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114348_10270732	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114354_10321462	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10034285	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_101311833	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0226807_10651442	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_102526101	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_10347513	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_120384131	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_108162861	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_11253382	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114347_11504862	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_101749362	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114354_10165944	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114354_12491971	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_102784511	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114347_10318912	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_10029718	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0365732_1095377_3_512	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_114677601	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0365732_1350081_407_868	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_10589422	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_106935191	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0226668_10350651	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_100570076	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_111140627	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114841_10638752	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114351_13807521	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0226807_10217485	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114841_10300211	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114347_11347731	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114354_100033130	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307118_11243852	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_102149672	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_12061232	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_100219601	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_13774311	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114348_100010928	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114841_11090952	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114347_12246251	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114347_10217632	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_104684171	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114841_11025312	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_116576252	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_10089214	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307118_13631621	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0226813_10001512	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114345_10985762	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114354_11204181	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_136970612	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10672972	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10008646	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_100020456	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0365732_1415578_1019_1513	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114344_11734641	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_101616538	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_11695922	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114354_10038566	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114348_10040406	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114351_11575792	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114354_10850651	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114841_100006190	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_101700242	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114359_10495501	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0071351_10633081	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10160361	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10203801	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10730982	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_133806183	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0365732_1461078_1_495	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_10776981	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_135583303	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_12781021	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0226666_10573592	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114841_10098651	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_100304771	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_10133545	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0226807_10605931	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_100557593	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114344_10371553	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_11400622	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114356_10510931	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114354_10370872	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114354_11120182	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_100215634	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0226807_10276952	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_10048957	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_118092981	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10089077	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307117_11947062	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114351_11251512	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114351_11501482	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_1000453317	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_103353453	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_100588161	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114338_100058513	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_101229271	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_11464051	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_10262194	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114344_11200531	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_104238092	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_100187353	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_1000001353	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_12331811	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_10776501	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10217284	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_118098351	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0365732_0061158_445_954	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0365732_1879514_2_439	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_102119341	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114347_10026622	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114347_10819891	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_12351962	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_1000007164	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_100075633	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114344_11342552	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10007694	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_112603622	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0226807_11571321	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114354_11008422	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_118046361	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114347_100152521	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_10651302	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114351_10081554	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0071351_10040543	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_10030365	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_12702721	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_10306733	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114354_12662931	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114354_100034518	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114354_11077732	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114344_12701121	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_100808882	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_100242517	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_10158483	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_108883683	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_10359282	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_120926212	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10281094	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_10323523	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_124564001	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307118_16986061	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114356_100215414	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114344_10496032	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_10952632	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_100525931	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0226807_12006131	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114841_11469062	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114354_12771051	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_102399912	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307117_13795601	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114354_10081462	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_106418841	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_103007621	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114351_12784261	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114351_11488252	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114347_11639771	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_11037071	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_11307081	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_134352691	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307118_16559912	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307117_11289044	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114841_10550602	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114338_13007641	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0365732_1234434_2_430	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10074263	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114351_10362254	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307117_13819331	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_103826822	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114351_100259326	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114344_10765082	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0365732_1258072_1_423	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114351_15087141	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_102710122	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_13730081	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114338_10698041	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114351_10027972	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307117_12340641	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_11730011	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10678193	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114841_10011832	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_107806762	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_100466112	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_14541881	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_131282081	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_11295772	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307117_12646667	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_101793671	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_125486644	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_100488311	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114347_100015955	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114354_11262071	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_120834483	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_102720671	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10069775	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0226667_10901471	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114347_10010762	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114344_11536681	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10074404	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_106720994	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_10163733	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114338_100013532	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114347_11541211	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0226665_10108073	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114351_12890351	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_11336122	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_100016190	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0226669_10159802	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_135643292	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_100318701	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114348_11522901	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114354_13005321	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_11311192	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_11084862	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_126663083	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_100001824	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307118_15422581	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114364_11120072	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0071351_10953271	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_101060691	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_14341051	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_100536415	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10242835	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_109727854	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114841_10068959	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10029371	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114351_12015232	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114364_10555573	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114347_12451601	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0226807_11652571	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0226807_10011794	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114364_12256441	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114364_12258391	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114364_12372081	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0226807_10296041	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114344_11266751	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114354_100049632	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10341872	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114344_10053323	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0226810_10210632	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114364_12183501	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_102522361	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_100897103	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_12651701	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_14013661	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114364_100094221	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114364_12195111	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114841_10582513	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114341_104605382	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_10061048	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10063449	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114337_100021474	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10282817	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_100233430	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0307119_110120164	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114364_10887564	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0226807_11912101	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114351_12015801	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10044643	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0226812_1016002	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114351_10316825	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100161252	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0307119_131160392	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_10179802	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0226665_10022871	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114344_10130492	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0307119_119168701	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100077492	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0365732_1646164_2_3175	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_100013564	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10013407	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_100123616	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100141811	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114347_100022298	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100242732	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10018738	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_10012298	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100201992	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_1000058139	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_10008118	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10038685	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114344_100122221	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114351_10045961	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100473191	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0365732_0473172_8_2974	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100300942	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_10254071	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10073061	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114347_10020296	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100069665	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10038962	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10016779	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_100531313	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100544962	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_10008431	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114351_10206371	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114351_100326924	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100082002	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_100275420	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114344_10004341	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_10479571	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10018589	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_10059451	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10300461	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0226817_100119191	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0365732_0153425_44_3712	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_10290471	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100453581	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0226810_10069412	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10054998	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0226665_10012602	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114351_10378051	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114344_10067552	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_10213021	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0307119_126915412	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_10005675	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_100198627	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114347_10107812	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0307118_11620007	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100079464	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114351_10275201	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0226666_10057481	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100132061	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_10116491	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_100029323	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100092874	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_10257431	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10059429	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_1000290912	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100327812	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_100618417	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114841_10004591	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0365732_0360000_7848_11996	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0226810_10097233	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_100125239	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_10206931	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_10005679	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_100136022	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114351_10039781	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_1000001295	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114347_10197852	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_100050826	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114841_10213122	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_101037310	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114347_10012463	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0365732_1457074_2_3370	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0226810_100026724	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_100000636	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_10060992	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114344_100007843	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0226807_100303519	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_100087245	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0071351_10051382	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_1000092338	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_100283326	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10058502	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100446871	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0226809_10001702	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_10188471	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100482131	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0307119_102880671	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_10272461	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114841_100007047	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_100007160	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114841_100118316	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0307119_122846878	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_100050013	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_1000021531	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_10252331	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114344_10138211	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_100105715	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100291781	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_10284651	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_1000555117	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100457791	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_1000054932	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10249232	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114841_10196248	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_1000208525	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114347_10120952	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10029943	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_100069814	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_10099247	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114347_100036434	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10029819	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114351_10793492	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114841_10056151	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100101849	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114347_10112013	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10085742	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100252935	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0307119_127866641	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_10102847	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100519325	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_10049772	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114348_10051111	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100191071	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_10018057	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114351_100068927	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114351_10055114	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114841_10135234	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0226665_10010941	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100104849	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10012686	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0226666_10066083	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_100211511	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114344_10118331	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_10050714	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10047838	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0307119_128306626	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100709732	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100321981	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0226666_100058110	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_100266320	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10141351	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114344_10038252	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_100205410	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114351_100376310	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10022816	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100031546	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_100238911	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114338_10204853	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_10024276	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0307119_109235411	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10065218	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_100881310	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0226807_10029231	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_10388121	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_10064114	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10200313	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_10039721	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0226810_10027052	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10279201	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0226807_10344713	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114359_10019892	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100087547	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_10072661	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_10031686	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_100071823	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_100292615	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_10209742	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10179551	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114347_10133629	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10056367	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100115801	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10179561	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_10040252	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10293901	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114347_10019387	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_10153932	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114352_10052401	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114344_10047336	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114344_10096281	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114356_100070812	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114351_100149010	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0226817_1000028612	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0307117_12769131	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_10157491	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_1000101743	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10070722	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0307118_14737574	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114356_10006048	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114341_100158794	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_100002185	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114338_10204481	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114351_10154111	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0226806_1006731	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_10003731	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_100038010	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_100077311	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114338_10043008	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_10014883	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114354_100792016	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0224719_10003841	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0071351_10005405	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0307119_121865506	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114338_10139893	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_100015441	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_100219417	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114348_10020381	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114337_100020836	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114336_10332411	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0307119_134147485	Not Binned	NA	Unassigned	Unassigned	katE	Unassigned
+Ga0114341_101214051	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114344_10014279	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10306381	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10782201	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114347_10411914	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0307119_107225152	Not Binned	NA	Unassigned	Microcystis	katG	Microcystis
+Ga0114344_10491021	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114352_100005923	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10517082	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_100034749	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114354_10503861	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100977961	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10493242	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100216082	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226810_10228942	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114354_10228811	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100100007	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10029848	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10710061	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226810_10048211	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10337912	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114351_10833322	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226810_10017558	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114344_10116372	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0365732_0551282_2232_4010	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100269435	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10271321	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0071351_10009121	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100758101	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114354_10326262	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10542281	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114351_10809911	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100294441	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10015116	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10557751	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10100801	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_101100341	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0365732_1017889_2_1723	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114347_10035826	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_101262218	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10086291	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226809_10076932	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114347_10167471	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10054714	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226807_10239331	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114348_10172021	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114344_10007927	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0307119_130619291	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114354_10140472	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_101046931	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114338_10125212	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10811101	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226807_10190564	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226809_10100042	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226810_10144482	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114354_10246983	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114347_10491501	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114344_10042672	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10048037	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10044033	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114347_10570401	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114347_10198744	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226807_10129722	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100396081	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114347_10426731	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0307117_11081709	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100428722	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114344_10114951	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226809_10035651	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114841_10043084	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114347_10189411	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226807_10222155	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114354_10068515	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10482411	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0307119_134371827	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114351_10074302	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_100920925	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114359_10153592	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10704955	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_101077751	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10112371	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10369152	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10341081	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226807_10276621	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10051131	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114344_10172945	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_102116514	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114347_10465061	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_100142329	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100562483	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114351_10087781	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114347_10555911	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10158035	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226807_10324781	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226807_10005953	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10367313	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226810_10339654	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10469372	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100171831	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10026025	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100641953	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10716731	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114344_10383681	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10289045	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114344_10257402	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0071351_10198522	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10336444	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_100327116	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_100596516	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114351_10647812	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114351_10300772	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10233792	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100204453	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0307117_10784621	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10603411	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_100444611	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10065145	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0365732_0537160_23737_25449	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114344_10419882	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100352872	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114354_100268114	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100048561	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100190385	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114344_10356012	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_100082537	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114351_10256775	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0307119_137713873	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10144075	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114347_10523801	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226666_10124281	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10066554	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0365732_0508477_18676_20871	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114351_10116009	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114354_10055124	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10067061	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10059837	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10060086	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100516752	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10058604	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10226584	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226807_10150041	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114347_10016645	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_100033249	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10173326	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10034526	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100127702	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0365732_0474525_1_1812	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10086653	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10362861	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114354_10006584	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10171761	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226809_10010482	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_100195414	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10091001	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114351_10629492	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114354_10050442	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114348_10109802	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114354_10320612	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114348_10223471	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10085994	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_100238112	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114841_10174803	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0307119_1135433511	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114354_10012175	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100359798	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_1000703411	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10705571	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114338_10105176	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114354_100009227	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114354_10492033	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0365732_0511175_1_1752	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100375261	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10162715	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10744931	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10149262	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10034659	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_100013433	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114351_10519371	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114352_10061512	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114354_10269302	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114354_10158854	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0307119_122350261	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114351_10087514	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10674531	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226807_10500322	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10269913	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100932601	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10170962	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114351_10160936	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226810_10063762	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226810_10066552	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10167914	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10657501	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10206027	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114841_10317707	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114351_100277910	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114344_10346202	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114841_10343501	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10041466	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114354_100788814	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100998761	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114351_10316503	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114344_10081211	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226807_10310341	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10800591	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114354_10351201	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0226810_10302241	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10051949	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0307119_125590761	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_1000033236	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0307118_14376183	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100532152	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114841_10257293	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114354_10142513	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100086092	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_100017171	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114341_100347232	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114356_10840891	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_100000422	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114354_100045617	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114337_10172885	Not Binned	NA	Unassigned	Unassigned	katG	Unassigned
+Ga0114336_10313336	Not Binned	NA	Unassigned	Unassigned	ahpC	Unassigned
+Ga0114336_10002908	Not Binned	NA	Unassigned	Unassigned	rpoB	Unassigned
+Ga0114352_10000707	Bryobacter_all_normalized_coassembly_Metabat_Bin69.1.fa	Winning_Genome	Vampirovibrionales CoA8N M69	NA	rpoB	Vampirovibrionales CoA8N M69
+Ga0114354_10030364	Sample_49632_14.fa	Winning_Genome	Verrucomicrobiaceae 49632 E14	NA	CCP	Verrucomicrobiaceae 49632 E14
+Ga0114354_10018724	Sample_49632_14.fa	Winning_Genome	Verrucomicrobiaceae 49632 E14	NA	CCP	Verrucomicrobiaceae 49632 E14
+Ga0114354_10072995	Sample_49632_14.fa	Winning_Genome	Verrucomicrobiaceae 49632 E14	NA	CCP	Verrucomicrobiaceae 49632 E14
+Ga0114354_10037167	Sample_49632_14.fa	Winning_Genome	Verrucomicrobiaceae 49632 E14	NA	ahpC	Verrucomicrobiaceae 49632 E14
+Ga0114354_100054918	Sample_49632_14.fa	Winning_Genome	Verrucomicrobiaceae 49632 E14	NA	rpoB	Verrucomicrobiaceae 49632 E14
+Ga0114354_100150523	Sample_49632_14.fa	Winning_Genome	Verrucomicrobiaceae 49632 E14	NA	katG	Verrucomicrobiaceae 49632 E14
+Ga0114341_100010023	Not Binned	NA	Unassigned	Verrucomicrobiae bacterium Tous-C5FEB	rpoB	Verrucomicrobiae bacterium Tous-C5FEB
+Ga0114336_10019256	Sample_49613_30.fa	Winning_Genome	Xanthomonadaceae 49613 E30	NA	rpoB	Xanthomonadaceae 49613 E30
+Ga0114336_10007051	Sample_49613_30.fa	Winning_Genome	Xanthomonadaceae 49613 E30	NA	katG	Xanthomonadaceae 49613 E30
+Ga0114356_10664093	Bryobacter_all_coassembly_Metabat_Bin120.fa	Winning_Genome	Xanthomonadaceae CoA8 M120	NA	ahpC	Xanthomonadaceae CoA8 M120
+Ga0307119_134562589	Bryobacter_all_coassembly_Metabat_Bin120.fa	Winning_Genome	Xanthomonadaceae CoA8 M120	NA	rpoB	Xanthomonadaceae CoA8 M120
+Ga0307119_1128173067	Bryobacter_all_coassembly_Metabat_Bin120.fa	Winning_Genome	Xanthomonadaceae CoA8 M120	NA	katG	Xanthomonadaceae CoA8 M120
+Ga0307119_1092798755	Bryobacter_all_coassembly_Metabat_Bin120.fa	Winning_Genome	Xanthomonadaceae CoA8 M120	NA	katG	Xanthomonadaceae CoA8 M120
+Ga0365732_1043488_74749_77094	Bryobacter_all_normalized_coassembly_CONCOCT_Bin15.fa	Losing_Genome	Xanthomonadaceae CoA8 M120	NA	katG	Xanthomonadaceae CoA8 M120
