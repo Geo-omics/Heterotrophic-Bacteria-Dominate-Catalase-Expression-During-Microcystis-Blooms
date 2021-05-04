@@ -13,7 +13,7 @@ Describes Microcystis mcy and 16S rRNA read mapping and non-specific mapping tro
 Description of Mardownfiles:  
 Catalase_Peroxidase_Mapping_Analysis.Rmd contains code used to generate plots of gene abundances in metagenomes and metatranscriptomes from Lake Erie.  
 Pyruvate_Light_Experiment.Rmd contains code and analysis for data collected from cultivation experiments with Microcystis isolates.  
-
+Mcy_mapped_reads_vs_URDB.Rmd contains code and analysis used to evaluate Microcystis mcyD and 16S rRNA mapping cutoffs and databases.  
 
 The metaG and metaT folders contain the results of ROS read mapping used in the Catalase_Peroxidase_Mapping_Analysis markdown file.  
 Raw chemiluminescent data from Felume H2O2 measurements are located in Raw_Felume_Files.  
