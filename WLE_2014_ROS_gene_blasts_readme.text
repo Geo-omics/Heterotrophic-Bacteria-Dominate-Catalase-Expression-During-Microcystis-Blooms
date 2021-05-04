@@ -1,0 +1,123 @@
+#DJS 17-Jun-19:
+
+#Found out that the katG from Bryobacter is actually identical to the katG in the new Paludibaculum bin, and is 77 % identical to that in the new Bryobacter genome.
+#This suggests that the original incomplete bin was a composite bin of both Acidobacteria
+#Going to rerun the catalase/peroxidase read blasts to include mapping to the newly assembled genes from the coassemblies.
+
+#First get all sequences annotated as catalase HPII (katA/katE), HPI (katG), cytochrome c peroxidase (ccp), and alkyl hydroperoxidase C (ahpC) from IMG annotations of all assemblies.
+#Used these KO numbers to search for genes in IMG web browser:
+#K03781 monofunctional heme catalase (katE/katA)
+#K07217 manganese catalases (katN and others)
+#K03782 catalase-peroxidase (katG)
+#K00428 cytrochrome c peroxidase (CCP)
+#K03386 peroxiredoxin ahpC
+#K00434 Ascorbate peroxidases
+#K03043 bacterial rpoB
+#K03044 archaeal rpoB
+#K03010 eukaryotic rpoB
+
+####Noticed that there are a lot more CCP genes than originally detected by BLAST.
+#These sequences are saved in the respective "uncleaned" fasta files
+nohup bash batch_filter_seqs.sh &> batch_filter_seqs.log &
+#Next, Filtered out all gene sequences below 70% of the average gene length in NCBI database (took average of the first ten genes found in gene search):
+wd: ./
+
+#Cluster the parsed gene sequence fastas using vsearch. Cluster at 95% identity (used BLAST definition of % identity), using the longest sequences as seeds. 
+#Report the longest gene for each cluster as the representative sequence.
+#command for each gene:
+nohup vsearch --cluster_fast WLE_2014_assembled_ahpC_cleaned.fasta --centroids WLE_2014_assembled_ahpC_cleaned_clustered.fasta --id 0.95 -iddef 4 --uc WLE_2014_assembled_ahpC_cleaned_cluster_results.txt &> vsearch_ahpC.log &
+nohup vsearch --cluster_fast WLE_2014_assembled_katE_cleaned.fasta --centroids WLE_2014_assembled_katE_cleaned_clustered.fasta --id 0.95 -iddef 4 --uc WLE_2014_assembled_katE_cleaned_cluster_results.txt &> vsearch_katE.log &
+nohup vsearch --cluster_fast WLE_2014_assembled_APX_cleaned.fasta --centroids WLE_2014_assembled_APX_cleaned_clustered.fasta --id 0.95 -iddef 4 --uc WLE_2014_assembled_APX_cleaned_cluster_results.txt &> vsearch_APX.log &
+nohup vsearch --cluster_fast WLE_2014_assembled_bacterial_rpoB_cleaned.fasta --centroids WLE_2014_assembled_bacterial_rpoB_cleaned_clustered.fasta --id 0.95 -iddef 4 --uc WLE_2014_assembled_bacterial_rpoB_cleaned_cluster_results.txt &> vsearch_bacterial_rpoB.log &
+nohup vsearch --cluster_fast WLE_2014_assembled_Euk_RPB2_cleaned.fasta --centroids WLE_2014_assembled_Euk_RPB2_cleaned_clustered.fasta --id 0.95 -iddef 4 --uc WLE_2014_assembled_Euk_RPB2_cleaned_cluster_results.txt &> vsearch_Euk_RPB2.log &
+nohup vsearch --cluster_fast WLE_2014_assembled_CCP_cleaned.fasta --centroids WLE_2014_assembled_CCP_cleaned_clustered.fasta --id 0.95 -iddef 4 --uc WLE_2014_assembled_CCP_cleaned_cluster_results.txt &> vsearch_CCP.log &
+nohup vsearch --cluster_fast WLE_2014_assembled_katG_cleaned.fasta --centroids WLE_2014_assembled_katG_cleaned_clustered.fasta --id 0.95 -iddef 4 --uc WLE_2014_assembled_katG_cleaned_cluster_results.txt &> vsearch_katG.log &
+nohup vsearch --cluster_fast WLE_2014_assembled_MnCat_cleaned.fasta --centroids WLE_2014_assembled_MnCat_cleaned_clustered.fasta --id 0.95 -iddef 4 --uc WLE_2014_assembled_MnCat_cleaned_cluster_results.txt &> vsearch_MnCat.log &
+
+#Get a list of genes in each cleaned and clustered gene fasta file:
+#wd: ./
+for i in *_clustered.fasta; do grep ">" $i > ${i}.genelist.txt; done
+
+#Ran Get_Centroid_Scaffolds script get list of scaffolds and bins for each gene in the cleaned/clustered fasta file:
+#Repeat the below script for each gene by changing the user set prefix variable in the script
+#wd: ./
+bash Get_centroid_scaffolds.sh
+
+#DJS 6/23/19
+
+#Convert metagenomic reads into fasta format for blast:
+#wd: ./
+nohup bash batch_convert_to_fasta.sh &> batch_convert_to_fasta.log &
+
+#DJS 6/24/19
+
+#Blast forward and reverse metaG reads against cleaned and dereplicated catalase/peroxidase genes (also blast against rpoB for normalization):
+#wd: ./
+nohup bash batch_metaG_blast.sh &> batch_metaG_blast.log &
+
+#DJS 6/27/19
+#Blast metaT reads to the cleaned and dereplicated catalase/peroxidase genes (also rpoB genes):
+#wd: metaT_blasts/
+nohup bash batch_metaT_blast.sh &> batch_metaT_blast.log &
+
+#DJS 7/10/2019
+
+#Blast the katG, ahpC, CCP, and APX genes against NCBI nr:
+nohup blastx -query WLE_2014_assembled_katG_cleaned_clustered.fasta -db /geomicro/data9/flux/reference-data/blast/nr -outfmt "7 std qlen slen qcovs staxids" -out WLE_2014_assembled_katG_vs_nr.blastx &> WLE_2014_assembled_katG_vs_nr.log &
+nohup blastx -query WLE_2014_assembled_ahpC_cleaned_clustered.fasta -db /geomicro/data9/flux/reference-data/blast/nr -outfmt "7 std qlen slen qcovs staxids" -out WLE_2014_assembled_ahpC_vs_nr.blastx &> WLE_2014_assembled_ahpC_vs_nr.log &
+
+#DJS 7/19/2019
+
+#Filter out hits that have an e-value higher than 1e-5:
+
+perl /geomicro/data1/COMMON/scripts/BlastTools/postBlast.pl -b WLE_2014_assembled_katG_vs_nr.blastx -e 1e-5 -o WLE_2014_assembled_katG_vs_nr_postblast.blastx
+perl /geomicro/data1/COMMON/scripts/BlastTools/postBlast.pl -b WLE_2014_assembled_ahpC_vs_nr.blastx -e 1e-5 -o WLE_2014_assembled_ahpC_vs_nr_postblast.blastx
+perl /geomicro/data1/COMMON/scripts/BlastTools/postBlast.pl -b WLE_2014_assembled_CCP_vs_nr.blastx -e 1e-5 -o WLE_2014_assembled_CCP_vs_nr_postblast.blastx
+perl /geomicro/data1/COMMON/scripts/BlastTools/postBlast.pl -b WLE_2014_assembled_APX_vs_nr.blastx -e 1e-5 -o WLE_2014_assembled_APX_vs_nr_postblast.blastx
+
+#DJS 8/17/2019
+
+#Filter blast hits again, but this time remove hits with a % ID below 70%:
+
+perl /geomicro/data1/COMMON/scripts/BlastTools/postBlast.pl -b WLE_2014_assembled_katG_vs_nr.blastx -p 70 -e 1e-5 -o WLE_2014_assembled_katG_vs_nr_postblast_IDcutoff.blastx
+perl /geomicro/data1/COMMON/scripts/BlastTools/postBlast.pl -b WLE_2014_assembled_ahpC_vs_nr.blastx -p 70 -e 1e-5 -o WLE_2014_assembled_ahpC_vs_nr_postblast_IDcutoff.blastx
+perl /geomicro/data1/COMMON/scripts/BlastTools/postBlast.pl -b WLE_2014_assembled_CCP_vs_nr.blastx -p 70 -e 1e-5 -o WLE_2014_assembled_CCP_vs_nr_postblast_IDcutoff.blastx
+perl /geomicro/data1/COMMON/scripts/BlastTools/postBlast.pl -b WLE_2014_assembled_APX_vs_nr.blastx -p 70 -e 1e-5 -o WLE_2014_assembled_APX_vs_nr_postblast_IDcutoff.blastx
+
+#Ran blastx against NR for katE, MnCat, and rpoB:
+
+nohup blastx -query WLE_2014_assembled_katE_cleaned_clustered.fasta -db /geomicro/data9/flux/reference-data/blast/nr -outfmt "7 std qlen slen qcovs staxids" -out WLE_2014_assembled_katE_vs_nr.blastx &> WLE_2014_assembled_katE_vs_nr.log &
+nohup blastx -query WLE_2014_assembled_MnCat_cleaned_clustered.fasta -db /geomicro/data9/flux/reference-data/blast/nr -outfmt "7 std qlen slen qcovs staxids" -out WLE_2014_assembled_MnCat_vs_nr.blastx &> WLE_2014_assembled_MnCat_vs_nr.log &
+nohup blastx -query WLE_2014_assembled_bacterial_rpoB_cleaned_clustered.fasta -db /geomicro/data9/flux/reference-data/blast/nr -outfmt "7 std qlen slen qcovs staxids" -out WLE_2014_assembled_bacterial_rpoB_vs_nr.blastx &> WLE_2014_assembled_bacterial_rpoB_vs_nr.log &
+
+#DJS 9/3/2019
+#Ran postblast for katE and MnCat:
+
+perl /geomicro/data1/COMMON/scripts/BlastTools/postBlast.pl -b WLE_2014_assembled_katE_vs_nr.blastx -e 1e-5 -o WLE_2014_assembled_katE_vs_nr_postblast.blastx
+perl /geomicro/data1/COMMON/scripts/BlastTools/postBlast.pl -b WLE_2014_assembled_MnCat_vs_nr.blastx -e 1e-5 -o WLE_2014_assembled_MnCat_vs_nr_postblast.blastx
+
+#Run the following bash script to get a tally of all reads that mapped to each gene for a given sample, as well as blast statistics for the best match to NCBI nr database:
+#wd: metaT_blasts/ and metaG_blasts/ for the respective sample types
+nohup bash get_read_counts.sh &> get_read_counts.log &
+
+
+#DJS 9/6/19
+#Ran postblast for bacterial rpoBs:
+
+perl /geomicro/data1/COMMON/scripts/BlastTools/postBlast.pl -b WLE_2014_assembled_bacterial_rpoB_vs_nr.blastx -e 1e-5 -o WLE_2014_assembled_bacterial_rpoB_vs_nr_postblast.blastx
+
+
+#9/3/19
+#Get the descriptions of the hits to NCBI from the accession numbers with a custom python script written by Robert Hein:
+#Below is an example command to run the script:
+comics python3 get_NCBI_accessions.py Read_counts_Sample_53599_adtrim_clean_qtrim_fwd_vs_ahpC.blastn.postblast.tophits.txt > Read_counts_Sample_53599_adtrim_clean_qtrim_fwd_vs_ahpC.blastn.postblast.tophits.txt_NCBI_accessions.txt 
+
+#To run in batch, use this command:
+for i in Read_counts_*.tophits.txt; do comics python3 get_NCBI_accessions.py $i > ${i}.NCBI_accessions.txt; done
+
+#4/13/21 DJS
+
+#Updated the counts script to only count alignments with 80% read coverage and re-ran the get_read_counts command and the get_NCBI_accession commands
+#Added a column for file name in each Read_counts_*.NCBI_accessions.txt file:
+#Ran this command in the metaG_blasts/ and metaT_blasts/ directories
+for f in *.NCBI_accessions.txt; do sed -i "s/$/\t$f/g" $f; done
