@@ -1215,4 +1215,3 @@ ahpC_taxonomy_WW <- filter(Summed_taxonomy_ahpC, Perc_Abund > 2 & Size.Fraction 
 ahpC_taxonomy_WW
 ggsave("FigureS7.pdf", plot = ahpC_taxonomy_WW, width = 17.4, height = 15, units = "cm", dpi=600)
 ```
-
