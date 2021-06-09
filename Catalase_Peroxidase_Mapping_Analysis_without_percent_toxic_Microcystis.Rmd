@@ -1,0 +1,1077 @@
+---
+title: "Catalase and peroxidase mapping analysis"
+output: html_notebook
+---
+
+The goal of this analysis is to quantify the relative abundance of targeted catalase and peroxidase genes in metagenomic and metatranscriptomic samples from western Lake Erie collected in 2014. Metagenomic and metatranscriptomic short reads were mapped to annotated gene calls from IMG's gene annotation pipeline. Taxonomy was assigned to each gene based on binning results. Some unbinned genes were assigned a taxonomy when they aligned to entries in NCBI nr with percent identity >= 95% and alignment coverage >= 80% via blastx.
+
+See the following file for information on how the contigs were assembled and binned (done on the geomicro compute servers):  
+I am listing the full file path on /geomicro, but the file will also be posted on GitHub.  
+/geomicro/data22/smitdere/Erie2014_coAssembly/Erie2014_coAssembly_readme.txt  
+
+See the following file for information on how the read mapping and counting was done:  
+Again, listing the full file path on /geomicro, but the file will also be posted on GitHub.   
+/geomicro/data22/smitdere/Rerun_WLE_2014_ROS_gene_blasts/Assembled_ROS_genes/WLE_2014_ROS_gene_blasts_readme.text  
+
+Total gene relative abundance in metaG and metaT:  
+---
+Load the meatG data into R and set the working directory:  
+```{r}
+#Set working directory and get the required packages:  
+setwd("/Volumes/T7/Research/2014_Erie_Bloom/Assembled_ROS_genes_and_new_read_blasts/Finalized_ROS_Read_Quantification")
+library(tidyverse)
+library(patchwork)
+library(lubridate)
+library(ggplot2)
+
+####import the data, grouped by sample for the metagenomes:  
+#This gets a list of forward read counts for the sample:  
+Fwd_files <- list.files(path = "./metaG",
+                                 pattern = "Read_counts.*_fwd.*.NCBI_accessions.txt",
+                                 full.names = T)
+#This gets a list of reverse read counts for the sample: 
+Rev_files <- list.files(path = "./metaG",
+                                 pattern = "Read_counts.*_rev.*.NCBI_accessions.txt",
+                                 full.names = T)
+
+#Import all the data files, still keep forward and reverse reads separate:  
+fwd_counts <- do.call("rbind", lapply(Fwd_files, read.table, header=FALSE, sep="\t"))
+rev_counts <- do.call("rbind", lapply(Rev_files, read.table, header=FALSE, sep="\t"))
+#Rename the columns
+colnames(fwd_counts) <- c("GeneID", "FWD_counts", "Gene Length", "PID_NCBI", "QCovs_NCBI", "Best match accession", "Best match annotation", "FWD_file")
+colnames(rev_counts) <- c("GeneID", "REV_counts", "Gene Length", "PID_NCBI", "QCovs_NCBI", "Best match accession", "Best match annotation", "REV_file")
+#Create a column for Sample_ID:  
+fwd_counts$Sample_ID <- gsub("Read_counts_", "", fwd_counts$FWD_file)
+fwd_counts$Sample_ID <- gsub("_adtrim_clean.*", "", fwd_counts$Sample_ID)
+rev_counts$Sample_ID <- gsub("Read_counts_", "", rev_counts$REV_file)
+rev_counts$Sample_ID <- gsub("_adtrim_clean.*", "", rev_counts$Sample_ID)
+
+#Merge the forward and rev counts then sum the total counts (fwd + rev) for each gene:
+MetaG_counts <- merge(fwd_counts, rev_counts, by = c("GeneID", "Gene Length", "PID_NCBI", "QCovs_NCBI",
+                                                     "Best match accession", "Best match annotation", "Sample_ID"), all = TRUE)
+
+MetaG_counts$Total_counts <- MetaG_counts$FWD_counts + MetaG_counts$REV_counts
+#Remove the separate fwd and reverse files:
+rm(fwd_counts, rev_counts)
+#then remove the file name columns and the FWD/REV count columns:
+drop <- c("FWD_counts", "FWD_file", "REV_counts", "REV_file")
+MetaG_counts <- MetaG_counts[ , !(colnames(MetaG_counts) %in% drop)]
+
+#Normalize the counts by gene length to get reads/bp:
+MetaG_counts$Norm_counts <- MetaG_counts$Total_counts / MetaG_counts$`Gene Length`
+```
+Now load the metaT data:  
+```{r}
+####import the data, grouped by sample for the metatranscriptomes:  
+#This gets a list of forward read counts for the sample:  
+metaT_files <- list.files(path = "./metaT",
+                                 pattern = "Read_counts.*NCBI_accessions.txt",
+                                 full.names = T)
+
+#Import all the data files, still keep forward and reverse reads separate:  
+MetaT_counts <- do.call("rbind", lapply(metaT_files, read.table, header=FALSE, sep="\t"))
+#Rename the columns
+colnames(MetaT_counts) <- c("GeneID", "Total_counts", "Gene Length", "PID_NCBI", "QCovs_NCBI", "Best match accession", "Best match annotation", "FWD_file")
+#Create a column for Sample_ID:  
+MetaT_counts$Sample_ID <- gsub("Read_counts_", "", MetaT_counts$FWD_file)
+MetaT_counts$Sample_ID <- gsub("_adtrim_clean.*", "", MetaT_counts$Sample_ID)
+
+#then remove the file name column:
+drop <- c("FWD_file")
+MetaT_counts <- MetaT_counts[ , !(colnames(MetaT_counts) %in% drop)]
+
+#Normalize the counts by gene length to get reads/bp:
+MetaT_counts$Norm_counts <- MetaT_counts$Total_counts / MetaT_counts$`Gene Length`
+```
+
+Next, add the KO and Taxonomic information, and filter out any genes with percent match to NCBI below 70% (the match has to have the functional annotation of interest) and alignment query coverage below 50%:  
+```{r}
+#Import the dataframe with KO and taxonomy (only includes entries for the genes that meet the previously specified cutoffs)
+ROS_gene_taxonomy <- read.table("WLE_2014_ROS_Gene_Taxonomic_Assignments.txt", header=TRUE, sep="\t")
+
+#Merge the taxonomy dataframe with the metaG and metaT count data frames. I'm not including all entries in the metaT and metaG dataframes so that the genes that don't meet the cutoffs are removed:
+MetaG_counts <- merge(MetaG_counts, ROS_gene_taxonomy, by.x = "GeneID", by.y= "Centorid_representative_sequence", all.x = FALSE, all.y = TRUE)
+MetaT_counts <- merge(MetaT_counts, ROS_gene_taxonomy, by.x = "GeneID", by.y= "Centorid_representative_sequence", all.x = FALSE, all.y = TRUE)
+
+#Add the sample metadata to the counts tables:
+Metadata <- read.table("Sample_Metadata.txt", header=TRUE, sep="\t")
+MetaG_counts_merged <- merge(MetaG_counts, Metadata, by = "Sample_ID", all.x = TRUE, all.y = FALSE)
+MetaT_counts_merged <- merge(MetaT_counts, Metadata, by = "Sample_ID", all.x = TRUE, all.y = FALSE)
+
+#Load the environmental/water quality data:
+Environ_Data <- read.table("Sample_Environ_Data.txt", header=TRUE, sep="\t")
+#convert nds to NAs:
+Environ_Data[Environ_Data == "nd"] <- NA
+#convert date column to date format:
+Environ_Data$Date <- dmy(Environ_Data$Date)
+```
+
+Figure 1:  
+```{r}
+#Add nearshore and offshore text to site names:
+Environ_Data$Site[Environ_Data$Site == "WE12"] <- "Nearshore WE12"
+Environ_Data$Site[Environ_Data$Site == "WE2"] <- "Nearshore WE2"
+Environ_Data$Site[Environ_Data$Site == "WE4"] <- "Offshore WE4"
+
+#First make a plot of Phycocyanin at each station:
+PC_panel <- ggplot(Environ_Data, aes(x=Date, y=PC)) +
+            geom_line(size=0.2) +
+            geom_point(size=0.5) +
+            facet_grid(~Site, scales = "fixed") +
+            theme_classic() +
+            theme(
+              strip.text = element_text(size = 8),
+              strip.background = element_rect(size = 0.25),
+              panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+              axis.line = element_line(size=0.1),
+              axis.title.x = element_blank(), 
+              axis.title.y = element_text(size=8,
+                                          margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.text.x = element_blank(),
+              axis.text.y = element_text(size = 7, color = "black",
+                                         margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              axis.ticks.length= unit(-0.05, "cm"),
+              axis.ticks = element_line(size=0.1),
+              legend.position = "none") +
+            scale_y_continuous(breaks = c(seq(0,100, by=20))) +
+            coord_cartesian(ylim=c(0,100)) +
+            scale_x_date(date_breaks = "2 weeks", date_labels = ("%F")) +
+            ylab(expression("Phycocyanin ("*mu*"g/L)"))
+
+#Next, make a plot of Particulate Microcystin concentration:
+PartMC_panel <- ggplot(Environ_Data, aes(x=Date, y=as.numeric(PartMC))) +
+            geom_line(size=0.2) +
+            geom_point(size=0.5) +
+            facet_grid(~Site, scales = "fixed") +
+            theme_classic() +
+            theme(
+              strip.text = element_blank(),
+              strip.background = element_blank(),
+              panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+              axis.line = element_line(size=0.1),
+              axis.title.x = element_blank(), 
+              axis.title.y = element_text(size=8,
+                                          margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.text.x = element_blank(),
+              axis.text.y = element_text(size = 7, color = "black",
+                                         margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              axis.ticks.length= unit(-0.05, "cm"),
+              axis.ticks = element_line(size=0.1),
+              legend.position = "none") +
+            scale_y_continuous(breaks = c(seq(0,30, by=5))) +
+            scale_x_date(date_breaks = "2 weeks", date_labels = ("%F")) +
+            ylab(expression("Particulate Microcystins ("*mu*"g/L)"))
+```
+
+Next make a plot of total KO abundance in 100 um metagenomes:  
+```{r}
+#Total gene length normalized read counts by KO number:
+MetaG_summed_KO <- MetaG_counts %>%
+  group_by(Sample_ID, KO) %>%
+  summarise(Norm_counts=sum(Norm_counts))
+
+#Separate out rpoB counts:
+MetaG_summed_rpoB <- filter(MetaG_summed_KO, KO == "rpoB")
+drop <- "KO"
+MetaG_summed_rpoB <- MetaG_summed_rpoB[ , !(colnames(MetaG_summed_rpoB) %in% drop)]
+colnames(MetaG_summed_rpoB)[2] <- "rpoB_norm_counts"
+
+#Remove rpoB counts row entries from the summed KO data frame, but add back in as a column (makes normalization easier):
+MetaG_summed_KO <- filter(MetaG_summed_KO, KO != "rpoB")
+MetaG_summed_KO <- merge(MetaG_summed_KO, MetaG_summed_rpoB, by="Sample_ID", all = TRUE)
+MetaG_summed_KO$KO_rpoB_ratio <- MetaG_summed_KO$Norm_counts / MetaG_summed_KO$rpoB_norm_counts
+
+#Add metaG sample metadata:
+MetaG_summed_KO <- merge(MetaG_summed_KO, Metadata, by="Sample_ID", all.x=TRUE, all.y = FALSE)
+MetaG_summed_KO$Collection_Date <- dmy(MetaG_summed_KO$Collection_Date)
+
+#Add nearshore and offshore text to site names:
+MetaG_summed_KO$Station[MetaG_summed_KO$Station == "WE12"] <- "Nearshore WE12"
+MetaG_summed_KO$Station[MetaG_summed_KO$Station == "WE2"] <- "Nearshore WE2"
+MetaG_summed_KO$Station[MetaG_summed_KO$Station == "WE4"] <- "Offshore WE4"
+
+#Plot the panel:
+KO_panel <- filter(MetaG_summed_KO, Size.Fraction == "100um" & KO != "CCP") %>%
+  ggplot(aes(x=Collection_Date, y=KO_rpoB_ratio, color=KO)) +
+            geom_line(size=0.2) +
+            geom_point(size=0.5) +
+            facet_grid(~Station, scales = "fixed") +
+            theme_classic() +
+            theme(
+              strip.text = element_blank(),
+              strip.background = element_blank(),
+              panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+              axis.line = element_line(size=0.1),
+              axis.title.x = element_blank(), 
+              axis.title.y = element_text(size=8,
+                                          margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.text.x = element_text(size = 7, color = "black", angle = 45, hjust = 1, vjust = 1,
+                                         margin = margin(t = 10, r = 0, b = 0, l = 0)),
+              axis.text.y = element_text(size = 7, color = "black",
+                                         margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              axis.ticks.length= unit(-0.05, "cm"),
+              axis.ticks = element_line(size=0.1),
+              legend.title = element_text(size=8, margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              legend.position = "right") +
+            scale_y_continuous(breaks = c(seq(0,1.2, by=0.2))) +
+            coord_cartesian(ylim=c(0,1.2)) +
+            scale_x_date(date_breaks = "2 weeks", date_labels = ("%F")) +
+            ylab(expression("Relative abundance (gene:rpoB)"))
+
+KO_panel <- KO_panel + labs(fill = "KO Group")
+KO_panel
+```
+Is katG and ahpC relative abundance correlated with microcystins, pigments, or H2O2?  
+```{r}
+#Merge the abundance data with the environmental data:
+MetaG_summed_KO_merged <- merge(MetaG_summed_KO, Environ_Data, by.x=c("Collection_Date", "Station"), by.y=c("Date", "Site"), all = TRUE)
+
+#Make katG and ahpC only dataframes:
+MetaG_summed_KO_merged_katG <- filter(MetaG_summed_KO_merged, KO == "katG")
+MetaG_summed_KO_merged_ahpC <- filter(MetaG_summed_KO_merged, KO == "ahpC")
+
+#Calculate correlation with katG and microcystins:
+cor(MetaG_summed_KO_merged_katG$PartMC, MetaG_summed_KO_merged_katG$KO_rpoB_ratio, method="pearson", use = "complete.obs")
+katG_vs_PartMC <- lm(MetaG_summed_KO_merged_katG$KO_rpoB_ratio ~ MetaG_summed_KO_merged_katG$PartMC,
+                     na.action = na.omit)
+summary(katG_vs_PartMC)
+
+#katG and PC:
+cor(MetaG_summed_KO_merged_katG$PC, MetaG_summed_KO_merged_katG$KO_rpoB_ratio, method="pearson", use = "complete.obs")
+katG_vs_PC <- lm(MetaG_summed_KO_merged_katG$KO_rpoB_ratio ~ MetaG_summed_KO_merged_katG$PC,
+                     na.action = na.omit)
+summary(katG_vs_PC)
+
+#katG and Chla:
+cor(MetaG_summed_KO_merged_katG$Chla, MetaG_summed_KO_merged_katG$KO_rpoB_ratio, method="pearson", use = "complete.obs")
+katG_vs_Chla <- lm(MetaG_summed_KO_merged_katG$KO_rpoB_ratio ~ MetaG_summed_KO_merged_katG$Chla,
+                     na.action = na.omit)
+summary(katG_vs_Chla)
+
+#katG and H2O2:
+cor(MetaG_summed_KO_merged_katG$H2O2, MetaG_summed_KO_merged_katG$KO_rpoB_ratio, method="pearson", use = "complete.obs")
+katG_vs_H2O2 <- lm(MetaG_summed_KO_merged_katG$KO_rpoB_ratio ~ MetaG_summed_KO_merged_katG$H2O2,
+                     na.action = na.omit)
+summary(katG_vs_H2O2)
+
+#Calculate correlation with ahpC and microcystins:
+cor(MetaG_summed_KO_merged_ahpC$PartMC, MetaG_summed_KO_merged_ahpC$KO_rpoB_ratio, method="pearson", use = "complete.obs")
+ahpC_vs_PartMC <- lm(MetaG_summed_KO_merged_ahpC$KO_rpoB_ratio ~ MetaG_summed_KO_merged_ahpC$PartMC,
+                     na.action = na.omit)
+summary(ahpC_vs_PartMC)
+
+#ahpC and PC:
+cor(MetaG_summed_KO_merged_ahpC$PC, MetaG_summed_KO_merged_ahpC$KO_rpoB_ratio, method="pearson", use = "complete.obs")
+ahpC_vs_PC <- lm(MetaG_summed_KO_merged_ahpC$KO_rpoB_ratio ~ MetaG_summed_KO_merged_ahpC$PC,
+                     na.action = na.omit)
+summary(ahpC_vs_PC)
+
+#ahpC and Chla:
+cor(MetaG_summed_KO_merged_ahpC$Chla, MetaG_summed_KO_merged_ahpC$KO_rpoB_ratio, method="pearson", use = "complete.obs")
+ahpC_vs_Chla <- lm(MetaG_summed_KO_merged_ahpC$KO_rpoB_ratio ~ MetaG_summed_KO_merged_ahpC$Chla,
+                     na.action = na.omit)
+summary(ahpC_vs_Chla)
+
+#ahpC and H2O2:
+cor(MetaG_summed_KO_merged_ahpC$H2O2, MetaG_summed_KO_merged_ahpC$KO_rpoB_ratio, method="pearson", use = "complete.obs")
+ahpC_vs_H2O2 <- lm(MetaG_summed_KO_merged_ahpC$KO_rpoB_ratio ~ MetaG_summed_KO_merged_ahpC$H2O2,
+                     na.action = na.omit)
+summary(ahpC_vs_H2O2)
+```
+
+Make the H2O2 plot panel:
+```{r}
+H2O2_panel <- ggplot(Environ_Data, aes(x=Date, y=H2O2)) +
+            geom_line(size=0.2) +
+            geom_point(size=0.5) +
+            geom_errorbar(aes(ymin=H2O2-H2O2_SE, ymax=H2O2+H2O2_SE), width=0.2,
+                position=position_dodge(0.9), size = 0.1) +
+            facet_grid(~Site, scales = "fixed") +
+            theme_classic() +
+            theme(
+              strip.text = element_blank(),
+              strip.background = element_blank(),
+              panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+              axis.line = element_line(size=0.1),
+              axis.title.x = element_blank(), 
+              axis.title.y = element_text(size=8,
+                                          margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.text.x = element_blank(),
+              axis.text.y = element_text(size = 7, color = "black",
+                                         margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              axis.ticks.length= unit(-0.05, "cm"),
+              axis.ticks = element_line(size=0.1),
+              legend.position = "none") +
+            scale_x_date(date_breaks = "2 weeks", date_labels = ("%F")) +
+            ylab(expression("H"[2]*"O"[2]*" (nM)"))
+
+#Combined all the panels into one figure
+Figure1 <- PC_panel + PartMC_panel + H2O2_panel + KO_panel + plot_layout(ncol= 1, nrow = 5)
+Figure1
+ggsave("Figure1.pdf", plot = Figure1, width = 150, height = 120, units = "mm", dpi=600)
+```
+This figure shows total KO relative abundance in metatranscriptome
+```{r}
+#Total gene length normalized read counts by KO number:
+MetaT_summed_KO <- MetaT_counts %>%
+  group_by(Sample_ID, KO) %>%
+  summarise(Norm_counts=sum(Norm_counts))
+
+#Separate out rpoB counts:
+MetaT_summed_rpoB <- filter(MetaT_summed_KO, KO == "rpoB")
+drop <- "KO"
+MetaT_summed_rpoB <- MetaT_summed_rpoB[ , !(colnames(MetaT_summed_rpoB) %in% drop)]
+colnames(MetaT_summed_rpoB)[2] <- "rpoB_norm_counts"
+
+#Remove rpoB counts row entries from the summed KO data frame, but add back in as a column (makes normalization easier):
+MetaT_summed_KO <- filter(MetaT_summed_KO, KO != "rpoB")
+MetaT_summed_KO <- merge(MetaT_summed_KO, MetaT_summed_rpoB, by="Sample_ID", all = TRUE)
+MetaT_summed_KO$KO_rpoB_ratio <- MetaT_summed_KO$Norm_counts / MetaT_summed_KO$rpoB_norm_counts
+
+#Add metaG sample metadata:
+MetaT_summed_KO <- merge(MetaT_summed_KO, Metadata, by="Sample_ID", all.x=TRUE, all.y = FALSE)
+MetaT_summed_KO$Collection_Date <- dmy(MetaT_summed_KO$Collection_Date)
+
+#Add nearshore and offshore text to site names:
+MetaT_summed_KO$Station[MetaT_summed_KO$Station == "WE12"] <- "Nearshore WE12"
+MetaT_summed_KO$Station[MetaT_summed_KO$Station == "WE2"] <- "Nearshore WE2"
+MetaT_summed_KO$Station[MetaT_summed_KO$Station == "WE4"] <- "Offshore WE4"
+
+#Normalize by library size instead of rpoB counts for a comparison later:
+MetaT_summed_KO$RPKM <- (MetaT_summed_KO$Norm_counts * 1000) / MetaT_summed_KO$Library_size_bp * 1000000
+
+####Merge each KO abundance with the Environ Data frame###
+#First remove columns that I don't want to merge with the Environmental Data:
+drop <- c("Sample_ID", "Norm_counts", "rpoB_norm_counts", "Sample_type", "Size.Fraction", "Library_size_bp")
+MetaT_summed_KO <- MetaT_summed_KO[ , !(colnames(MetaT_summed_KO) %in% drop)]
+colnames(MetaT_summed_KO) <- c("KO", "KO_rpoB_ratio", "Date", "Site", "RPKM")
+Environ_Data_and_metaT <- merge(MetaT_summed_KO, Environ_Data, by=c("Date", "Site"), all=TRUE)
+
+#Set metaT abundance values to NA:
+#Need to add in these very low numbers and space filler so that the gene abundance bar graphs will align properly with the H2O2 data in the plot. Removing the empty spaces in the plot later in Illustrator.
+Environ_Data_and_metaT$KO_rpoB_ratio[is.na(Environ_Data_and_metaT$KO_rpoB_ratio)] <- 1.0e-22
+Environ_Data_and_metaT$KO[is.na(Environ_Data_and_metaT$KO)] <- "none"
+
+#Plot
+#metaT gene panel:
+metaT_KO_panel <- filter(Environ_Data_and_metaT, KO != "ahpC" & KO != "CCP") %>%
+  ggplot(aes(x=Date, y=KO_rpoB_ratio, fill=KO)) +
+            geom_bar(stat = "identity", position = "stack") +
+            facet_grid(~Site, scales = "fixed") +
+            theme_classic() +
+            theme(
+              strip.text = element_text(size = 8),
+              strip.background = element_rect(size = 0.25),
+              panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+              axis.line = element_line(size=0.1),
+              axis.title.x = element_blank(), 
+              axis.title.y = element_text(size=8,
+                                          margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.text.x = element_blank(),
+              axis.text.y = element_text(size = 7, color = "black",
+                                         margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              axis.ticks.length= unit(-0.05, "cm"),
+              axis.ticks = element_line(size=0.1),
+              legend.title = element_text(size=8, margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              legend.position = "right") +
+            scale_y_continuous(breaks = c(seq(0,0.4, by=0.1))) +
+            coord_cartesian(ylim=c(0,0.4)) +
+            scale_x_date(date_breaks = "2 weeks", date_labels = ("%F")) +
+            ylab(expression("Relative abundance (gene:rpoB)"))
+
+metaT_ahpC_panel <- filter(Environ_Data_and_metaT, KO == "ahpC" | KO == "none") %>%
+  ggplot(aes(x=Date, y=KO_rpoB_ratio)) +
+            geom_bar(stat = "identity", position = "stack") +
+            facet_grid(~Site, scales = "fixed") +
+            theme_classic() +
+            theme(
+              strip.text = element_blank(),
+              strip.background = element_blank(),
+              panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+              axis.line = element_line(size=0.1),
+              axis.title.x = element_blank(), 
+              axis.title.y = element_text(size=8,
+                                          margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.text.x = element_blank(),
+              axis.text.y = element_text(size = 7, color = "black",
+                                         margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              axis.ticks.length= unit(-0.05, "cm"),
+              axis.ticks = element_line(size=0.1),
+              legend.title = element_text(size=8, margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              legend.position = "right") +
+            scale_x_date(date_breaks = "2 weeks", date_labels = ("%F")) +
+            ylab(expression("Relative abundance (ahpC:rpoB)"))
+
+metaT_H2O2_panel <- ggplot(Environ_Data_and_metaT, aes(x=Date, y=H2O2)) +
+            geom_line(size=0.2) +
+            geom_point(size=0.5) +
+            geom_errorbar(aes(ymin=H2O2-H2O2_SE, ymax=H2O2+H2O2_SE), width=0.2,
+                position=position_dodge(0.9), size = 0.1) +
+            facet_grid(~Site, scales = "fixed") +
+            theme_classic() +
+            theme(
+              strip.text = element_blank(),
+              strip.background = element_blank(),
+              panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+              axis.line = element_line(size=0.1),
+              axis.title.x = element_blank(), 
+              axis.title.y = element_text(size=8,
+                                          margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.text.x = element_text(size = 7, color = "black", angle = 45, hjust = 1, vjust = 1,
+                                         margin = margin(t = 10, r = 0, b = 0, l = 0)),
+              axis.text.y = element_text(size = 7, color = "black",
+                                         margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              axis.ticks.length= unit(-0.05, "cm"),
+              axis.ticks = element_line(size=0.1),
+              legend.position = "none") +
+            scale_x_date(date_breaks = "2 weeks", date_labels = ("%F")) +
+            ylab(expression("H"[2]*"O"[2]*" (nM)"))
+
+Figure4 <- metaT_KO_panel + metaT_ahpC_panel + metaT_H2O2_panel + plot_layout(ncol = 1, nrow = 3)
+Figure4
+ggsave("Figure4.pdf", plot = Figure3, width = 17.4, height = 12, units = "cm", dpi=600)
+```
+Is katG and ahpC metaT relative abundance correlated with pigments, microcystins, or H2O2?
+```{r}
+#Separate out ahpC and katG data:
+Environ_Data_and_metaT_ahpC <- filter(Environ_Data_and_metaT, KO == "ahpC")
+Environ_Data_and_metaT_katG <- filter(Environ_Data_and_metaT, KO == "katG")
+
+#katG vs Particulate MCs:
+cor(Environ_Data_and_metaT_katG$PartMC, Environ_Data_and_metaT_katG$KO_rpoB_ratio, method="pearson", use = "complete.obs")
+metaT_katG_vs_PartMC <- lm(Environ_Data_and_metaT_katG$KO_rpoB_ratio ~ Environ_Data_and_metaT_katG$PartMC, na.action = na.omit)
+summary(metaT_katG_vs_PartMC)
+
+#katG vs PC:
+cor(Environ_Data_and_metaT_katG$PC, Environ_Data_and_metaT_katG$KO_rpoB_ratio, method="pearson", use = "complete.obs")
+metaT_katG_vs_PC <- lm(Environ_Data_and_metaT_katG$KO_rpoB_ratio ~ Environ_Data_and_metaT_katG$PC, na.action = na.omit)
+summary(metaT_katG_vs_PC)
+
+#katG vs Chla:
+cor(Environ_Data_and_metaT_katG$Chla, Environ_Data_and_metaT_katG$KO_rpoB_ratio, method="pearson", use = "complete.obs")
+metaT_katG_vs_Chla <- lm(Environ_Data_and_metaT_katG$KO_rpoB_ratio ~ Environ_Data_and_metaT_katG$Chla, na.action = na.omit)
+summary(metaT_katG_vs_Chla)
+
+#katG vs H2O2:
+cor(Environ_Data_and_metaT_katG$H2O2, Environ_Data_and_metaT_katG$KO_rpoB_ratio, method="pearson", use = "complete.obs")
+metaT_katG_vs_H2O2 <- lm(Environ_Data_and_metaT_katG$KO_rpoB_ratio ~ Environ_Data_and_metaT_katG$H2O2, na.action = na.omit)
+summary(metaT_katG_vs_H2O2)
+
+#ahpC vs Particulate MCs:
+cor(Environ_Data_and_metaT_ahpC$PartMC, Environ_Data_and_metaT_ahpC$KO_rpoB_ratio, method="pearson", use = "complete.obs")
+metaT_ahpC_vs_PartMC <- lm(Environ_Data_and_metaT_ahpC$KO_rpoB_ratio ~ Environ_Data_and_metaT_ahpC$PartMC, na.action = na.omit)
+summary(metaT_ahpC_vs_PartMC)
+
+#ahpC vs PC:
+cor(Environ_Data_and_metaT_ahpC$PC, Environ_Data_and_metaT_ahpC$KO_rpoB_ratio, method="pearson", use = "complete.obs")
+metaT_ahpC_vs_PC <- lm(Environ_Data_and_metaT_ahpC$KO_rpoB_ratio ~ Environ_Data_and_metaT_ahpC$PC, na.action = na.omit)
+summary(metaT_ahpC_vs_PC)
+
+#ahpC vs Chla:
+cor(Environ_Data_and_metaT_ahpC$Chla, Environ_Data_and_metaT_ahpC$KO_rpoB_ratio, method="pearson", use = "complete.obs")
+metaT_ahpC_vs_Chla <- lm(Environ_Data_and_metaT_ahpC$KO_rpoB_ratio ~ Environ_Data_and_metaT_ahpC$Chla, na.action = na.omit)
+summary(metaT_ahpC_vs_Chla)
+
+#ahpC vs H2O2:
+cor(Environ_Data_and_metaT_ahpC$H2O2, Environ_Data_and_metaT_ahpC$KO_rpoB_ratio, method="pearson", use = "complete.obs")
+metaT_ahpC_vs_H2O2 <- lm(Environ_Data_and_metaT_ahpC$KO_rpoB_ratio ~ Environ_Data_and_metaT_ahpC$H2O2, na.action = na.omit)
+summary(metaT_ahpC_vs_H2O2)
+```
+
+The taxonomic composition of ahpC genes in the metagenome and metatranscriptome:  
+```{r}
+#Total gene length normalized read counts by KO number:
+#Combine the metaT and metaG dataframes
+Summed_taxonomy <- rbind(MetaG_counts, MetaT_counts) %>%
+  group_by(Sample_ID, KO, Final_Taxonomy) %>%
+  summarise(Norm_counts=sum(Norm_counts))
+
+####Calculate the Percent Abundance for each ahpC taxonomy, separated by taxonomy:
+#First, I need to keep only the ahpC counts, and spread the data out into a wide format:
+Summed_taxonomy_ahpC <- filter(Summed_taxonomy, KO == "ahpC")
+drop <- "KO"
+Summed_taxonomy_ahpC <- Summed_taxonomy_ahpC[ , !(colnames(Summed_taxonomy_ahpC) %in% drop)]
+Summed_taxonomy_ahpC <- spread(Summed_taxonomy_ahpC, Final_Taxonomy, Norm_counts)
+rownames <- Summed_taxonomy_ahpC$Sample_ID
+Summed_taxonomy_ahpC <- Summed_taxonomy_ahpC[,-1]
+rownames(Summed_taxonomy_ahpC) <- rownames
+#Transpose the table for easy calculation:
+Summed_taxonomy_ahpC <- t(Summed_taxonomy_ahpC)
+#Now calculate the percent abundance for each ahpC taxon:
+Summed_taxonomy_ahpC[ , 1:30] <- apply(Summed_taxonomy_ahpC[ , 1:30], 2, function(x) (x/sum(x))*100)
+#Transpose back to merge by sample:
+Summed_taxonomy_ahpC <- t(Summed_taxonomy_ahpC)
+Summed_taxonomy_ahpC <- as.data.frame(Summed_taxonomy_ahpC)
+Summed_taxonomy_ahpC$Sample_ID <- rownames
+#Convert to long format to plot:
+Summed_taxonomy_ahpC <- gather(as.data.frame(Summed_taxonomy_ahpC), Taxonomy, Perc_Abund, 1:82)
+#Merge with the sample metadata:
+Summed_taxonomy_ahpC <- merge(Summed_taxonomy_ahpC, Metadata, by="Sample_ID",
+                                             all=TRUE)
+#Convert Collection date column to date format:
+Summed_taxonomy_ahpC$Collection_Date <- dmy(Summed_taxonomy_ahpC$Collection_Date)
+
+#Set the colors for the plot:
+taxa_colors <- c("#000000", "#FFCC00", "#FF9900", "#FF6600", "#FF3300", "#99CC00", "#CC9900", "#FFCC66",
+                 "#FF9966", "#CC0033", "#CCFF00", "#663300", "#999900", "#FFFF00", "#99FFCC", "#3399FF",
+                 "#9999FF", "#6600CC", "#0000FF", "#999999")
+
+#Plot the relative abundance of each taxon in total ahpC counts:
+ahpC_taxonomy <- filter(Summed_taxonomy_ahpC,
+                              Perc_Abund > 2 & Size.Fraction == "100um") %>%
+  ggplot(aes(x=as.factor(Collection_Date), y=Perc_Abund, fill=Taxonomy)) +
+            geom_bar(stat = "identity", position = "stack") +
+            facet_grid(Sample_type~Station, scales = "fixed") +
+            theme_classic() +
+            theme(
+              strip.text = element_text(size = 8),
+              strip.background = element_rect(size = 0.25),
+              panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+              axis.line = element_line(size=0.1),
+              axis.title.x = element_blank(), 
+              axis.title.y = element_text(size=8,
+                                          margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.text.x = element_text(size = 7, color = "black", angle = 45, hjust = 1, vjust = 1,
+                                         margin = margin(t = 5, r = 0, b = 0, l = 0)),
+              axis.text.y = element_text(size = 7, color = "black",
+                                         margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              axis.ticks.length= unit(-0.05, "cm"),
+              axis.ticks = element_line(size=0.1),
+              legend.title = element_text(size=8, margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              legend.text = element_text(size=7), 
+              legend.position = "right") +
+              scale_fill_manual(values = taxa_colors) +
+              ylab(expression("Percent of total ahpC counts"))
+
+ahpC_taxonomy_plot <- ahpC_taxonomy + guide_area() + plot_layout(ncol=2, nrow = 1, guides = "collect", widths = c(2,1))
+ahpC_taxonomy_plot
+ggsave("Figure3.pdf", plot = ahpC_taxonomy_plot, width = 17.4, height = 15, units = "cm", dpi=600)
+```
+This figure shows the taxonomic composition of katG genes in the metagenome and metatranscriptome:  
+```{r}
+####Calculate the Percent Abundance for each katG taxonomy, separated by taxonomy:
+#First, I need to keep only the ahpC counts, and spread the data out into a wide format:
+Summed_taxonomy_katG <- filter(Summed_taxonomy, KO == "katG")
+drop <- "KO"
+Summed_taxonomy_katG <- Summed_taxonomy_katG[ , !(colnames(Summed_taxonomy_katG) %in% drop)]
+Summed_taxonomy_katG <- spread(Summed_taxonomy_katG, Final_Taxonomy, Norm_counts)
+rownames <- Summed_taxonomy_katG$Sample_ID
+Summed_taxonomy_katG <- Summed_taxonomy_katG[,-1]
+rownames(Summed_taxonomy_katG) <- rownames
+#Transpose the table for easy calculation:
+Summed_taxonomy_katG <- t(Summed_taxonomy_katG)
+#Now calculate the percent abundance for each katG taxon:
+Summed_taxonomy_katG[ , 1:30] <- apply(Summed_taxonomy_katG[ , 1:30], 2, function(x) (x/sum(x))*100)
+#Transpose back to merge by sample:
+Summed_taxonomy_katG <- t(Summed_taxonomy_katG)
+Summed_taxonomy_katG <- as.data.frame(Summed_taxonomy_katG)
+Summed_taxonomy_katG$Sample_ID <- rownames
+#Convert to long format to plot:
+Summed_taxonomy_katG <- gather(as.data.frame(Summed_taxonomy_katG), Taxonomy, Perc_Abund, 1:77)
+#Merge with the sample metadata:
+Summed_taxonomy_katG <- merge(Summed_taxonomy_katG, Metadata, by="Sample_ID",
+                                             all=TRUE)
+#Convert Collection date column to date format:
+Summed_taxonomy_katG$Collection_Date <- dmy(Summed_taxonomy_katG$Collection_Date)
+
+#Set the colors for the plot:
+taxa_colors <- c("#000000", "#FFCC00", "#FF9900", "#FF6600", "#FF3300", "#99CC00", "#CC9900", "#FFCC66",
+                 "#FF9966", "#CC0033", "#CCFF00", "#663300", "#999900", "#FFFF00", "#99FFCC", "#3399FF",
+                 "#9999FF", "#6600CC", "#0000FF", "#3300CC", "#FFFF99", "#FFCCCC", "#FF33CC", "#999999")
+
+#Plot the relative abundance of each taxon in total ahpC counts:
+katG_taxonomy <- filter(Summed_taxonomy_katG,
+                              Perc_Abund > 5 & Size.Fraction == "100um") %>%
+  ggplot(aes(x=as.factor(Collection_Date), y=Perc_Abund, fill=Taxonomy)) +
+            geom_bar(stat = "identity", position = "stack") +
+            facet_grid(Sample_type~Station, scales = "fixed") +
+            theme_classic() +
+            theme(
+              strip.text = element_text(size = 8),
+              strip.background = element_rect(size = 0.25),
+              panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+              axis.line = element_line(size=0.1),
+              axis.title.x = element_blank(), 
+              axis.title.y = element_text(size=8,
+                                          margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.text.x = element_text(size = 7, color = "black", angle = 45, hjust = 1, vjust = 1,
+                                         margin = margin(t = 5, r = 0, b = 0, l = 0)),
+              axis.text.y = element_text(size = 7, color = "black",
+                                         margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              axis.ticks.length= unit(-0.05, "cm"),
+              axis.ticks = element_line(size=0.1),
+              legend.title = element_text(size=8, margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              legend.text = element_text(size=7), 
+              legend.position = "right") +
+              scale_fill_manual(values = taxa_colors) +
+              scale_y_continuous(breaks = c(seq(0,100, by=20))) +
+              coord_cartesian(ylim=c(0,100)) +
+              ylab(expression("Percent of total katG counts"))
+
+katG_taxonomy_plot <- katG_taxonomy + guide_area() + plot_layout(ncol=2, nrow = 1, guides = "collect", widths = c(2,1))
+katG_taxonomy_plot
+ggsave("Figure2.pdf", plot = katG_taxonomy_plot, width = 17.4, height = 20, units = "cm", dpi=600)
+```
+Figure 5 will show a ranked abundance plot of katG from Sample 42896 (WE12, August 4th 2014) for the metaG and metaT samples:
+```{r}
+#Only keep katG counts per bp of gene from the 4-Aug-14 WE12 samples:
+keep <- c("Sample_42896", "Sample_50632")
+WE12_Aug4_katG <- filter(Summed_taxonomy, Sample_ID %in% keep & KO == "katG")
+#Add the total rpoB counts per bp:
+WE12_Aug4_katG <- merge(WE12_Aug4_katG, rbind(MetaG_summed_rpoB, MetaT_summed_rpoB), all.x = TRUE, all.y = FALSE, by="Sample_ID")
+#Calculate katG:rpoB ratio for each taxon:
+WE12_Aug4_katG$rpoB_ratio <- WE12_Aug4_katG$Norm_counts / WE12_Aug4_katG$rpoB_norm_counts
+#Add sample metadata:
+WE12_Aug4_katG <- merge(WE12_Aug4_katG, Metadata, by="Sample_ID", all.x = TRUE, all.y = FALSE)
+#Separate metaG and metaT:
+WE12_Aug4_katG_metaG <- filter(WE12_Aug4_katG, Sample_type == "metaG")
+WE12_Aug4_katG_metaT <- filter(WE12_Aug4_katG, Sample_type == "metaT")
+#Reorder the taxonomy in each dataframe by the abundance in the metaG sample:
+WE12_Aug4_katG_metaG$Final_Taxonomy <- factor(WE12_Aug4_katG_metaG$Final_Taxonomy, levels=WE12_Aug4_katG_metaG$Final_Taxonomy[order(WE12_Aug4_katG_metaG$rpoB_ratio)])
+WE12_Aug4_katG_metaT$Final_Taxonomy <- factor(WE12_Aug4_katG_metaT$Final_Taxonomy, levels=WE12_Aug4_katG_metaG$Final_Taxonomy[order(WE12_Aug4_katG_metaG$rpoB_ratio)])
+#Remove extra columns:
+keep <- c("Final_Taxonomy", "rpoB_ratio", "Sample_type")
+WE12_Aug4_katG_metaG <- WE12_Aug4_katG_metaG[ , colnames(WE12_Aug4_katG_metaG) %in% keep]
+WE12_Aug4_katG_metaT <- WE12_Aug4_katG_metaT[ , colnames(WE12_Aug4_katG_metaT) %in% keep]
+#metaG plot:
+metaG_plot <- WE12_Aug4_katG_metaG %>%
+  arrange(desc(Final_Taxonomy)) %>%
+  slice(1:20) %>%
+  ggplot(aes(x=Final_Taxonomy, y=rpoB_ratio)) +
+  geom_bar(stat="identity", fill="lightblue") +
+  coord_flip() +
+  scale_y_reverse() +
+  theme_classic() +
+  ggtitle("metaG") +
+            theme(
+              strip.text = element_text(size = 8),
+              strip.background = element_rect(size = 0.25),
+              panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+              axis.line = element_line(size=0.1),
+              axis.title.x = element_text(size=8,
+                                          margin = margin(t = 10, r = 0, b = 0, l = 0)),
+              axis.title.y = element_blank(),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.text.x = element_text(size = 7, color = "black",
+                                         margin = margin(t = 5, r = 0, b = 0, l = 0)),
+              axis.text.y = element_text(size = 7, color = "black",
+                                         margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              axis.ticks.length= unit(-0.05, "cm"),
+              axis.ticks = element_line(size=0.1),
+              legend.title = element_text(size=8, margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              legend.text = element_text(size=7),
+              legend.position = "right") +
+  ylab("Relative Abundance (katG:rpoB)")
+
+metaT_plot <- WE12_Aug4_katG_metaT %>%
+  arrange(desc(Final_Taxonomy)) %>%
+  slice(1:20) %>%
+  ggplot(aes(x=Final_Taxonomy, y=rpoB_ratio)) +
+  geom_bar(stat="identity", fill="red") +
+  coord_flip() +
+  theme_classic() +
+  ggtitle("metaT") +
+            theme(
+              strip.text = element_text(size = 8),
+              strip.background = element_rect(size = 0.25),
+              panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+              axis.line = element_line(size=0.1),
+              axis.title.x = element_blank(), 
+              axis.title.y = element_blank(),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.text.x = element_text(size = 7, color = "black",
+                                         margin = margin(t = 5, r = 0, b = 0, l = 0)),
+              axis.text.y = element_blank(),
+              axis.ticks.length= unit(-0.05, "cm"),
+              axis.ticks = element_line(size=0.1),
+              legend.title = element_text(size=8, margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              legend.text = element_text(size=7),
+              legend.position = "right")
+
+katG_rank_compare_plot <- metaG_plot + metaT_plot + plot_layout(nrow = 1, ncol = 2)
+ggsave("Figure5.pdf", plot = katG_rank_compare_plot, width = 17.4, height = 15, units = "cm", dpi=600)
+```
+
+FigureS2: Is the total KO abundance in whole water samples:  
+```{r}
+WW_KO_panel <- filter(MetaG_summed_KO, Size.Fraction == "whole water" & KO != "CCP") %>%
+  ggplot(aes(x=Collection_Date, y=KO_rpoB_ratio, color=KO)) +
+            geom_line(size=0.2) +
+            geom_point(size=0.5) +
+            facet_grid(~Station, scales = "fixed") +
+            theme_classic() +
+            theme(
+              strip.text = element_text(size = 10),
+              strip.background = element_rect(size = 0.25),
+              panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+              axis.line = element_line(size=0.1),
+              axis.title.x = element_blank(), 
+              axis.title.y = element_text(size=8,
+                                          margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.text.x = element_blank(),
+              axis.text.y = element_text(size = 7, color = "black",
+                                         margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              axis.ticks.length= unit(-0.05, "cm"),
+              axis.ticks = element_line(size=0.1),
+              legend.title = element_text(size=8, margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              legend.position = "right") +
+            scale_y_continuous(breaks = c(seq(0,1.2, by=0.2))) +
+            coord_cartesian(ylim=c(0,1.2)) +
+            scale_x_date(date_breaks = "2 weeks", date_labels = ("%F")) +
+            ylab(expression("Relative abundance (gene:rpoB)"))
+
+WW_H2O2_panel <- ggplot(Environ_Data, aes(x=Date, y=H2O2)) +
+            geom_line(size=0.2) +
+            geom_point(size=0.5) +
+            geom_errorbar(aes(ymin=H2O2-H2O2_SE, ymax=H2O2+H2O2_SE), width=0.2,
+                position=position_dodge(0.9), size = 0.1) +
+            facet_grid(~Site, scales = "fixed") +
+            theme_classic() +
+            theme(
+              strip.text = element_blank(),
+              strip.background = element_blank(),
+              panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+              axis.line = element_line(size=0.1),
+              axis.title.x = element_blank(), 
+              axis.title.y = element_text(size=8,
+                                          margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.text.x = element_text(size = 7, color = "black", angle = 45, hjust = 1, vjust = 1,
+                                         margin = margin(t = 10, r = 0, b = 0, l = 0)),
+              axis.text.y = element_text(size = 7, color = "black",
+                                         margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              axis.ticks.length= unit(-0.05, "cm"),
+              axis.ticks = element_line(size=0.1),
+              legend.position = "none") +
+            scale_x_date(date_breaks = "2 weeks", date_labels = ("%F")) +
+            ylab(expression("H"[2]*"O"[2]*" (nM)"))
+
+WW_KO_plot <- WW_KO_panel + WW_H2O2_panel + plot_layout(nrow = 2, ncol = 1)
+ggsave("FigureS2.pdf", plot = WW_KO_plot, width = 17.4, height = 15, units = "cm", dpi=600)
+```
+
+Figure S3 shows the abundance of ccpA/mauG:  
+```{r}
+metaG_CCP_panel <- filter(MetaG_summed_KO, KO == "CCP") %>%
+  ggplot(aes(x=as.factor(Collection_Date), y=KO_rpoB_ratio)) +
+            geom_bar(stat="identity") +
+            facet_grid(Size.Fraction~Station, scales = "fixed") +
+            theme_classic() +
+            ggtitle("metaG") +
+            theme(
+              strip.text = element_text(size = 10),
+              strip.background = element_rect(size = 0.25),
+              panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+              axis.line = element_line(size=0.1),
+              axis.title.x = element_blank(), 
+              axis.title.y = element_text(size=8,
+                                          margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.text.x = element_text(size = 7, color = "black", angle=45, vjust=1, hjust=1,
+                                         margin = margin(t = 5, r = 0, b = 0, l = 0)),
+              axis.text.y = element_text(size = 7, color = "black",
+                                         margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              axis.ticks.length= unit(-0.05, "cm"),
+              axis.ticks = element_line(size=0.1),
+              legend.title = element_text(size=8, margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              legend.position = "right") +
+            scale_y_continuous(breaks = c(seq(0,0.1, by=0.02))) +
+            coord_cartesian(ylim=c(0,0.1)) +
+            ylab(expression("Relative abundance (gene:rpoB)"))
+
+metaT_CCP_panel <- filter(MetaT_summed_KO, KO == "CCP") %>%
+  ggplot(aes(x=as.factor(Date), y=KO_rpoB_ratio)) +
+            geom_bar(stat="identity") +
+            facet_grid(~Site, scales = "fixed") +
+            theme_classic() +
+            ggtitle("metaT (100um)") +
+            theme(
+              strip.text = element_text(size = 10),
+              strip.background = element_rect(size = 0.25),
+              panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+              axis.line = element_line(size=0.1),
+              axis.title.x = element_blank(), 
+              axis.title.y = element_text(size=8,
+                                          margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.text.x = element_text(size = 7, color = "black", angle=45, vjust=1, hjust=1,
+                                         margin = margin(t = 5, r = 0, b = 0, l = 0)),
+              axis.text.y = element_text(size = 7, color = "black",
+                                         margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              axis.ticks.length= unit(-0.05, "cm"),
+              axis.ticks = element_line(size=0.1),
+              legend.title = element_text(size=8, margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              legend.position = "right") +
+            scale_y_continuous(breaks = c(seq(0,0.3, by=0.05))) +
+            coord_cartesian(ylim=c(0,0.3)) +
+            ylab(expression("Relative abundance (gene:rpoB)"))
+
+CCP_plot <- metaG_CCP_panel + metaT_CCP_panel + plot_layout(nrow=2, ncol=1)
+ggsave("FigureS3.pdf", plot = CCP_plot, width = 17.4, height = 15, units = "cm", dpi=600)
+```
+
+Figure S4 normalizes Microcystis katG by Microcystis rpoB in metagenomes:
+```{r}
+#Extract Microcystis katG and rpoB reads:
+Microcystis_katG_df <- filter(Summed_taxonomy, Final_Taxonomy == "Microcystis") %>%
+  filter(KO == "rpoB" | KO == "katG")
+#Convert to wide format:
+Microcystis_katG_df <- spread(Microcystis_katG_df, KO, Norm_counts)
+#Divide Microcystis katG by Microcystis rpoB:
+Microcystis_katG_df$katG_rpoB_ratio <- Microcystis_katG_df$katG / Microcystis_katG_df$rpoB
+#Add metadata:
+Microcystis_katG_df <- merge(Microcystis_katG_df, Metadata, by="Sample_ID")
+#Convert date format:
+Microcystis_katG_df$Collection_Date <- dmy(Microcystis_katG_df$Collection_Date)
+
+#metaG_plot:
+Microcystis_katG_metaG <- filter(Microcystis_katG_df, Sample_type == "metaG") %>%
+  ggplot(aes(x=Collection_Date, y=katG_rpoB_ratio)) +
+    geom_line(size=0.2) +
+    geom_point(size=0.5) +
+    facet_grid(Size.Fraction~Station, scales = "fixed") +
+    theme_classic() +
+    theme(
+      strip.text = element_text(size = 10),
+      strip.background = element_rect(size = 0.25),
+      panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+      axis.line = element_line(size=0.1),
+      axis.title.x = element_blank(), 
+      axis.title.y = element_text(size=8,
+                                  margin = margin(t = 0, r = 10, b = 0, l = 0)),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      axis.text.x = element_blank(),
+      axis.text.y = element_text(size = 7, color = "black",
+                                 margin = margin(t = 0, r = 10, b = 0, l = 0)),
+      axis.ticks.length= unit(-0.05, "cm"),
+      axis.ticks = element_line(size=0.1),
+      legend.title = element_text(size=8, margin = margin(t = 0, r = 10, b = 0, l = 0)),
+      legend.position = "right") +
+    scale_y_continuous(breaks = c(seq(0,0.04, by=0.01))) +
+    coord_cartesian(ylim=c(0,0.04)) +
+    scale_x_date(date_breaks = "2 weeks", date_labels = ("%F")) +
+    ylab(expression("Relative abundance (katG:rpoB)"))
+
+Microcystis_katG_metaG_plot <- Microcystis_katG_metaG + WW_H2O2_panel + plot_layout(nrow=2, ncol=1)
+ggsave("FigureS4.pdf", plot = Microcystis_katG_metaG_plot, width = 17.4, height = 15, units = "cm", dpi=600)
+```
+
+Figure S8 normalizes Microcystis katG to Microcystis rpoB in metaTs:
+```{r}
+#Get just the metaT data for Microcystis katG:
+Microcystis_katG_metaT <- filter(Microcystis_katG_df, Sample_type == "metaT")
+
+####Merge each KO abundance with the Environ Data frame###
+#First remove columns that I don't want to merge with the Environmental Data:
+drop <- c("Sample_ID", "Final_Taxonomy", "katG", "rpoB", "Sample_type", "Size.Fraction", "Library_size_bp")
+Microcystis_katG_metaT <- Microcystis_katG_metaT[ , !(colnames(Microcystis_katG_metaT) %in% drop)]
+colnames(Microcystis_katG_metaT) <- c("katG_rpoB_ratio", "Date", "Site")
+
+#Make site names match in each dataframe:
+Microcystis_katG_metaT$Site[Microcystis_katG_metaT$Site == "WE12"] <- "Nearshore WE12"
+Microcystis_katG_metaT$Site[Microcystis_katG_metaT$Site == "WE2"] <- "Nearshore WE2"
+Microcystis_katG_metaT$Site[Microcystis_katG_metaT$Site == "WE4"] <- "Offshore WE4"
+#Combine the dataframes
+Environ_Data_Microcystis_katG_metaT <- merge(Microcystis_katG_metaT, Environ_Data, by=c("Date", "Site"), all=TRUE)
+
+#Set metaT abundance values to NA:
+#Need to add in these very low numbers and space filler so that the gene abundance bar graphs will align properly with the H2O2 data in the plot. Removing the empty spaces in the plot later in Illustrator.
+Environ_Data_Microcystis_katG_metaT$katG_rpoB_ratio[is.na(Environ_Data_Microcystis_katG_metaT$katG_rpoB_ratio)] <- 1.0e-60
+
+Microcystis_katG_metaT_panel <- ggplot(Environ_Data_Microcystis_katG_metaT,
+                                       aes(x=Date, y=katG_rpoB_ratio)) +
+            geom_bar(stat = "identity") +
+            facet_grid(~Site, scales = "fixed") +
+            theme_classic() +
+            theme(
+              strip.text = element_text(size = 8),
+              strip.background = element_rect(size = 0.25),
+              panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+              axis.line = element_line(size=0.1),
+              axis.title.x = element_blank(), 
+              axis.title.y = element_text(size=8,
+                                          margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.text.x = element_blank(),
+              axis.text.y = element_text(size = 7, color = "black",
+                                         margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              axis.ticks.length= unit(-0.05, "cm"),
+              axis.ticks = element_line(size=0.1),
+              legend.title = element_text(size=8, margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              legend.position = "right") +
+            scale_y_continuous(breaks = c(seq(0,0.03, by=0.01))) +
+            coord_cartesian(ylim=c(0,0.03)) +
+            scale_x_date(date_breaks = "2 weeks", date_labels = ("%F")) +
+            ylab(expression("Relative abundance (katG:rpoB)"))
+
+Microcystis_katG_metaT_plot <- Microcystis_katG_metaT_panel + metaT_H2O2_panel + plot_layout(nrow=2, ncol=1)
+ggsave("FigureS8.pdf", plot = Microcystis_katG_metaT_plot, width = 17.4, height = 15, units = "cm", dpi=600)
+```
+
+Figure S11 shows total katG and total ahpC relative abundance in metaTs expressed as RPKM:
+```{r}
+#Need to add in these very low numbers and space filler so that the gene abundance bar graphs will align properly with the H2O2 data in the plot. Removing the empty spaces in the plot later in Illustrator.
+Environ_Data_and_metaT$RPKM[is.na(Environ_Data_and_metaT$RPKM)] <- 1.0e-60
+
+#Plot
+RPKM_KO_panel <- filter(Environ_Data_and_metaT, KO == "katG" | KO == "none") %>%
+  ggplot(aes(x=Date, y=RPKM)) +
+            geom_bar(stat = "identity", position = "stack") +
+            facet_grid(~Site, scales = "fixed") +
+            theme_classic() +
+            theme(
+              strip.text = element_text(size = 8),
+              strip.background = element_rect(size = 0.25),
+              panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+              axis.line = element_line(size=0.1),
+              axis.title.x = element_blank(), 
+              axis.title.y = element_text(size=8,
+                                          margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.text.x = element_blank(),
+              axis.text.y = element_text(size = 7, color = "black",
+                                         margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              axis.ticks.length= unit(-0.05, "cm"),
+              axis.ticks = element_line(size=0.1),
+              legend.title = element_text(size=8, margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              legend.position = "right") +
+            scale_x_date(date_breaks = "2 weeks", date_labels = ("%F")) +
+            ylab(expression("katG relative abundance (reads mapped per kilobase per million reads)"))
+
+RPKM_ahpC_panel <- filter(Environ_Data_and_metaT, KO == "ahpC" | KO == "none") %>%
+  ggplot(aes(x=Date, y=RPKM)) +
+            geom_bar(stat = "identity", position = "stack") +
+            facet_grid(~Site, scales = "fixed") +
+            theme_classic() +
+            theme(
+              strip.text = element_blank(),
+              strip.background = element_blank(),
+              panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+              axis.line = element_line(size=0.1),
+              axis.title.x = element_blank(), 
+              axis.title.y = element_text(size=8,
+                                          margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.text.x = element_blank(),
+              axis.text.y = element_text(size = 7, color = "black",
+                                         margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              axis.ticks.length= unit(-0.05, "cm"),
+              axis.ticks = element_line(size=0.1),
+              legend.title = element_text(size=8, margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              legend.position = "right") +
+            scale_y_continuous(breaks = c(seq(0,2000, by=500))) +
+            coord_cartesian(ylim=c(0,2000)) +
+            scale_x_date(date_breaks = "2 weeks", date_labels = ("%F")) +
+            ylab(expression("ahpC relative abundance (reads mapped per kilobase per million reads)"))
+
+FigureS11 <- RPKM_KO_panel + RPKM_ahpC_panel + metaT_H2O2_panel + plot_layout(ncol = 1, nrow = 3)
+FigureS11
+ggsave("FigureS12.pdf", plot = FigureS10, width = 17.4, height = 12, units = "cm", dpi=600)
+```
+katG taxonomy in whole water: 
+```{r}
+#plot colors:
+plot_colors = c("red", "blue", "gold", "pink", "purple", "chartreuse", "grey")
+
+#plot:
+katG_taxonomy_WW <- filter(Summed_taxonomy_katG,
+                              Perc_Abund > 2 & Size.Fraction == "whole water") %>%
+  ggplot(aes(x=as.factor(Collection_Date), y=Perc_Abund, fill=Taxonomy)) +
+            geom_bar(stat = "identity", position = "stack") +
+            facet_grid(~Station, scales = "fixed") +
+            theme_classic() +
+            theme(
+              strip.text = element_text(size = 8),
+              strip.background = element_rect(size = 0.25),
+              panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+              axis.line = element_line(size=0.1),
+              axis.title.x = element_blank(), 
+              axis.title.y = element_text(size=8,
+                                          margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.text.x = element_text(size = 7, color = "black", angle = 45, hjust = 1, vjust = 1,
+                                         margin = margin(t = 5, r = 0, b = 0, l = 0)),
+              axis.text.y = element_text(size = 7, color = "black",
+                                         margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              axis.ticks.length= unit(-0.05, "cm"),
+              axis.ticks = element_line(size=0.1),
+              legend.title = element_text(size=8, margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              legend.text = element_text(size=7), 
+              legend.position = "right") +
+              scale_fill_manual(values = plot_colors) +
+              scale_y_continuous(breaks = c(seq(0,100, by=20))) +
+              coord_cartesian(ylim=c(0,100)) +
+              ylab(expression("Percent of total katG counts"))
+
+katG_taxonomy_WW
+ggsave("FigureS6.pdf", plot = katG_taxonomy_WW, width = 17.4, height = 15, units = "cm", dpi=600)
+```
+ahpC taxonomy in whole water:
+```{r}
+#plot colors:
+plot_colors = c("red", "blue", "gold", "pink", "purple", "chartreuse", "skyblue1", "burlywood", "darkorange", "navy", "grey")
+
+#plot:
+ahpC_taxonomy_WW <- filter(Summed_taxonomy_ahpC, Perc_Abund > 2 & Size.Fraction == "whole water") %>%
+  ggplot(aes(x=as.factor(Collection_Date), y=Perc_Abund, fill=Taxonomy)) +
+            geom_bar(stat = "identity", position = "stack") +
+            facet_grid(~Station, scales = "fixed") +
+            theme_classic() +
+            theme(
+              strip.text = element_text(size = 10),
+              strip.background = element_rect(size = 0.25),
+              panel.border=element_rect(colour="black",size=0.1,fill="NA"),
+              axis.line = element_line(size=0.1),
+              axis.title.x = element_blank(), 
+              axis.title.y = element_text(size=8,
+                                          margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.text.x = element_text(size = 10, color = "black", angle = 45, hjust = 1, vjust = 1,
+                                         margin = margin(t = 5, r = 0, b = 0, l = 0)),
+              axis.text.y = element_text(size = 10, color = "black",
+                                         margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              axis.ticks.length= unit(-0.05, "cm"),
+              axis.ticks = element_line(size=0.1),
+              legend.title = element_text(size=10, margin = margin(t = 0, r = 10, b = 0, l = 0)),
+              legend.text = element_text(size=7), 
+              legend.position = "right") +
+              scale_fill_manual(values = plot_colors) +
+              scale_y_continuous(breaks = c(seq(0,100, by=20))) +
+              coord_cartesian(ylim=c(0,100)) +
+              ylab(expression("Percent of total ahpC counts"))
+
+ahpC_taxonomy_WW
+ggsave("FigureS7.pdf", plot = ahpC_taxonomy_WW, width = 17.4, height = 15, units = "cm", dpi=600)
+```
+
