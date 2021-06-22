@@ -1,4 +1,4 @@
-# Heterotrophic-Bacteria-Dominate-Catalase-Expression-During-Microcystis-Blooms
+# Heterotrophic Bacteria Dominate Catalase Expression During Microcystis Blooms
 
 This repository contains all of the R analysis code and input data used to generate figures for the manuscript "Heterotrophic Bacteria Dominate Catalase Expression During Microcystis Blooms."  
 
