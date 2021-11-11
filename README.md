@@ -18,7 +18,7 @@ The metaG and metaT folders contain the results of ROS read mapping used in the 
 Raw chemiluminescent data from Felume H2O2 measurements are located in Raw_Felume_Files.  
 
 -----
-#Post peer-review additions:
+**Post peer-review additions:**
 
 Data (raw and processed) from Felume trace metal signal experiments are located in the following excel files:
 BG-11_Iron_Experiment_10_31_18.xlsb.xlsx
