@@ -16,3 +16,13 @@ Mcy_mapped_reads_vs_URDB.Rmd contains code and analysis used to evaluate Microcy
 
 The metaG and metaT folders contain the results of ROS read mapping used in the Catalase_Peroxidase_Mapping_Analysis markdown file.  
 Raw chemiluminescent data from Felume H2O2 measurements are located in Raw_Felume_Files.  
+
+-----
+#Post peer-review additions:
+
+Data (raw and processed) from Felume trace metal signal experiments are located in the following excel files:
+BG-11_Iron_Experiment_10_31_18.xlsb.xlsx
+BG-11_Iron_Experiment_11_06_18.xlsx
+
+This tab-delimited text file contains the data imported into R for plot making:
+BG11_2N_metal_Felume_experiments.txt
