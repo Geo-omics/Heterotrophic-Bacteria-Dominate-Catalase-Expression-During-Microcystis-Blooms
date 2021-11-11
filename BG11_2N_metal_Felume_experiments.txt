@@ -1,0 +1,15 @@
+Treatment	Experiment	Average Peak Integral	95% CI
+BG11_2N	1	9665448	92629
+BG11_2N_no_Fe_citrate	1	567919	7456
+BG11_2N_no_A5	1	708845	10013
+BG11_catalase	1	145445	4039
+BG11_2N_no_Fe_citrate_cat	1	219472	5476
+BG11_2N_no_A5_cat	1	4021	2421
+Reagent Background	1	7867	5581
+BG11_2N	2	5830699	14505
+BG11_2N_no_Fe_citrate	2	486913	21023
+BG11_2N_no_A5	2	595438	9974
+BG11_catalase	2	154768	2902
+BG11_2N_no_Fe_citrate_cat	2	184310	1191
+BG11_2N_no_A5_cat	2	2311	766
+Reagent Background	2	8816	6158
